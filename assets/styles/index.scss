@@ -1,5 +1,5 @@
-@mixin tablet {
-  @media (min-width: # {$tablet-width}) and (max-width: # {$desktop-width - 1px}) {
+/*@mixin tablet {
+  @media (min-width: # {$tablet-width}) and (max-width: # {$tablet-width - 1px}) {
     @content;
   }
 }
@@ -8,13 +8,12 @@
   @media (min-width: # {$desktop-width}) {
     @content;
   }
-}
 
 @mixin phone {
-  @media (min-width: # {phone-width}) and (max-width: # {$phone-width - 1px}){
+  @media (min-width: # {$phone-width}) and (max-width: # {$phone-width - 1px}) {
     @content;
   }
-}
+}*/
 
 .container {
   margin-top: 20%;
@@ -26,6 +25,7 @@
 }
 
 $pink: #ffe6e6;
+$black: #000000;
 
 .one {background-color: $pink;}
 .two {background-color: $pink;}
@@ -37,7 +37,9 @@ $pink: #ffe6e6;
 .eight {background-color: $pink;}
 .nine {background-color: $pink;}
 
-.container .col :hover {
-  background: e6e6e6;
+.col :hover {
+  background: $black;
+  mix-blend-mode: multiply;
+  opacity: 0.2;
   cursor: pointer;
 }
