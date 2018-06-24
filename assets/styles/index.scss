@@ -22,6 +22,9 @@
 .square {
   margin: 1%;
   padding-bottom: 100%;
+  //background: $black;
+  // height: 20px;
+  // width: 20px;
 }
 
 $pink: #ffe6e6;
@@ -42,4 +45,12 @@ $black: #000000;
   mix-blend-mode: multiply;
   opacity: 0.2;
   cursor: pointer;
+}
+
+.square-x {
+  background-color: $black;
+}
+
+.square-o {
+  color: $pink;
 }
