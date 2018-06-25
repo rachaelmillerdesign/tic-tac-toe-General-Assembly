@@ -15,7 +15,7 @@
   }
 }*/
 
-.emptyBoard {
+.emptyboard {
   margin-top: 20%;
 }
 
@@ -29,6 +29,7 @@
 
 $pink: #ffe6e6;
 $black: #000000;
+$yellow: #ffff00;
 
 .one {background-color: $pink;}
 .two {background-color: $pink;}
@@ -52,5 +53,5 @@ $black: #000000;
 }
 
 .square-o {
-  color: $pink;
+  background-color: $yellow;
 }

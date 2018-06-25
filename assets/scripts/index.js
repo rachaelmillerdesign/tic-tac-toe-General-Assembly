@@ -4,54 +4,26 @@
 // const example = require('./example')
 
 // use require without a reference to ensure a file is bundled
-//require('./example')
-/*
+// require('./example')
+
+/* necessary code:?
 $(() => {
-  }
-})
-
-let currentPlayer = [i]
-for (let i=0; i <emptyBoard.length; i++) {
-when player clicks, record location and toggle to player2
-}
-
-/*
-const changePlayer = function (click) {
-    event.preventDefault()
-//need to create class square-x and square-o
-    if (currentPlayer === 'x') {
-      $(this).toggleClass('square-x')
-    } else {
-      $(this).toggleClass('square-o')
-    }
   }
 }) */
 
+// create Player
+const currentPlayer = 'X'
 
-
-$('#one').click(function () {
-  $('#one').text('x')
-})
-
-const onClick = function () {
-  console.log('!')
+// create alternate turns
+function alternateTurns () {
+  if (currentPlayer === 'X') {
+    $(this).toggleClass('square-x')
+  } else {
+    $(this).toggleClass('square-o')
+  }
 }
-$('.square').on('click', onClick)
 
-/*
-function makeMove(square, player) {
-  var marker = document.createElement('div');
-  /* set the class name on the new div to X-marker or O-marker, depending on the current player
-  marker.className = player + "-marker";
-  square.appendChild(marker) */
- /*
-let squareId = ['square one', 'square two', 'square three',
-  'square four', 'square five', 'square six' ,
-  'square seven' , 'square eight', 'square nine' ]
-
-const emptyBoard = [ [ 'square one', 'square two', 'square three' ],
-  [ 'square four', 'square five', 'square six' ],
-  [ 'square seven', 'square eight', 'square nine' ]
-]
-*/
-//any square class needs to equal squareId
+// are these (above+below) the same?
+$(document.querySelectorAll)'#one, #two, #three, #four, #five, #six, #seven, #eight, #nine').on('click', function() {
+  $(this).toggleClass('square-' + currentPlayer);
+})
