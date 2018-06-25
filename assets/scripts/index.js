@@ -8,7 +8,6 @@
 
 $(() => {
   let currentPlayer = 'X'
-
   const alternateTurns = function () {
     if (currentPlayer === 'X') {
       currentPlayer = 'O'
@@ -17,24 +16,25 @@ $(() => {
     }
   }
 
-  const onClick = function () {
+  const onClick = function (e) {
+    // with e.target.id, find a way to strip out the letter
+    // convert that string to an integer, and use it to
+    // write to emptyBoard at that index with whoever
+    // the current player is
+    console.log(e.target.id)
     $(this).text(currentPlayer)
     alternateTurns()
   }
   $('.square').on('click', onClick)
 
-  // are these (above+below) the same?
-  //$("#one, #two, #three, #four, #five, #six, #seven, #eight, #nine").on('click', function() {
-    //$(this).toggleClass("square-" + currentPlayer)
-  //})
+let emptyBoard = ['', '', '', '', '', '', '', '', '']
 
+/* $('emptyBoard').on('click', 'square', function(event) {
+    let $square = $(event.currentTarget)
+    $square.addclass('square-' + currentPlayer)
+    console.log(emptyBoard) */
 
-  /* $('#one').click(function () {
-    $('#one').text('x')
+  $('emptyBoard').on('click', function () {
+    console.log('Ive been clicked!')
   })
-
-  const onClick = function () {
-    console.log('!')
-  }
-  $('.square').on('click', onClick) */
 })

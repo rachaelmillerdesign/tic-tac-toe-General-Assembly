@@ -28,5 +28,27 @@ const onClickBoard = function (event) {
     $(this).toggleClass('square-o')
   }
 }
+$('.emptyBoard').on('click', 'square', function(event) {
+    let $square = $(event.currentTarget)
+    $square.addclass('square-' + currentPlayer)
+    console.log(emptyBoard)
+})
 
 //arjun code from square one: data-move="O" data-random="hello"
+//for ( i = 0; i < emptyBoard.length; i++ ) {
+//cons ole.log(emptyBoard[i]);
+// }
+
+//  are these (above+below) the same?
+//  $("#one, #two, #three, #four, #five, #six, #seven, #eight, #nine").on('click', function() {
+//  $(this).toggleClass("square-" + currentPlayer)
+//  })
+
+/* $('#one').click(function () {
+$('#one').text('x')
+})
+
+const onClick = function () {
+console.log('!')
+}
+$('.square').on('click', onClick) */
