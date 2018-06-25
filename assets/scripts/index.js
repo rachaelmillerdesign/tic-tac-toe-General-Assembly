@@ -7,17 +7,21 @@
 // require('./example')
 
 $(() => {
-  // create Player
   let currentPlayer = 'X'
 
-  // create alternate turns
-  function alternateTurns () {
+  const alternateTurns = function () {
     if (currentPlayer === 'X') {
-      $(this).toggleClass('square-x')
+      currentPlayer = 'O'
     } else {
-      $(this).toggleClass('square-o')
+      currentPlayer = 'X'
     }
   }
+
+  const onClick = function () {
+    $(this).text(currentPlayer)
+    alternateTurns()
+  }
+  $('.square').on('click', onClick)
 
   // are these (above+below) the same?
   //$("#one, #two, #three, #four, #five, #six, #seven, #eight, #nine").on('click', function() {

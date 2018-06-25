@@ -1,5 +1,5 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-// @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 .emptyBoard {
   width: 500px;
@@ -17,7 +17,15 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   height: 100%;
   border: solid 1px orange;
   border-collapse: collapse;
-  display: inline-block;
+  display: inline-grid;
+}
+$black: #000000;
+
+.col:hover {
+  background: $black;
+  mix-blend-mode: multiply;
+  opacity: 0.2;
+  cursor: pointer;
 }
 
 
@@ -65,12 +73,7 @@ $yellow: #ffff00;
 .eight {background-color: $pink;}
 .nine {background-color: $pink;}
 
-.col :hover {
-  background: $black;
-  mix-blend-mode: multiply;
-  opacity: 0.2;
-  cursor: pointer;
-}
+
 
 .square-x {
   background-color: $black;
