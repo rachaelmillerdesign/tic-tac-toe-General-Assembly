@@ -6,24 +6,31 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
-/* necessary code:?
 $(() => {
+  // create Player
+  let currentPlayer = 'X'
+
+  // create alternate turns
+  function alternateTurns () {
+    if (currentPlayer === 'X') {
+      $(this).toggleClass('square-x')
+    } else {
+      $(this).toggleClass('square-o')
+    }
   }
-}) */
 
-// create Player
-const currentPlayer = 'X'
+  // are these (above+below) the same?
+  //$("#one, #two, #three, #four, #five, #six, #seven, #eight, #nine").on('click', function() {
+    //$(this).toggleClass("square-" + currentPlayer)
+  //})
 
-// create alternate turns
-function alternateTurns () {
-  if (currentPlayer === 'X') {
-    $(this).toggleClass('square-x')
-  } else {
-    $(this).toggleClass('square-o')
+
+  /* $('#one').click(function () {
+    $('#one').text('x')
+  })
+
+  const onClick = function () {
+    console.log('!')
   }
-}
-
-// are these (above+below) the same?
-$(document.querySelectorAll)'#one, #two, #three, #four, #five, #six, #seven, #eight, #nine').on('click', function() {
-  $(this).toggleClass('square-' + currentPlayer);
+  $('.square').on('click', onClick) */
 })
