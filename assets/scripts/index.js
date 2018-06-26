@@ -15,35 +15,19 @@ $(() => {
       currentPlayer = 'X'
     }
   }
-  const showMove = function () {
-    console.log(currentPlayer)
-  }
 
-  /* const onClick = function (e) {
-    // with e.target.id, find a way to strip out the letter
-    // convert that string to an integer, and use it to
-    // write to emptyBoard at that index with whoever
-    // the current player is
+  const onClickCallBack = function (e) {
     console.log(e.target.id)
     $(this).text(currentPlayer)
     alternateTurns()
+    console.log(currentPlayer)
   }
-  */
 
-  $('.square').on('click', function (e) {
-    console.log(e.target.id)
-  })
-
-  //$.each(['s0', 's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9'], function (i, l) {
-    //console.log('Index #' + i + ':' + l)
-  //})
+  $('.square').on('click', onClickCallBack)
 
 let emptyBoard = ['', '', '', '', '', '', '', '', '']
 
   $('.emptyBoard').on('click', function () {
     console.log('I am here!')
-})
-
-  //let currentBoard = emptyBoard.map(x => emptyBoard.length)
-  //console.log(currentBoard)
+  })
 })
