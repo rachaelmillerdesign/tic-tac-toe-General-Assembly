@@ -15,6 +15,9 @@ $(() => {
       currentPlayer = 'X'
     }
   }
+  const showMove = function () {
+    console.log(currentPlayer)
+  }
 
   /* const onClick = function (e) {
     // with e.target.id, find a way to strip out the letter
@@ -31,12 +34,16 @@ $(() => {
     console.log(e.target.id)
   })
 
-  $.each(['s0', 's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9'], function (i, l) {
-    console.log('Index #' + i + ':' + l)
-  })
+  //$.each(['s0', 's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9'], function (i, l) {
+    //console.log('Index #' + i + ':' + l)
+  //})
 
 let emptyBoard = ['', '', '', '', '', '', '', '', '']
 
-let currentBoard = emptyBoard.map(x => emptyBoard.length)
-  console.log(currentBoard)
+  $('.emptyBoard').on('click', function () {
+    console.log('I am here!')
+})
+
+  //let currentBoard = emptyBoard.map(x => emptyBoard.length)
+  //console.log(currentBoard)
 })
