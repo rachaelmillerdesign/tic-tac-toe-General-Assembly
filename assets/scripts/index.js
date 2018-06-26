@@ -37,17 +37,6 @@ $(() => {
 
 let emptyBoard = ['', '', '', '', '', '', '', '', '']
 
-let currentBoard = [''].map(x => 9)
+let currentBoard = emptyBoard.map(x => emptyBoard.length)
   console.log(currentBoard)
-
-// let currentBoard = emptyBoard.split(',').map(Number)
-
-/* $('emptyBoard').on('click', 'square', function(event) {
-    let $square = $(event.currentTarget)
-    $square.addclass('square-' + currentPlayer)
-    console.log(emptyBoard)
-
-  $('emptyBoard').on('click', function () {
-    console.log('Ive been clicked!')
-  }) */
 })
