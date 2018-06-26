@@ -16,7 +16,7 @@ $(() => {
     }
   }
 
-  const onClick = function (e) {
+  /* const onClick = function (e) {
     // with e.target.id, find a way to strip out the letter
     // convert that string to an integer, and use it to
     // write to emptyBoard at that index with whoever
@@ -25,16 +25,29 @@ $(() => {
     $(this).text(currentPlayer)
     alternateTurns()
   }
-  $('.square').on('click', onClick)
+  */
+
+  $('.square').on('click', function (e) {
+    console.log(e.target.id)
+  })
+
+  $.each(['s0', 's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9'], function (i, l) {
+    console.log('Index #' + i + ':' + l)
+  })
 
 let emptyBoard = ['', '', '', '', '', '', '', '', '']
+
+let currentBoard = [''].map(x => 9)
+  console.log(currentBoard)
+
+// let currentBoard = emptyBoard.split(',').map(Number)
 
 /* $('emptyBoard').on('click', 'square', function(event) {
     let $square = $(event.currentTarget)
     $square.addclass('square-' + currentPlayer)
-    console.log(emptyBoard) */
+    console.log(emptyBoard)
 
   $('emptyBoard').on('click', function () {
     console.log('Ive been clicked!')
-  })
+  }) */
 })
