@@ -21,7 +21,54 @@ $(() => {
 //  else emptyBoard.arr = o
 //}
 
+____________________
 
+
+// construct empty board and current board.
+  // let emptyBoard = ['0', '1', '2', '3', '4', '5', '6', '7', '8']
+  let emptyBoard = ['', '', '', '', '', '', '', '', '']
+  let gameBoard = ['', '', '', '', '', '', '', '', '']
+
+  // I have tried to follow the correct syntax:
+  // onClickCallBack  emptyBoard.map(insert(currentValue[,index[,array]]))[]
+
+  function addClickToGameBoard () {
+    emptyBoard.splice(onClickCallBack(0, 1))
+  }
+  $('.emptyBoard').on(addClickToGameBoard)
+
+  function currentGame (gameBoard) {
+    this.gameBoard = emptyBoard.map.bind
+    event.preventDefault()
+  }
+  // return element to new array
+  console.log(gameBoard)
+  // console.log(emptyBoard)
+
+// const gameBoard = function () {
+  // $(this).array(emptyBoard)
+  // console.log(gameBoard)
+  // }
+  // var gameBoard = arr.map(function onClickBoard(currentValue[,index[,array]]))[]
+  // const boardGameInProgress = function {
+  // }
+
+  // (currentPlayer => gameBoard)
+  // $.data($('gameBoard').get(0), 'e.target.id', 'currentPlayer')
+  // const pushMovesToBoard = function {
+  //  onClickCallBack('click')
+  //  currentPlayer(event.target.id) =
+  //
+
+  // const winningCombinations:
+  // [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [6,4,2]]
+
+  // const checkForWin = function() []
+  // $('.emptyBoard').on('click', function () {
+  //   console.log('I am here!')
+  // })
+})
+________________________
 //.square = currentPlayer.text
 
   //const showMove = function () {
