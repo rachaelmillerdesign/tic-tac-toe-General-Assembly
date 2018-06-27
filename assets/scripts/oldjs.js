@@ -51,12 +51,19 @@ $(() => {
 
 let emptyBoard = ['', '', '', '', '', '', '', '', '']
 
-  $('.emptyBoard').on('click', function () {
-    console.log('I am here!')
-})
+for ( i = 0; i < emptyBoard.length; i++ ) {
+//if click = '' then add x or o
+  onClickCallBack.id === null
+  then null = currentPlayer
+  //then e.target.id = currentPlayer
 
-  //let currentBoard = emptyBoard.map(x => emptyBoard.length)
-  //console.log(currentBoard)
+  this.emptyBoard = this.currentBoard
+
+// (emptyBoard.splice(onClickCallBack.currentBoard.id,1, )
+// $('.emptyBoard').on('click', function () {
+// console.log('I am here!')
+// })
+
 })
 
 //{

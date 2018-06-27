@@ -18,28 +18,36 @@ $(() => {
   }
 
   const onClickCallBack = function (e) {
-    // console.log(e.target.id)
+    console.log(e.target.id)
     $(this).text(currentPlayer)
     alternateTurns()
-    // console.log(currentPlayer)
+    console.log(currentPlayer)
   }
 
   $('.square').on('click', onClickCallBack)
 
   let emptyBoard = ['', '', '', '', '', '', '', '', '']
 
-  //const boardGameInProgress = function {
+  let gameBoard = emptyBoard.map((onClickCallBack) => emptyBoard)
+  // return element to new array
+  $.data($('gameBoard').get(0), 'e.target.id', 'currentPlayer')
 
-  //}
+// const gameBoard = function () {
+  // $(this).array(emptyBoard)
+  // console.log(gameBoard)
+  // }
+  // var gameBoard = arr.map(function onClickBoard(currentValue[,index[,array]]))[]
+  // const boardGameInProgress = function {
+  // }
 
-  //const pushMovesToBoard = function {
-//    onClickCallBack('click')
+  // const pushMovesToBoard = function {
+  //  onClickCallBack('click')
   //  currentPlayer(event.target.id) =
-  //}
-  //const winningCombinations:
-  //[[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [6,4,2]]
+  // }
+  // const winningCombinations:
+  // [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [6,4,2]]
 
-  //const checkForWin = function() []
+  // const checkForWin = function() []
   // $('.emptyBoard').on('click', function () {
   //   console.log('I am here!')
   // })
