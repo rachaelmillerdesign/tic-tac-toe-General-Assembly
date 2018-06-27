@@ -21,12 +21,17 @@ $(() => {
 
   const onClickCallBack = function (e) {
     console.log(e.target.id)
+    const cellid = parseInt(e.target.id)
+    emptyBoard[cellid] = currentPlayer
+    console.log(emptyBoard)
     $(this).text(currentPlayer)
     alternateTurns()
     console.log(currentPlayer)
   }
 
   $('.square').on('click', onClickCallBack)
+
+
 
   // console.log(gameBoard)
   //console.log(emptyBoard)
