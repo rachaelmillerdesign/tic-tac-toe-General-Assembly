@@ -41,7 +41,7 @@ These are my User Flows (I’d love to return to these and elaborate with more d
 
 Coming up with the game logic in JavaScript was the hardest part for me.  The types of JS commands and logic I have learned in the past 2-3 weeks are so new to me that accessing them in my mind as tools was a challenge.
 
-click handlers, API-token-auth, getFormFields, console.log, modals, curl request…I did not know any such terms existed until I started this course.
+click handlers, API-token-auth, getFormFields, console.log, modals, curl request, fork, repo ... did not know any such terms existed until I started this course.
 
 I have been tracking my progress (or lack thereof ;-\) in GitHub's project manager:
 
