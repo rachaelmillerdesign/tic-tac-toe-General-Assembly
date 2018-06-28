@@ -17,7 +17,7 @@ The Tic Tac Toe application must:
 - use JQuery for DOM manipulation and event handling
 - use AJAX for interacting with a provided API to store the ‘state of the game’
 
-As of the start of the project I have been learning (‘all of the above’) for a grand total of 2 weeks and 2 days and we had one week to complete it. Talk about trial by fire!
+As of the start of the project I have been learning (‘all of the above’) for a grand total of 3 weeks and 2 days and we had one week to complete it. Talk about trial by fire!
 
 Technologies used:
 HTML5
