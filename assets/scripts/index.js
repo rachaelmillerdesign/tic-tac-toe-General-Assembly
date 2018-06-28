@@ -7,5 +7,27 @@
 // require('./example')
 
 $(() => {
-  // your JS code goes here
+  let currentPlayer = 'X'
+
+  const alternateTurns = function () {
+    if (currentPlayer === 'X') {
+      currentPlayer = 'O'
+    } else {
+      currentPlayer = 'X'
+    }
+  }
+
+  let emptyBoard = ['', '', '', '', '', '', '', '', '']
+
+  const onClickCallBack = function (e) {
+    console.log(e.target.id)
+    $(this).text(currentPlayer)
+    alternateTurns()
+    console.log(currentPlayer)
+  }
+
+  $('.square').on('click', onClickCallBack)
+
+  // console.log(gameBoard)
+  //console.log(emptyBoard)
 })

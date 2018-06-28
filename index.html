@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>tic-tac-toe</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <table id='board'>
-        <tr>
-          <td id=1></td><td id=2></td><td id=3></td>
-        </tr>
-        <tr>
-          <td id=4></td><td id=5></td><td id=6></td>
-        </tr>
-        <tr>
-          <td id=7></td><td id=8></td><td id=9></td>
-        </tr>
-      </table>
-    </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Tic Tac Toe</title>
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+<body>
+  <div class="emptyBoard">
+    <div class="row">
+        <div id="0" class="square"></div>
+        <div id="1" class="square"></div>
+        <div id="2" class="square"></div>
+    </div>
+    <div class="row">
+        <div id="3" class="square"></div>
+        <div id="4" class="square"></div>
+        <div id="5" class="square"></div>
+    </div>
+    <div class="row">
+        <div id="6" class="square"></div>
+        <div id="7" class="square"></div>
+        <div id="8" class="square"></div>
+    </div>
+  </div>
+</body>
 </html>
