@@ -22,3 +22,7 @@ h1 {
   font-size: 15vw;
   text-align: center;
 }
+
+unclickable {
+  pointer-events: none;
+}
