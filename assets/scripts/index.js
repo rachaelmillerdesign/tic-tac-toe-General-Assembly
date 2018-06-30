@@ -20,13 +20,13 @@ $(() => {
   let emptyBoard = ['', '', '', '', '', '', '', '', '']
 
   const onClickCallBack = function (e) {
-    // console.log(e.target.id)
+    console.log(e.target.id)
     const cellid = parseInt(e.target.id)
     emptyBoard[cellid] = currentPlayer
-    // console.log(emptyBoard)
+    console.log(emptyBoard)
     $(this).text(currentPlayer)
     alternateTurns()
-    // console.log(currentPlayer)
+    console.log(currentPlayer)
   }
 
   $('.square').on('click', onClickCallBack)
