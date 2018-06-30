@@ -31,8 +31,6 @@ $(() => {
 
   $('.square').on('click', onClickCallBack)
 
-
-
   // console.log(gameBoard)
-  //console.log(emptyBoard)
+  // console.log(emptyBoard)
 })

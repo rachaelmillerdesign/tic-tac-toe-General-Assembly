@@ -1,96 +1,18 @@
-// $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-// @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+// $pink; #fce5eb;
 
-$black: #000000;
-$pink: #ffe6e6;
-
-.emptyBoard {
-  height: 100%;
-  width: 90%;
-//  padding: 0px;
-//  margin: 0, auto;
-  // width: 500px;
-}
-
-.row {
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-  // height: 33.333%;
-  // border: solid 1px black;
-  // border-collapse: collapse;
-}
-
-.square {
-  background-color: $pink;
-  border: solid 1px $black;
-  display: inline-block;
-  float: left;
-  font-family: sans-serif;
-  font-size: 80px;
-  //height: 32%;
-  padding-bottom: 32%;
-  text-align: center;
-  width: 32%;
-}
-
-.square:hover {
-  background: $black;
-  cursor: pointer;
-  mix-blend-mode: multiply;
-  opacity: .2;
+.container {
+  font-size: 5vw;
  }
 
-/*@mixin tablet {
-  @media (min-width: # {$tablet-width}) and (max-width: # {$tablet-width - 1px}) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: # {$desktop-width}) {
-    @content;
-  }
-
-@mixin phone {
-  @media (min-width: # {$phone-width}) and (max-width: # {$phone-width - 1px}) {
-    @content;
-  }
-}*/
-/*
-.emptyboard {
-  margin-top: 20%;
-}
-
 .square {
-  margin: 1%;
+  background-color: rgba(193,66,66,0.1);
+  text-align: center;
   padding-bottom: 100%;
-  //background: $black;
-  // height: 20px;
-  // width: 20px;
 }
 
-$pink: #ffe6e6;
-$black: #000000;
-$yellow: #ffff00;
-
-.one {background-color: $pink;}
-.two {background-color: $pink;}
-.three {background-color: $pink;}
-.four {background-color: $pink}
-.five {background-color: $pink;}
-.six {background-color: $pink;}
-.seven {background-color: $pink;}
-.eight {background-color: $pink;}
-.nine {background-color: $pink;}
-
-
-
-.square-x {
-  background-color: $black;
+h1 {
+  font-family: sans-serif;
+  font-size: 15vw;
+  text-align: center;
+  color: grey;
 }
-
-.square-o {
-  background-color: $yellow;
-}
-*/
