@@ -23,7 +23,9 @@ $(() => {
     console.log(e.target.id)
     const cellid = parseInt(e.target.id)
     emptyBoard[cellid] = currentPlayer
+    win()
     console.log(emptyBoard)
+    // $('click', onClickCallBack).addClass('unclickable')
     $(this).text(currentPlayer)
     alternateTurns()
     console.log(currentPlayer)
@@ -31,24 +33,31 @@ $(() => {
 
   $('.square').on('click', onClickCallBack)
 
-  let gameBoard = function {
+  // let unclickable = function() {
+  //   if emptyBoard[i] !== ['', '', '', '', '', '', '', '', ''] {
+  //     then $(cellid.addClass('.unclickable')
+  //   }
+  // }
+  let i
+  let j
+  let currentWin
+  let won
+  const possibleWins = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [6, 4, 2]]
 
+let win = function () {
+    for (i = 0; i < possibleWins.length; i++) {
+      currentWin = possibleWins[i]
+      won = true
+      for (j = 0; j < currentWin.length; j++) {
+        if (emptyBoard[win[j]] !== currentPlayer) {
+          won = false
+        }
+      }
+      if (won === true) {
+        console.log(currentPlayer + 'has won!')
+      }
+    }
   }
-
-  this.emptyBoard = this.gameBoard
-
-  const possibleWins = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [6,4,2]]
-
-  let win = function () {
-    possibleWins.innerHTML === cellid[x, x, x] || [o, o, o]
-    console.log("WIN!")
-  }
-
-  // any ooo or xxx that matches the sub arrays
-  // let i
 
   // for (i = 0; i < gameBoard.length; i++) {
-  // let possibleWins === 'x,x,x' || 'o,o,o'
-  // console.log(gameBoard)
-  // console.log(emptyBoard) */
 })
