@@ -34,21 +34,15 @@ $(() => {
 
   $('.square').on('click', onClickCallBack)
 
-/* let unclickable = function() {
-    for (i=0; i=emptyBoard.length; i++) {
-      if (emptyBoard[i] !== "") {
-        $(i).addClass('.unclickable')
-      }
-    }
-  } */
-
   let i
   let j
   let currentWin
   let won
+  let draw
+
   const possibleWins = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [6, 4, 2]]
 
-let win = function () {
+  let win = function () {
     for (i = 0; i < possibleWins.length; i++) {
       currentWin = possibleWins[i]
       won = true
@@ -59,6 +53,16 @@ let win = function () {
       }
       if (won === true) {
         console.log(currentPlayer + ' has won!')
+      } else {
+        draw = true
+        for (i = 0; i < emptyBoard.length; i++) {
+          if (emptyBoard[i] === '') {
+            draw = false
+          }
+        }
+        if (draw === true) {
+          console.log("It's a draw!")
+        }
       }
     }
   }
