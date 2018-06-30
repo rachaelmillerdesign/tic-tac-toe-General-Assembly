@@ -27,17 +27,21 @@ $(() => {
     console.log(emptyBoard)
     // $('click', onClickCallBack).addClass('unclickable')
     $(this).text(currentPlayer)
+    $(this).addClass('unclickable')
     alternateTurns()
     console.log(currentPlayer)
   }
 
   $('.square').on('click', onClickCallBack)
 
-  // let unclickable = function() {
-  //   if emptyBoard[i] !== ['', '', '', '', '', '', '', '', ''] {
-  //     then $(cellid.addClass('.unclickable')
-  //   }
-  // }
+/* let unclickable = function() {
+    for (i=0; i=emptyBoard.length; i++) {
+      if (emptyBoard[i] !== "") {
+        $(i).addClass('.unclickable')
+      }
+    }
+  } */
+
   let i
   let j
   let currentWin
@@ -49,12 +53,12 @@ let win = function () {
       currentWin = possibleWins[i]
       won = true
       for (j = 0; j < currentWin.length; j++) {
-        if (emptyBoard[win[j]] !== currentPlayer) {
+        if (emptyBoard[currentWin[j]] !== currentPlayer) {
           won = false
         }
       }
       if (won === true) {
-        console.log(currentPlayer + 'has won!')
+        console.log(currentPlayer + ' has won!')
       }
     }
   }
