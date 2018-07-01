@@ -7,24 +7,26 @@
   <title>Tic Tac Toe</title>
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  <style>
+  .container {
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    grid-gap: 1.5vw;
+  }
+  </style>
 </head>
 <body>
-  <div class="emptyBoard">
-    <div class="row">
-        <div id="0" class="square"></div>
-        <div id="1" class="square"></div>
-        <div id="2" class="square"></div>
+  <h1>TIC TAC TOE</h1>
+    <div id="emptyBoard" class="container">
+      <div id="0" class="square"></div>
+      <div id="1" class="square"></div>
+      <div id="2" class="square"></div>
+      <div id="3" class="square"></div>
+      <div id="4" class="square"></div>
+      <div id="5" class="square"></div>
+      <div id="6" class="square"></div>
+      <div id="7" class="square"></div>
+      <div id="8" class="square"></div>
     </div>
-    <div class="row">
-        <div id="3" class="square"></div>
-        <div id="4" class="square"></div>
-        <div id="5" class="square"></div>
-    </div>
-    <div class="row">
-        <div id="6" class="square"></div>
-        <div id="7" class="square"></div>
-        <div id="8" class="square"></div>
-    </div>
-  </div>
 </body>
 </html>

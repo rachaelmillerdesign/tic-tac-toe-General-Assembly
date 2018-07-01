@@ -117,3 +117,22 @@ for ( i = 0; i < emptyBoard.length; i++ ) {
 //  console.log(e.target.id)
 //  console.log(currentPlayer)
 //}
+
+previously working:
+let emptyBoard = ['', '', '', '', '', '', '', '', '']
+  let gameBoard = []
+
+  const onClickCallBack = function (e) {
+    event.preventDefault()
+    emptyBoard.splice(e.target.id, 1, 'currentPlayer')
+    // console.log(e.target.id)
+    $(this).text(currentPlayer)
+    alternateTurns()
+    // console.log(currentPlayer)
+  }
+  emptyBoard = this.gameBoard
+
+  $('.square').on('click', onClickCallBack)
+
+  console.log(gameBoard)
+  console.log(emptyBoard)
