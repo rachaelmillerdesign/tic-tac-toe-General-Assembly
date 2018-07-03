@@ -14,7 +14,8 @@ const play = function (event) {
   const data = getFormFields(event.target)
   console.log(data)
   console.log(data.form)
-  $('#myModal').modal('hide')
+  // $('#myModal').modal('show')
+  $('#myModal').modal(console.log('I am here!'))
 }
 
 module.exports = {

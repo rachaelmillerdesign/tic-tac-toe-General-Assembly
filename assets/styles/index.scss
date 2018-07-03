@@ -1,11 +1,11 @@
-// $pink; #fce5eb;
+$pink: #fce5eb;
 
 .container {
   display: grid;
   font-size: 5vw;
  }
 //
-// .modal.custom {
+// .modal {
 //   position: fixed; /* create the modal window layer, and have it fill the entire screen */
 //   top: 0;
 //   right: 0;
@@ -17,12 +17,12 @@
 //   pointer-events: none;
 //  }
 //
-// .modal.custom:target {
+// .modal:target {
 //   opacity: 1;
 //   pointer-events: auto;
 // }
 //
-// .modal.custom > div {
+// .modal > div {
 //   background: #fff;
 //   width: 40%; /* set the window's width */
 //   position: relative;
@@ -55,6 +55,10 @@
   background: #e2ff82;
   text-decoration: none;
 }
+
+// .img {
+//   object-fit: contain;
+// }
 
 .square {
   align-items: center;
