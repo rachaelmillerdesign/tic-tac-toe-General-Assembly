@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -16,6 +15,43 @@
   </style>
 </head>
 <body>
+  <!--TRIGGER MODAL WITH BUTTON -->
+  <button id='play' type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal">
+    Play!</button>
+  <!--MODAL-->
+  <!-- <div id="myModal" class="modal-box">
+      <div class="modal-header">
+        <button id='sign-up' class='sign-up-button'>SIGN UP</button>
+        <button id='sign-in' class='sign-in-button'>SIGN IN</button>
+      </div>
+      <div class="modal-body">
+        <h2>TIC TAC TOE</h2>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+</div> -->
+<div class="modal custom" tabindex="-1" role="dialog" id='myModal'>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>To play tic-tac-toe please sign up or sign in.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">SIGN UP</button>
+        <button type="button" class="btn btn-primary">SIGN IN</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <h1>TIC TAC TOE</h1>
     <div id="emptyBoard" class="container">
       <div id="0" class="square"></div>

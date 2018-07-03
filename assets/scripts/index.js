@@ -6,6 +6,12 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
+const events = require('./auth/events')
+
+$(() => {
+  $('#name-form').on('submit', events.onSubmitForm)
+})
+
 $(() => {
   let currentPlayer = 'x'
 
