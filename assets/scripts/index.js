@@ -7,19 +7,27 @@
 // require('./example')
 
 const authEvents = require('./auth/events.js')
-const examplesEvents = require('./examples/events.js')
 
 // On document ready
 $(() => {
   authEvents.addHandlers()
-  examplesEvents.addHandlers()
-})
 
-// $(() => {
-//   $('#name-form').on('submit', events.onSubmitForm)
-// })
+  const hideForms = function () {
+    const x = document.getElementById('signIn, signOut, changePassword')
+    if (x.style.display === 'none') {
+      x.style.display = 'block'
+    } else {
+      x.style.display = 'none'
+    }
+  }
 
-$(() => {
+//  $(() => {
+//    hideForms
+//  })
+//
+//  const onClickCallBack = function (e) {
+//  }
+
   let currentPlayer = 'x'
 
   const alternateTurns = function () {
@@ -33,16 +41,16 @@ $(() => {
   let emptyBoard = ['', '', '', '', '', '', '', '', '']
 
   const onClickCallBack = function (e) {
-    console.log(e.target.id)
+    // console.log(e.target.id)
     const cellid = parseInt(e.target.id)
     emptyBoard[cellid] = currentPlayer
     win()
-    console.log(emptyBoard)
+    // console.log(emptyBoard)
     // $('click', onClickCallBack).addClass('unclickable')
     $(this).text(currentPlayer)
     $(this).addClass('unclickable')
     alternateTurns()
-    console.log(currentPlayer)
+    // console.log(currentPlayer)
   }
 
   $('.square').on('click', onClickCallBack)
@@ -79,6 +87,4 @@ $(() => {
       }
     }
   }
-
-  // for (i = 0; i < gameBoard.length; i++) {
 })

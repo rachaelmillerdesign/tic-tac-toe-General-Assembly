@@ -78,9 +78,9 @@ button:hover {
 //     margin-bottom: 25px;
 // }
 
-$('#myModal').on('show.bs.modal', function () {
-$('.modal-content').css('height',$( window ).height()*0.8);
-})
+// $('#myModal').on('show.bs.modal', function () {
+// $('.modal-content').css('height',$( window ).height()*0.8);
+// })
 
 /* The Close Button (x) */
 .close {
