@@ -14,43 +14,45 @@
   }
   </style>
 </head>
-<body>
-  <!--TRIGGER MODAL WITH BUTTON -->
-  <button id='play' type="button" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModal">
-    Play!</button>
-  <!--MODAL-->
-  <!-- <div id="myModal" class="modal-box">
-      <div class="modal-header">
-        <button id='sign-up' class='sign-up-button'>SIGN UP</button>
-        <button id='sign-in' class='sign-in-button'>SIGN IN</button>
-      </div>
-      <div class="modal-body">
-        <h2>TIC TAC TOE</h2>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-</div> -->
-<div class="modal" tabindex="-1" role="dialog" id='myModal'>
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true"></span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>To play tic-tac-toe please sign up or sign in.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" onclick=console.log('sign-in') class="btn btn-primary">SIGN UP</button>
-        <button type="button" class="btn btn-primary">SIGN IN</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCEL</button>
-      </div>
-    </div>
-  </div>
-</div>
+<body class="container-fluid">
+      <p id="message"></p>
+
+      <form id="sign-up" class="border">
+        <fieldset>
+          <legend>Sign up!</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <input type="submit" value="Sign up!">
+        </fieldset>
+      </form>
+
+      <form id="sign-in" class="border">
+        <fieldset>
+          <legend>Sign in!</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="submit" value="Sign in!">
+        </fieldset>
+      </form>
+
+      <form id="sign-out" class="border">
+        <fieldset>
+          <legend>Sign Out!</legend>
+          <input type="submit" value="Sign out!">
+        </fieldset>
+      </form>
+
+      <form id="change-password" class="border">
+        <fieldset>
+          <legend>Change Password!</legend>
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
+          <input type="submit" value="Change Password!">
+        </fieldset>
+      </form>
+    </body>
+</html>
 
   <h1>TIC TAC TOE</h1>
     <div id="emptyBoard" class="container">

@@ -1,23 +1,4 @@
-/$('#myModal').modal(console.log('I am here!'))
-// Get the modal
-const modal = document.getElementById('id01')
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-  if (event.target === modal) {
-    modal.style.display = 'none'
-  }
-}
-// let modal = document.getElementById('myModal')
-// const btn = document.getElementById('myBtn')
-//
-// btn.onclick = function () {
-//   modal.style.display = 'block'
-// }
-
-// $('#someIdOnYourPage').text('you won')
-
-const getFormFields = require('../../../lib/get-form-fields')
+'use strict'
 
 const play = function (event) {
   event.preventDefault()
@@ -27,7 +8,59 @@ const play = function (event) {
   // $('#myModal').modal('show')
   $('#myModal').modal(console.log('I am here!'))
 }
+'use strict'
+
+const getFormFields = require(`../../../lib/get-form-fields`)
+
+const api = require('./api')
+const ui = require('./ui')
+
+const onSignUp = function (event) {
+  event.preventDefault()
+  console.log('sign up ran!')
+
+  const data = getFormFields(this)
+  api.signUp(data)
+    .then(ui.signUpSuccess)
+    .catch(ui.signUpFailure)
+}
+
+const onSignIn = function (event) {
+  event.preventDefault()
+  console.log('sign in ran!')
+
+  const data = getFormFields(this)
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
+}
+
+const onSignOut = function (event) {
+  event.preventDefault()
+  console.log('sign out ran')
+
+  api.signOut()
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
+}
+
+const onChangePassword = function (event) {
+  event.preventDefault()
+  console.log('change password ran!')
+
+  const data = getFormFields(this)
+  api.changePassword(data)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFailure)
+}
+
+const addHandlers = () => {
+  $('#sign-up').on('submit', onSignUp)
+  $('#sign-in').on('submit', onSignIn)
+  $('#sign-out').on('submit', onSignOut)
+  $('#change-password').on('submit', onChangePassword)
+}
 
 module.exports = {
-  play
+  addHandlers
 }
