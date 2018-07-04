@@ -59,6 +59,7 @@ $('.square').on('click', onClickCallBack)
 let win = function () {
   for (i = 0; i < possibleWins.length; i++) {
     currentWin = possibleWins[i]
+    // console.log('For' + currentPlayer + 'currentWin: ' + currentWin)
     won = true
     for (j = 0; j < currentWin.length; j++) {
       if (emptyBoard[currentWin[j]] !== currentPlayer) {
@@ -67,16 +68,34 @@ let win = function () {
     }
     if (won === true) {
       console.log(currentPlayer + ' has won!')
-    } else {
-      draw = true
-      for (i = 0; i < emptyBoard.length; i++) {
-        if (emptyBoard[i] === '') {
-          draw = false
-        }
-      }
-      if (draw === true) {
-        console.log("It's a draw!")
-      }
+      break
     }
   }
+  if (won === false) {
+    draw = true
+    for (i = 0; i < emptyBoard.length; i++) {
+      if (emptyBoard[i] === '') {
+        draw = false
+      }
+    }
+    if (draw === true) {
+      console.log("It's a tie!")
+    }
+  }
+}
+// ~~~~~~~~~~~~~~~~~~~~~
+// CREATE NEW GAME
+// ~~~~~~~~~~~~~~~~~~~~~
+// function startNewGame () {
+const button = document.getElementById('new')
+button.addEventListener('click', emptySquares)
+// console.log('start new game!')
+
+function emptySquares () {
+  const squares1 = document.getElementsByClassName('square')
+  for (let m = 0; m < squares1.length; m++) {
+    squares1[m].innerHTML = ''
+    squares1[m].classList.remove('unclickable')
+  }
+  console.log('start new game!')
 }
