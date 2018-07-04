@@ -12,11 +12,7 @@
 $(() => {
   const authEvents = require('./auth/events.js')
   authEvents.addHandlers()
-
-// const boardLockedAtStart = $('.square').addClass('unclickable')
-//   console.log('boardLockedAtStart')
 })
-
 // ~~~~~~~~~~~~~~~~~~~~~
 // VARIABLES & CONSTANTS
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -28,12 +24,6 @@ let currentWin
 let won
 let draw
 const possibleWins = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [6, 4, 2]]
-
-
-// function toggleBoardLocked() {
-//   const element = document.getElementsByClassName('square')
-//   element.classList.toggle('unclickable')
-// }
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // ALTERNATE TURNS

@@ -19,7 +19,6 @@ const signInSuccess = function (data) {
   $('#message').css('background-color', 'green')
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
-  //$('#signUp, #signIn').hide()
 }
 
 const signInFailure = function (error) {
