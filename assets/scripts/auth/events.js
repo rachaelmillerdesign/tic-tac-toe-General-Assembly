@@ -1,17 +1,24 @@
 'use strict'
 
-const play = function (event) {
-  event.preventDefault()
-  const data = getFormFields(event.target)
-  console.log(data)
-  console.log(data.form)
-  // $('#myModal').modal('show')
-  $('#myModal').modal(console.log('I am here!'))
-}
-'use strict'
+// const play = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   console.log(data)
+//   console.log(data.form)
+// $('#myModal').modal('show')
+// $('#myModal').modal(console.log('I am here!'))
+// }
+
+// const userSignedIn = function (e) {
+//   event.preventDefault()
+//   ui.signUpSuccess
+//   then(/../index.toggleBoardLocked)
+// }
+// signUp.addEventListener('click', function() {
+//   $toggle.square.unclickable
+// })
 
 const getFormFields = require(`../../../lib/get-form-fields`)
-
 const api = require('./api')
 const ui = require('./ui')
 
