@@ -50,57 +50,28 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword)
 }
 
+// ~~~~~~~~~~~~~~~~~~~~
+//  BOARD AND NEW GAME BUTTON LOCKED BEFORE SIGN IN / UP
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+const boardLockedAtStart = $('.square').addClass('unclickable')
+console.log('boardLockedAtStart')
+
+function unlockBoard () {
+  const squares1 = document.getElementsByClassName('square')
+  for (let m = 0; m < squares1.length; m++) {
+    squares1[m].classList.remove('unclickable')
+  }
+  console.log('start new game!')
+}
+const newGameButtonLockedAtStart = $('#new').addClass('unclickable')
+console.log('newGameButtonLockedAtStart')
+
+function unlockNewGameButton () {
+  // if signInSuccess then
+  $('#new').classList.remove('unclickable')
+}
+
 module.exports = {
   addHandlers
 }
-// ~~~~~~~~~~~~~~~~~~~~~
-// MODAL
-// ~~~~~~~~~~~~~~~~~~~~~
-// const play = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   console.log(data)
-//   console.log(data.form)
-// $('#myModal').modal('show')
-// $('#myModal').modal(console.log('I am here!'))
-// }
-
-// const boardLockedAtStart = $('.square').addClass('unclickable')
-// console.log('boardLockedAtStart')
-
-// ~~~~~~~~~~~~~~~~~~~~~
-// UNLOCK BOARD IF SIGN UP / SIGN IN
-// ~~~~~~~~~~~~~~~~~~~~~
-// const toggleBoardLocked = function () {
-//   const element = document.getElementsByClassName('unclickable')
-//   element.classList.toggle('unclickable')
-// }
-
-// function eventHandler(e) {
-//   if (ui.signInSuccess = true)
-//     (('.unclickable').toggle())
-// }
-
-// signUp.addEventListener('click', 'signUpSuccess'[, useCapture])
-// toggleBoardLocked
-
-// $(document).ready(function () {
-//   $('#signInSuccess').click(function () {
-//     $('.unclickable').toggle()
-//   })
-// })
-
-// let unlockBoard = function (e) {
-//   if ( (.signInSuccess) || (.signUpSuccess) == true) {
-//     toggleBoardLocked('unclickable')
-//   }
-//   console.log('unlocked')
-// }
-// const userSignedIn = function (e) {
-//   event.preventDefault()
-//   ui.signUpSuccess
-//   then(/../index.toggleBoardLocked)
-// }
-// signUp.addEventListener('click', function() {
-//   $toggle.square.unclickable
-// })
