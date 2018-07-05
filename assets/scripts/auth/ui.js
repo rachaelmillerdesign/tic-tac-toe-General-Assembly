@@ -1,10 +1,13 @@
 'use strict'
 
 const store = require('../store')
+const events = require('./events')
 
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
   $('#message').css('background-color', 'green')
+  $('.square').removeClass('unclickable')
+  $('#new').classList.removeClass('unclickable')
   console.log('signUpSuccess ran. Data is :', data)
 }
 
@@ -17,6 +20,8 @@ const signUpFailure = function (error) {
 const signInSuccess = function (data) {
   $('#message').text('Signed in successfully')
   $('#message').css('background-color', 'green')
+  $('#square').removeClass('unclickable')
+  $('#new').removeClass('unclickable')
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 }

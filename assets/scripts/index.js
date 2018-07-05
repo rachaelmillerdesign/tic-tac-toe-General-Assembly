@@ -43,8 +43,7 @@ const onClickCallBack = function (e) {
   const cellid = parseInt(e.target.id)
   emptyBoard[cellid] = currentPlayer
   win()
-  // console.log(emptyBoard)
-  // $('click', onClickCallBack).addClass('unclickable')
+  console.log(emptyBoard)
   $(this).text(currentPlayer)
   $(this).addClass('unclickable')
   alternateTurns()
@@ -86,10 +85,9 @@ let win = function () {
 // ~~~~~~~~~~~~~~~~~~~~~
 // CREATE NEW GAME
 // ~~~~~~~~~~~~~~~~~~~~~
-// function startNewGame () {
+
 const button = document.getElementById('new')
 button.addEventListener('click', emptySquares)
-// console.log('start new game!')
 
 function emptySquares () {
   const squares1 = document.getElementsByClassName('square')

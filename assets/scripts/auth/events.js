@@ -51,7 +51,7 @@ const addHandlers = () => {
 }
 
 // ~~~~~~~~~~~~~~~~~~~~
-//  BOARD AND NEW GAME BUTTON LOCKED BEFORE SIGN IN / UP
+//  BOARD AND NEW GAME BUTTON LOCKED / unlocked BEFORE SIGN IN / UP
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 const boardLockedAtStart = $('.square').addClass('unclickable')
@@ -64,14 +64,16 @@ function unlockBoard () {
   }
   console.log('start new game!')
 }
+
 const newGameButtonLockedAtStart = $('#new').addClass('unclickable')
 console.log('newGameButtonLockedAtStart')
 
-function unlockNewGameButton () {
-  // if signInSuccess then
-  $('#new').classList.remove('unclickable')
-}
+// function unlockNewGameButton () {
+//   // if signInSuccess then
+//   $('#new').classList.remove('unclickable')
+// }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  unlockBoard
 }
