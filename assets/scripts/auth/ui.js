@@ -6,8 +6,8 @@ const events = require('./events')
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
   $('#message').css('background-color', 'green')
-  $('.square').removeClass('unclickable')
-  $('#new').classList.removeClass('unclickable')
+  $('#square').removeClass('unclickable')
+  $('#new').removeClass('unclickable')
   console.log('signUpSuccess ran. Data is :', data)
 }
 
@@ -56,6 +56,10 @@ const changePasswordFailure = function (error) {
   $('#message').css('background-color', 'red')
   console.error('changePasswordFailure ran. Error is :', error)
 }
+
+// ~~~~~~~~~~~~~~~~~~~~~~`
+// MODULE EXPORTS
+// ~~~~~~~~~~~~~~~~~~~~~~`
 
 module.exports = {
   signUpSuccess,

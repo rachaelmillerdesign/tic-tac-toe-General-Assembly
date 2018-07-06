@@ -4,6 +4,10 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
 
+// ~~~~~~~~~~~~~~~~~~~~~~`
+//  FORM FIELD FUNCTIONS
+// ~~~~~~~~~~~~~~~~~~~~~~`
+
 const onSignUp = function (event) {
   event.preventDefault()
   console.log('sign up ran!')
@@ -42,7 +46,9 @@ const onChangePassword = function (event) {
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
-
+// ~~~~~~~~~~~~~~~~~~~~~~`
+//  ADD HANDLERS
+// ~~~~~~~~~~~~~~~~~~~~~~`
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -72,6 +78,10 @@ console.log('newGameButtonLockedAtStart')
 //   // if signInSuccess then
 //   $('#new').classList.remove('unclickable')
 // }
+
+// ~~~~~~~~~~~~~~~~~~~~~~`
+// MODULE EXPORTS
+// ~~~~~~~~~~~~~~~~~~~~~~`
 
 module.exports = {
   addHandlers,

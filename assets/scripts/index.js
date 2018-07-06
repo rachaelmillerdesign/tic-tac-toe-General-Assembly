@@ -36,7 +36,7 @@ const alternateTurns = function () {
   }
 }
 // ~~~~~~~~~~~~~~~~~~~~~
-// CALL BACK
+// CALL BACK / ADD CURRENT PLAYER X OR O
 // ~~~~~~~~~~~~~~~~~~~~~
 const onClickCallBack = function (e) {
   // console.log(e.target.id)
@@ -82,6 +82,13 @@ let win = function () {
     }
   }
 }
+// const delayMessage = function () {
+//   setTimeout(3000)
+//   if (won === true || draw === true) {
+//     console.log('Play again?')
+//   }
+// }
+
 // ~~~~~~~~~~~~~~~~~~~~~
 // CREATE NEW GAME
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -96,4 +103,30 @@ function emptySquares () {
     squares1[m].classList.remove('unclickable')
   }
   console.log('start new game!')
+}
+// ~~~~~~~~~~~~~~~~~~~~
+//  CLEAR BOARD AFTER WIN/DRAW
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+function clearBoard () {
+  const squares1 = document.getElementsByClassName('square')
+  for (let p = 0; p < squares1.length; p++) {
+    squares1[p].innerHTML = ''
+    squares1[p].classList.remove('unclickable')
+  }
+  console.log('play again?')
+}
+// onWinOrDraw = function () {
+//   if (won === true || draw === true)
+//   'emptyBoard' = 'clearBoard'
+// }
+
+// ~~~~~~~~~~~~~~~~~~~~~~`
+// MODULE EXPORTS
+// ~~~~~~~~~~~~~~~~~~~~~~`
+
+module.exports = {
+  clearBoard,
+  win,
+  won
 }
