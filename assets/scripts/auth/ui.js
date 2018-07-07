@@ -2,12 +2,16 @@
 
 const store = require('../store')
 const events = require('./events')
+const game = require('../game')
 
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
   $('#message').css('background-color', 'green')
-  $('#square').removeClass('unclickable')
+  // $('#square').removeClass('unclickable')
   $('#new').removeClass('unclickable')
+  $('#sign-out').removeClass('hidden')
+  $('#sign-up').addClass('hidden')
+  $('#change-password').removeClass('hidden')
   console.log('signUpSuccess ran. Data is :', data)
 }
 
@@ -22,6 +26,10 @@ const signInSuccess = function (data) {
   $('#message').css('background-color', 'green')
   $('#square').removeClass('unclickable')
   $('#new').removeClass('unclickable')
+  $('#sign-out').removeClass('hidden')
+  $('#sign-in').addClass('hidden')
+  $('#sign-up').addClass('hidden')
+  $('#change-password').removeClass('hidden')
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 }

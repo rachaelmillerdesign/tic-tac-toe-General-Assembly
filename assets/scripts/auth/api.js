@@ -61,15 +61,8 @@ const index = function () {
 
 const show = function (id) {
   return $.ajax({
-    url: config.apiOrigin + '/games/' + id,
+    url: config.apiOrigin + '/games/' + store.game.id,
     method: 'GET'
-  })
-}
-
-const destroy = function (id) {
-  return $.ajax({
-    url: config.apiOrigin + '/games/' + id,
-    method: 'DELETE'
   })
 }
 
@@ -143,7 +136,6 @@ module.exports = {
   changePassword,
   index,
   show,
-  destroy,
   update,
   create,
   updateGame,
