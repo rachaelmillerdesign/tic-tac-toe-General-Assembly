@@ -9,10 +9,21 @@
 // ~~~~~~~~~~~~~~~~~~~~~
 // ON DOCUMENT READY
 // ~~~~~~~~~~~~~~~~~~~~~
+
+const authEvents = require('./auth/events.js')
+// const setAPIOrigin = require('../../lib/set-api-origin')
+const gameEvents = require('./auth/events.js')
+
 $(() => {
-  const authEvents = require('./auth/events.js')
   authEvents.addHandlers()
+  // setAPIOrigin(location, config)
+  $('#games-search').on('submit', gameEvents.onGetGames)
+  $('#game-search').on('submit', gameEvents.onGetGame)
+  // $('#game-delete').on('submit', gameEvents.onDeletegame)
+  $('#game-update').on('submit', gameEvents.onUpdateGame)
+  $('#game-create').on('submit', gameEvents.onCreateGame)
 })
+
 // ~~~~~~~~~~~~~~~~~~~~~
 // VARIABLES & CONSTANTS
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -43,7 +54,7 @@ const onClickCallBack = function (e) {
   const cellid = parseInt(e.target.id)
   emptyBoard[cellid] = currentPlayer
   win()
-  console.log(emptyBoard)
+  // console.log(emptyBoard)
   $(this).text(currentPlayer)
   $(this).addClass('unclickable')
   alternateTurns()
@@ -55,6 +66,7 @@ $('.square').on('click', onClickCallBack)
 // ~~~~~~~~~~~~~~~~~~~~~
 // WIN FUNCTION
 // ~~~~~~~~~~~~~~~~~~~~~
+
 let win = function () {
   for (i = 0; i < possibleWins.length; i++) {
     currentWin = possibleWins[i]

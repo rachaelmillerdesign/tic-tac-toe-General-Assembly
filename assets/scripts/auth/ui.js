@@ -57,6 +57,34 @@ const changePasswordFailure = function (error) {
   console.error('changePasswordFailure ran. Error is :', error)
 }
 
+// ~~~~~~~~~~~~~~~~~~~~~~~
+//   GAME API
+// ~~~~~~~~~~~~~~~~~~~~~~~
+
+const onSuccess = function (data) {
+  console.log('data is ', data)
+  if (!data) {
+    // console.warn('Either you deleted something, or something went wrong.')
+  } else if (data.game) {
+    console.log(data.game)
+  } else {
+    console.table(data.game)
+  }
+}
+
+const onError = function (response) {
+  console.error(response)
+}
+
+const onDeleteSuccess = function () {
+  console.log('Game was successfully deleted.')
+}
+
+const onUpdateSuccess = function () {
+  console.log('You successfully updated the game!')
+  $('#content').html('')
+}
+
 // ~~~~~~~~~~~~~~~~~~~~~~`
 // MODULE EXPORTS
 // ~~~~~~~~~~~~~~~~~~~~~~`
@@ -69,5 +97,9 @@ module.exports = {
   signOutSuccess,
   signOutFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  onSuccess,
+  onError,
+  onDeleteSuccess,
+  onUpdateSuccess
 }
