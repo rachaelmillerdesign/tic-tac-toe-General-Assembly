@@ -12,6 +12,7 @@ const signUpSuccess = function (data) {
   $('#sign-out').removeClass('hidden')
   $('#sign-up').addClass('hidden')
   $('#change-password').removeClass('hidden')
+  $('#sign-up')[0].reset()
   console.log('signUpSuccess ran. Data is :', data)
 }
 
@@ -24,7 +25,7 @@ const signUpFailure = function (error) {
 const signInSuccess = function (data) {
   $('#message').text('Signed in successfully')
   $('#message').css('background-color', 'green')
-  $('#square').removeClass('unclickable')
+  // $('#square').removeClass('unclickable')
   $('#game-new').removeClass('unclickable')
   $('#sign-out').removeClass('hidden')
   $('#sign-in').addClass('hidden')
@@ -43,6 +44,11 @@ const signInFailure = function (error) {
 const signOutSuccess = function () {
   $('#message').text('Signed out successfully')
   $('#message').css('background-color', 'green')
+  $('#sign-in').removeClass('hidden')
+  $('#sign-up').removeClass('hidden')
+  $('#sign-out').addClass('hidden')
+  $('#change-password').addClass('hidden')
+  $('#sign-up')[0].reset()
   console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
 }

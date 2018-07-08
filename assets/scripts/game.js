@@ -25,44 +25,6 @@ const alternateTurns = function () {
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~
-// CALL BACK / ADD CURRENT PLAYER X OR O
-// ~~~~~~~~~~~~~~~~~~~~~
-
-const onClickCallBack = function (e) {
-  // console.log($(this).id)
-  const cellid = parseInt($(this).id)
-  emptyBoard[cellid] = currentPlayer
-  win()
-  console.log(emptyBoard)
-  $(this).text(currentPlayer)
-  $(this).addClass('unclickable')
-  alternateTurns()
-  console.log(currentPlayer)
-}
-$('.square').on('click', onClickCallBack)
-
-// ~~~~~~~~~~~~~~~~~~~~~
-// EQUATE VALUES TO API REQUIRED
-// ~~~~~~~~~~~~~~~~~~~~~
-
-const gameValues = {
-  i: 0,
-  v: 0,
-  isOver: false
-}
-// $('.square').on('click', onClickCallBack)
-// const onClickCallBack = function (e) {
-//   // console.log(e.target.id)
-//   const cellid = parseInt(e.target.id)
-//   emptyBoard[cellid] = currentPlayer
-//   win()
-//   console.log(emptyBoard)
-//   $(this).text(currentPlayer)
-//   $(this).addClass('unclickable')
-//   alternateTurns()
-//   console.log(currentPlayer)
-// }
-// ~~~~~~~~~~~~~~~~~~~~~
 // WIN FUNCTION
 // ~~~~~~~~~~~~~~~~~~~~~
 
@@ -101,13 +63,47 @@ let win = function () {
 //     console.log('Play again?')
 //   }
 // }
+// ~~~~~~~~~~~~~~~~~~~~~
+// CALL BACK / ADD CURRENT PLAYER X OR O
+// ~~~~~~~~~~~~~~~~~~~~~
 
+const startGame = function (e) {
+  // console.log($(this).id)
+  const cellid = parseInt($(this).id)
+  emptyBoard[cellid] = currentPlayer
+  win()
+  console.log(emptyBoard)
+  $(this).text(currentPlayer)
+  $(this).addClass('unclickable')
+  alternateTurns()
+  console.log(currentPlayer)
+}
+$('.square').on('click', startGame)
+
+// ~~~~~~~~~~~~~~~~~~~~~
+// EQUATE VALUES TO API REQUIRED
+// ~~~~~~~~~~~~~~~~~~~~~
+
+const gameValues = {
+  i: 0,
+  v: 0,
+  isOver: false
+}
+// $('.square').on('click', startGame)
+// const startGame = function (e) {
+//   // console.log(e.target.id)
+//   const cellid = parseInt(e.target.id)
+//   emptyBoard[cellid] = currentPlayer
+//   win()
+//   console.log(emptyBoard)
+//   $(this).text(currentPlayer)
+//   $(this).addClass('unclickable')
+//   alternateTurns()
+//   console.log(currentPlayer)
+// }
 // ~~~~~~~~~~~~~~~~~~~~~
 // CREATE NEW GAME
 // ~~~~~~~~~~~~~~~~~~~~~
-
-const button = document.getElementById('game-new')
-button.addEventListener('click', emptySquares)
 
 function emptySquares () {
   const squares1 = document.getElementsByClassName('square')
@@ -117,18 +113,22 @@ function emptySquares () {
   }
 }
 
+const startGamebutton = function (e) {
+  document.getElementById('game-new')
+  'game-new'.addEventListener('click', emptySquares(), startGame())
+}
 // ~~~~~~~~~~~~~~~~~~~~
 //  CLEAR BOARD AFTER WIN/DRAW
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-function clearBoard () {
-  const squares1 = document.getElementsByClassName('square')
-  for (let p = 0; p < squares1.length; p++) {
-    squares1[p].innerHTML = ''
-    squares1[p].classList.remove('unclickable')
-  }
-  console.log('play again?')
-}
+// function clearBoard () {
+//   const squares1 = document.getElementsByClassName('square')
+//   for (let p = 0; p < squares1.length; p++) {
+//     squares1[p].innerHTML = ''
+//     squares1[p].classList.remove('unclickable')
+//   }
+//   console.log('play again?')
+// }
 // onWinOrDraw = function () {
 //   if (won === true || draw === true)
 //   'emptyBoard' = 'clearBoard'
@@ -153,7 +153,6 @@ const newGameButtonLockedAtStart = $('#game-new').addClass('unclickable')
 console.log('newGameButtonLockedAtStart')
 
 function unlockNewGameButton () {
-  // if signInSuccess then
   $('#game-new').classList.remove('unclickable')
 }
 // ~~~~~~~~~~~~~~~~~~~~~~`
@@ -161,11 +160,12 @@ function unlockNewGameButton () {
 // ~~~~~~~~~~~~~~~~~~~~~~`
 
 module.exports = {
-  clearBoard,
+  // clearBoard,
   win,
   won,
   boardLockedAtStart,
   newGameButtonLockedAtStart,
   unlockNewGameButton,
-  onClickCallBack
+  startGame,
+  startGamebutton
 }

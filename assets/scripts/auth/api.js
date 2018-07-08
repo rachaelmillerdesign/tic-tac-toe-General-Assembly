@@ -9,7 +9,7 @@ const store = require('../store')
 
 const signUp = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/sign-up',
+    url: config.apiUrls + '/sign-up',
     method: 'POST',
     data
     // data: data
@@ -18,7 +18,7 @@ const signUp = function (data) {
 
 const signIn = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/sign-in',
+    url: config.apiUrls + '/sign-in',
     method: 'POST',
     data
     // data: data
@@ -27,7 +27,7 @@ const signIn = function (data) {
 
 const signOut = function () {
   return $.ajax({
-    url: config.apiUrl + '/sign-out',
+    url: config.apiUrls + '/sign-out',
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -38,7 +38,7 @@ const signOut = function () {
 const changePassword = function (data) {
   console.log('data is ', data)
   return $.ajax({
-    url: config.apiUrl + '/change-password',
+    url: config.apiUrls + '/change-password',
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -54,21 +54,21 @@ const changePassword = function (data) {
 
 const index = function () {
   return $.ajax({
-    url: config.apiURL + '/games',
+    url: config.apiUrls + '/games',
     method: 'GET'
   })
 }
 
 const show = function (id) {
   return $.ajax({
-    url: config.apiURL + '/games/' + store.game.id,
+    url: config.apiUrls + '/games/' + store.game.id,
     method: 'GET'
   })
 }
 
 const update = function (data) {
   return $.ajax({
-    url: config.apiURL + '/games/' + store.game.id,
+    url: config.apiUrls + '/games/' + store.game.id,
     method: 'PATCH',
     data
   })
@@ -76,7 +76,8 @@ const update = function (data) {
 
 const createGame = function (data) {
   return $.ajax({
-    url: config.apiURL + '/games',
+    url: config.apiUrls + /games/,
+    // ${config.apiUrls}/games/`
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -88,10 +89,10 @@ const createGame = function (data) {
 // NEW FORMS
 // ~~~~~~~~~~~~~~~~~~~~~~
 
-const updateGame = function (data) {
+const updateGame = function (index, value, over) {
   return $.ajax({
-    url: config.apiURL + '/games/ :id',
     method: 'PATCH',
+    url: config.apiUrls + '/games/' + store.game.id,
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
@@ -110,7 +111,7 @@ const updateGame = function (data) {
 const getGames = function () {
   return $.ajax({
     method: 'GET',
-    url: config.apiUrl + '/games/',
+    url: config.apiUrls + '/games/:id',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }

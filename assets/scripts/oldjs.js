@@ -30,10 +30,10 @@ ____________________
   let gameBoard = ['', '', '', '', '', '', '', '', '']
 
   // I have tried to follow the correct syntax:
-  // onClickCallBack  emptyBoard.map(insert(currentValue[,index[,array]]))[]
+  // startGame  emptyBoard.map(insert(currentValue[,index[,array]]))[]
 
   function addClickToGameBoard () {
-    emptyBoard.splice(onClickCallBack(0, 1))
+    emptyBoard.splice(startGame(0, 1))
   }
   $('.emptyBoard').on(addClickToGameBoard)
 
@@ -56,7 +56,7 @@ ____________________
   // (currentPlayer => gameBoard)
   // $.data($('gameBoard').get(0), 'e.target.id', 'currentPlayer')
   // const pushMovesToBoard = function {
-  //  onClickCallBack('click')
+  //  startGame('click')
   //  currentPlayer(event.target.id) =
   //
 
@@ -79,7 +79,7 @@ ________________________
   //  console.log($(this).text(currentPlayer))
   //}
   //note: this below constructs the change player function
-  const onClickCallBack = function (e) {
+  const startGame = function (e) {
     // with e.target.id, find a way to strip out the letter
     // convert that string to an integer, and use it to
     // write to emptyBoard at that index with whoever
@@ -90,7 +90,7 @@ ________________________
     console.log(currentPlayer)
   }
 
-  $('.square').on('click', onClickCallBack)
+  $('.square').on('click', startGame)
 
   //$.each(['s0', 's1', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9'], function (i, l) {
     //console.log('Index #' + i + ':' + l)
@@ -100,13 +100,13 @@ let emptyBoard = ['', '', '', '', '', '', '', '', '']
 
 for ( i = 0; i < emptyBoard.length; i++ ) {
 //if click = '' then add x or o
-  onClickCallBack.id === null
+  startGame.id === null
   then null = currentPlayer
   //then e.target.id = currentPlayer
 
   this.emptyBoard = this.currentBoard
 
-// (emptyBoard.splice(onClickCallBack.currentBoard.id,1, )
+// (emptyBoard.splice(startGame.currentBoard.id,1, )
 // $('.emptyBoard').on('click', function () {
 // console.log('I am here!')
 // })
@@ -122,7 +122,7 @@ previously working:
 let emptyBoard = ['', '', '', '', '', '', '', '', '']
   let gameBoard = []
 
-  const onClickCallBack = function (e) {
+  const startGame = function (e) {
     event.preventDefault()
     emptyBoard.splice(e.target.id, 1, 'currentPlayer')
     // console.log(e.target.id)
@@ -132,7 +132,7 @@ let emptyBoard = ['', '', '', '', '', '', '', '', '']
   }
   emptyBoard = this.gameBoard
 
-  $('.square').on('click', onClickCallBack)
+  $('.square').on('click', startGame)
 
   console.log(gameBoard)
   console.log(emptyBoard)
