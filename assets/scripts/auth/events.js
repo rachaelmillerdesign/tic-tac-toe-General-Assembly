@@ -1,6 +1,7 @@
 'use strict'
 
 const getFormFields = require(`../../../lib/get-form-fields`)
+const game = require('../game.js')
 const api = require('./api')
 const ui = require('./ui')
 
@@ -46,45 +47,27 @@ const onChangePassword = function (event) {
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
+// ~~~~~~~~~~~~~~~~~~~~~~
+//  NEW GAME, UPDATE GAME, GAME STATS
+// ~~~~~~~~~~~~~~~~~~~~~~
+const onCreateGame = function (event) {
+  event.preventDefault()
+  // game.startGame()
+  console.log('onCreateGame ran!')
 
-// const onGetGames = function (event) {
-//   event.preventDefault()
-//   api.index()
-//     .then(gamesUi.onSuccess)
-//     .catch(gamesUi.onError)
-// }
-//
-// const onGetGame = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   const game = data.game
-//   if (game.id.length !== 0) {
-//     api.show(game.id)
-//       .then(gamesUi.onSuccess)
-//       .catch(gamesUi.onError)
-//   } else {
-//     console.log('Please provide a game id!')
-//   }
-// }
-//
-// const onUpdategame = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   const game = data.game
-//   if (game.title === '') {
-//     // alert('title required')
-//     $('#content').html('<p>Title is required</p>')
-//     $('#content').css('background-color', 'red')
-//     return false
-//   }
-//   if (game.id.length !== 0) {
-//     api.update(data)
-//       .then(gamesUi.onUpdateSuccess)
-//       .catch(gamesUi.onError)
-//   } else {
-//     console.log('Please provide a game id!')
-//   }
-// }
+  api.createGame()
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFailure)
+}
+
+const onGameInProgress = function (event) {
+  event.preventDefault()
+  const data = game.gameValues
+  api.gameInProgress(data.i, data.v, data.isOver)
+    .then(ui.gameInProgressSuccess)
+    .catch(ui.gameInProgressSuccess)
+}
+
 // ~~~~~~~~~~~~~~~~~~~~~~
 //  ADD HANDLERS
 // ~~~~~~~~~~~~~~~~~~~~~~
@@ -93,17 +76,19 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
+  $('#game-new').on('click', onCreateGame)
+  $('#game-progress').on('submit', onGameInProgress)
 }
 
-// ~~~~~~~~~~~~~~~~~~~~~
-// GET SCORES
-// ~~~~~~~~~~~~~~~~~~~~~
-
-const getScores = function (e) {
-  document.getElementById('getGames')
-  addEventListener('click', 'getGames')
-  console.log('getting games')
-}
+// // ~~~~~~~~~~~~~~~~~~~~~
+// // GET SCORES
+// // ~~~~~~~~~~~~~~~~~~~~~
+//
+// const getScores = function (e) {
+//   document.getElementById('getGames')
+//   addEventListener('click', 'getGames')
+//   console.log('getting games')
+// }
 
 // ~~~~~~~~~~~~~~~~~~~~~~`
 // MODULE EXPORTS
@@ -111,7 +96,4 @@ const getScores = function (e) {
 
 module.exports = {
   addHandlers
-  // onGetGames,
-  // onGetGame,
-  // onUpdateGame
 }

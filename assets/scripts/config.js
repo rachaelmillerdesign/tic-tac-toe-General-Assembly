@@ -13,7 +13,7 @@ const apiUrls = {
 }
 
 // const config = {
-//   apiOrigins: {
+//   apiURLs: {
 //     development: 'https://wdi-library-api.herokuapp.com',
 //     production: 'https://wdi-library-api.herokuapp.com'
 //   }

@@ -54,62 +54,54 @@ const changePassword = function (data) {
 
 const index = function () {
   return $.ajax({
-    url: config.apiOrigin + '/games',
+    url: config.apiURL + '/games',
     method: 'GET'
   })
 }
 
 const show = function (id) {
   return $.ajax({
-    url: config.apiOrigin + '/games/' + store.game.id,
+    url: config.apiURL + '/games/' + store.game.id,
     method: 'GET'
   })
 }
 
 const update = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/games/' + store.game.id,
+    url: config.apiURL + '/games/' + store.game.id,
     method: 'PATCH',
     data
   })
 }
 
-const create = function (data) {
+const createGame = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/games',
+    url: config.apiURL + '/games',
     method: 'POST',
-    data
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
   })
 }
 // ~~~~~~~~~~~~~~~~~~~~~~
 // NEW FORMS
 // ~~~~~~~~~~~~~~~~~~~~~~
 
-const createGame = function (data) {
+const gameInProgress = function (data) {
   return $.ajax({
-    url: config.apiOrigin + '/games',
-    method: 'POST',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data
-  })
-}
-
-const updateGame = function (index, value, over) {
-  return $.ajax({
+    url: config.apiURL + '/games/ :id',
     method: 'PATCH',
-    url: config.apiUrl + '/games/' + store.game.id,
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
     data: {
       'game': {
         'cell': {
-          'index': 0,
-          'value': 'x'
+          'index': index,
+          'value': value
         },
-        'over': false
+        'over': over
       }
     }
   })
@@ -137,8 +129,7 @@ module.exports = {
   index,
   show,
   update,
-  create,
-  updateGame,
-  createGame,
-  getGames
+  getGames,
+  gameInProgress,
+  createGame
 }

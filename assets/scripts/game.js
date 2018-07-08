@@ -1,3 +1,4 @@
+const events = require('./auth/events')
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // VARIABLES & CONSTANTS
@@ -29,11 +30,11 @@ const onClickCallBack = function (e) {
   const cellid = parseInt(e.target.id)
   emptyBoard[cellid] = currentPlayer
   win()
-  // console.log(emptyBoard)
+  console.log(emptyBoard)
   $(this).text(currentPlayer)
   $(this).addClass('unclickable')
   alternateTurns()
-  // console.log(currentPlayer)
+  console.log(currentPlayer)
 }
 
 $('.square').on('click', onClickCallBack)
@@ -54,6 +55,7 @@ let win = function () {
     }
     if (won === true) {
       console.log(currentPlayer + ' has won!')
+      $('.square').addClass('unclickable')
       break
     }
   }
@@ -66,6 +68,7 @@ let win = function () {
     }
     if (draw === true) {
       console.log("It's a tie!")
+      $('.square').addClass('unclickable')
     }
   }
 }
@@ -80,8 +83,8 @@ let win = function () {
 // CREATE NEW GAME
 // ~~~~~~~~~~~~~~~~~~~~~
 
-const button = document.getElementById('new')
-button.addEventListener('click', emptySquares)
+const button = document.getElementById('game-new')
+button.addEventListener('click', emptySquares, events.onCreateGame)
 
 function emptySquares () {
   const squares1 = document.getElementsByClassName('square')
@@ -89,13 +92,8 @@ function emptySquares () {
     squares1[m].innerHTML = ''
     squares1[m].classList.remove('unclickable')
   }
-  console.log('start new game!')
 }
 
-// const onSignIn = function(e) {
-//   if ($(event.target).data('clicked') === true) {
-//   }
-// }
 // ~~~~~~~~~~~~~~~~~~~~
 //  CLEAR BOARD AFTER WIN/DRAW
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -120,22 +118,21 @@ function clearBoard () {
 const boardLockedAtStart = $('.square').addClass('unclickable')
 console.log('boardLockedAtStart')
 
-function unlockBoard () {
-  const squares1 = document.getElementsByClassName('square')
-  for (let m = 0; m < squares1.length; m++) {
-    squares1[m].classList.remove('unclickable')
-  }
-  console.log('start new game!')
-}
+// function unlockBoard () {
+//   const squares1 = document.getElementsByClassName('square')
+//   for (let m = 0; m < squares1.length; m++) {
+//     squares1[m].classList.remove('unclickable')
+//   }
+//   console.log('start new game!')
+// }
 
-const newGameButtonLockedAtStart = $('#new').addClass('unclickable')
+const newGameButtonLockedAtStart = $('#game-new').addClass('unclickable')
 console.log('newGameButtonLockedAtStart')
 
 function unlockNewGameButton () {
   // if signInSuccess then
-  $('#new').classList.remove('unclickable')
+  $('#game-new').classList.remove('unclickable')
 }
-
 // ~~~~~~~~~~~~~~~~~~~~~~`
 // MODULE EXPORTS
 // ~~~~~~~~~~~~~~~~~~~~~~`
@@ -144,7 +141,6 @@ module.exports = {
   clearBoard,
   win,
   won,
-  unlockBoard,
   boardLockedAtStart,
   newGameButtonLockedAtStart,
   unlockNewGameButton

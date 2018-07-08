@@ -8,7 +8,7 @@ const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
   $('#message').css('background-color', 'green')
   // $('#square').removeClass('unclickable')
-  $('#new').removeClass('unclickable')
+  $('#game-new').removeClass('unclickable')
   $('#sign-out').removeClass('hidden')
   $('#sign-up').addClass('hidden')
   $('#change-password').removeClass('hidden')
@@ -25,7 +25,7 @@ const signInSuccess = function (data) {
   $('#message').text('Signed in successfully')
   $('#message').css('background-color', 'green')
   $('#square').removeClass('unclickable')
-  $('#new').removeClass('unclickable')
+  $('#game-new').removeClass('unclickable')
   $('#sign-out').removeClass('hidden')
   $('#sign-in').addClass('hidden')
   $('#sign-up').addClass('hidden')
@@ -64,33 +64,15 @@ const changePasswordFailure = function (error) {
   $('#message').css('background-color', 'red')
   console.error('changePasswordFailure ran. Error is :', error)
 }
-
-// ~~~~~~~~~~~~~~~~~~~~~~~
-//   GAME API
-// ~~~~~~~~~~~~~~~~~~~~~~~
-
-const onSuccess = function (data) {
-  console.log('data is ', data)
-  if (!data) {
-    // console.warn('Either you deleted something, or something went wrong.')
-  } else if (data.game) {
-    console.log(data.game)
-  } else {
-    console.table(data.game)
-  }
+const createGameSuccess = function () {
+  $('#message').text('New game created successfully')
+  $('#message').css('background-color', 'green')
+  console.log('newGameSuccess ran and nothing was returned!')
 }
-
-const onError = function (response) {
-  console.error(response)
-}
-
-const onDeleteSuccess = function () {
-  console.log('Game was successfully deleted.')
-}
-
-const onUpdateSuccess = function () {
-  console.log('You successfully updated the game!')
-  $('#content').html('')
+const createGameFailure = function (error) {
+  $('#message').text('Error on create new game')
+  $('#message').css('background-color', 'red')
+  console.error('newGameFailure ran. Error is :', error)
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~`
@@ -106,8 +88,6 @@ module.exports = {
   signOutFailure,
   changePasswordSuccess,
   changePasswordFailure,
-  onSuccess,
-  onError,
-  onDeleteSuccess,
-  onUpdateSuccess
+  createGameSuccess,
+  createGameFailure
 }
