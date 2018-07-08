@@ -88,7 +88,7 @@ const createGame = function (data) {
 // NEW FORMS
 // ~~~~~~~~~~~~~~~~~~~~~~
 
-const gameInProgress = function (data) {
+const updateGame = function (data) {
   return $.ajax({
     url: config.apiURL + '/games/ :id',
     method: 'PATCH',
@@ -130,6 +130,6 @@ module.exports = {
   show,
   update,
   getGames,
-  gameInProgress,
+  updateGame,
   createGame
 }

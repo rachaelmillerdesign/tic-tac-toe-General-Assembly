@@ -74,10 +74,20 @@ const createGameFailure = function (error) {
   $('#message').css('background-color', 'red')
   console.error('newGameFailure ran. Error is :', error)
 }
+const updateGameSuccess = function () {
+  $('#message').text('New game created successfully')
+  $('#message').css('background-color', 'green')
+  console.log('newGameSuccess ran and nothing was returned!')
+}
+const updateGameFailure = function (error) {
+  $('#message').text('Error on create new game')
+  $('#message').css('background-color', 'red')
+  console.error('newGameFailure ran. Error is :', error)
+}
 
-// ~~~~~~~~~~~~~~~~~~~~~~`
+// ~~~~~~~~~~~~~~~~~~~~~~
 // MODULE EXPORTS
-// ~~~~~~~~~~~~~~~~~~~~~~`
+// ~~~~~~~~~~~~~~~~~~~~~~
 
 module.exports = {
   signUpSuccess,
@@ -89,5 +99,7 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   createGameSuccess,
-  createGameFailure
+  createGameFailure,
+  updateGameSuccess,
+  updateGameFailure
 }

@@ -18,6 +18,6 @@ $(() => {
   // $('#games-search').on('submit', gameEvents.onGetGames)
   // $('#game-search').on('submit', gameEvents.onGetGame)
   // $('#game-update').on('submit', gameEvents.onUpdateGame)
-  // $('#game-create').on('submit', gameEvents.onGameInProgress)
+  // $('#game-create').on('submit', gameEvents.onupdateGame)
   // $('#game-new').on('submit', gameEvents.onCreateGame)
 })

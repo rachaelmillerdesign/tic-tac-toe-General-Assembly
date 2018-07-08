@@ -1,4 +1,4 @@
-const events = require('./auth/events')
+const api = require('./auth/api')
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // VARIABLES & CONSTANTS
@@ -7,6 +7,7 @@ let currentPlayer = 'x'
 let emptyBoard = ['', '', '', '', '', '', '', '', '']
 let i
 let j
+let q
 let currentWin
 let won
 let draw
@@ -22,12 +23,14 @@ const alternateTurns = function () {
     currentPlayer = 'x'
   }
 }
+
 // ~~~~~~~~~~~~~~~~~~~~~
 // CALL BACK / ADD CURRENT PLAYER X OR O
 // ~~~~~~~~~~~~~~~~~~~~~
+
 const onClickCallBack = function (e) {
-  // console.log(e.target.id)
-  const cellid = parseInt(e.target.id)
+  // console.log($(this).id)
+  const cellid = parseInt($(this).id)
   emptyBoard[cellid] = currentPlayer
   win()
   console.log(emptyBoard)
@@ -36,16 +39,36 @@ const onClickCallBack = function (e) {
   alternateTurns()
   console.log(currentPlayer)
 }
-
 $('.square').on('click', onClickCallBack)
 
+// ~~~~~~~~~~~~~~~~~~~~~
+// EQUATE VALUES TO API REQUIRED
+// ~~~~~~~~~~~~~~~~~~~~~
+
+const gameValues = {
+  i: 0,
+  v: 0,
+  isOver: false
+}
+// $('.square').on('click', onClickCallBack)
+// const onClickCallBack = function (e) {
+//   // console.log(e.target.id)
+//   const cellid = parseInt(e.target.id)
+//   emptyBoard[cellid] = currentPlayer
+//   win()
+//   console.log(emptyBoard)
+//   $(this).text(currentPlayer)
+//   $(this).addClass('unclickable')
+//   alternateTurns()
+//   console.log(currentPlayer)
+// }
 // ~~~~~~~~~~~~~~~~~~~~~
 // WIN FUNCTION
 // ~~~~~~~~~~~~~~~~~~~~~
 
 let win = function () {
-  for (i = 0; i < possibleWins.length; i++) {
-    currentWin = possibleWins[i]
+  for (q = 0; q < possibleWins.length; q++) {
+    currentWin = possibleWins[q]
     // console.log('For' + currentPlayer + 'currentWin: ' + currentWin)
     won = true
     for (j = 0; j < currentWin.length; j++) {
@@ -84,7 +107,7 @@ let win = function () {
 // ~~~~~~~~~~~~~~~~~~~~~
 
 const button = document.getElementById('game-new')
-button.addEventListener('click', emptySquares, events.onCreateGame)
+button.addEventListener('click', emptySquares)
 
 function emptySquares () {
   const squares1 = document.getElementsByClassName('square')
@@ -143,5 +166,6 @@ module.exports = {
   won,
   boardLockedAtStart,
   newGameButtonLockedAtStart,
-  unlockNewGameButton
+  unlockNewGameButton,
+  onClickCallBack
 }

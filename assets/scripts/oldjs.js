@@ -50,7 +50,7 @@ ____________________
   // console.log(gameBoard)
   // }
   // var gameBoard = arr.map(function onClickBoard(currentValue[,index[,array]]))[]
-  // const boardGameInProgress = function {
+  // const boardupdateGame = function {
   // }
 
   // (currentPlayer => gameBoard)
