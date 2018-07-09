@@ -1,8 +1,11 @@
 const api = require('./auth/api')
+const store = require('./store.js')
+const gameEvents = require('./auth/events')
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // VARIABLES & CONSTANTS
 // ~~~~~~~~~~~~~~~~~~~~~
+
 let currentPlayer = 'x'
 let emptyBoard = ['', '', '', '', '', '', '', '', '']
 let i
@@ -28,7 +31,7 @@ const alternateTurns = function () {
 // WIN FUNCTION
 // ~~~~~~~~~~~~~~~~~~~~~
 
-let win = function () {
+const isGameOver = function () {
   for (q = 0; q < possibleWins.length; q++) {
     currentWin = possibleWins[q]
     // console.log('For' + currentPlayer + 'currentWin: ' + currentWin)
@@ -40,8 +43,8 @@ let win = function () {
     }
     if (won === true) {
       console.log(currentPlayer + ' has won!')
-      $('.square').addClass('unclickable')
-      break
+      // $('.square').addClass('unclickable')
+      return true
     }
   }
   if (won === false) {
@@ -53,7 +56,11 @@ let win = function () {
     }
     if (draw === true) {
       console.log("It's a tie!")
-      $('.square').addClass('unclickable')
+      // $('.square').addClass('unclickable')
+      return true
+    }
+    else {
+      return false
     }
   }
 }
@@ -66,57 +73,56 @@ let win = function () {
 // ~~~~~~~~~~~~~~~~~~~~~
 // CALL BACK / ADD CURRENT PLAYER X OR O
 // ~~~~~~~~~~~~~~~~~~~~~
+// let value
+// let index
+// const currentBoard = (api.game)
+// const over = $(this).win
+//
+// const startGame = function (event) {
+//   $('.square').on('click', startGame)
+//   // console.log($(this).id)
+//   $(this).onclick = (api.index, api.value)
+//   $(this).index = parseInt
+//   $(this).text(currentPlayer)
+//   $(this).currentPlayer = api.value
+//   $(this).emptyBoard = $(this).currentBoard
+//   console.log('this works')
+//   // $(this).addClass('unclickable')
+//   win()
+//   alternateTurns()
+//   console.log(currentPlayer)
+//   api.updateGame(index, value)
+// }
 
-const startGame = function (e) {
-  // console.log($(this).id)
-  const cellid = parseInt($(this).id)
-  emptyBoard[cellid] = currentPlayer
-  win()
-  console.log(emptyBoard)
-  $(this).text(currentPlayer)
-  $(this).addClass('unclickable')
-  alternateTurns()
-  console.log(currentPlayer)
-}
-$('.square').on('click', startGame)
-
+// parseInt($(this).id)
 // ~~~~~~~~~~~~~~~~~~~~~
 // EQUATE VALUES TO API REQUIRED
 // ~~~~~~~~~~~~~~~~~~~~~
 
-const gameValues = {
-  i: 0,
-  v: 0,
-  isOver: false
+const onClickCallback = function (e) {
+  console.log(e.target.id)
+  const cellid = parseInt(e.target.id)
+  emptyBoard[cellid] = currentPlayer
+  const gameOver = isGameOver()
+  console.log(emptyBoard)
+  $(this).text(currentPlayer)
+  $(this).addClass('unclickable')
+  gameEvents.onUpdateGame(cellid, currentPlayer, gameOver)
+  alternateTurns()
+  console.log(currentPlayer)
 }
-// $('.square').on('click', startGame)
-// const startGame = function (e) {
-//   // console.log(e.target.id)
-//   const cellid = parseInt(e.target.id)
-//   emptyBoard[cellid] = currentPlayer
-//   win()
-//   console.log(emptyBoard)
-//   $(this).text(currentPlayer)
-//   $(this).addClass('unclickable')
-//   alternateTurns()
-//   console.log(currentPlayer)
-// }
 // ~~~~~~~~~~~~~~~~~~~~~
 // CREATE NEW GAME
 // ~~~~~~~~~~~~~~~~~~~~~
 
 function emptySquares () {
-  const squares1 = document.getElementsByClassName('square')
-  for (let m = 0; m < squares1.length; m++) {
-    squares1[m].innerHTML = ''
-    squares1[m].classList.remove('unclickable')
+  const square = $('.square')
+  for (let m = 0; m < square.length; m++) {
+    square[m].innerHTML = ''
+    // square[m].classList.remove('unclickable')
   }
 }
 
-const startGamebutton = function (e) {
-  document.getElementById('game-new')
-  'game-new'.addEventListener('click', emptySquares(), startGame())
-}
 // ~~~~~~~~~~~~~~~~~~~~
 //  CLEAR BOARD AFTER WIN/DRAW
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -155,17 +161,31 @@ console.log('newGameButtonLockedAtStart')
 function unlockNewGameButton () {
   $('#game-new').classList.remove('unclickable')
 }
+
+function unlockBoard () {
+  $('.square').removeClass('unclickable')
+}
+
+const startGamebutton = function (event) {
+  // document.getElementById('game-new')
+  $('#game-new').on('click', function () {
+    emptySquares()
+    // startGame()
+    unlockBoard()
+  }
+  )
+}
 // ~~~~~~~~~~~~~~~~~~~~~~`
 // MODULE EXPORTS
 // ~~~~~~~~~~~~~~~~~~~~~~`
 
 module.exports = {
   // clearBoard,
-  win,
-  won,
-  boardLockedAtStart,
+  // boardLockedAtStart,
   newGameButtonLockedAtStart,
   unlockNewGameButton,
-  startGame,
-  startGamebutton
+  onClickCallback,
+  startGamebutton,
+  unlockBoard,
+  emptySquares
 }

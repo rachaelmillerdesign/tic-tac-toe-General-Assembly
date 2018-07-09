@@ -76,32 +76,32 @@ const index = function () {
 
 const createGame = function (data) {
   return $.ajax({
-    url: config.apiUrl + /games/,
+    url: config.apiUrl + '/games',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: data
+    data: {}
   })
 }
 // ~~~~~~~~~~~~~~~~~~~~~~
 // NEW FORMS
 // ~~~~~~~~~~~~~~~~~~~~~~
 
-const updateGame = function (index, value, over) {
+const updateGame = function (cellid, currentPlayer, gameOver) {
   return $.ajax({
+    url: config.apiUrl + '/games/',
     method: 'PATCH',
-    url: config.apiUrl + '/games/' + store.game.id,
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
     data: {
       'game': {
         'cell': {
-          'index': index,
-          'value': value
+          'index': cellid,
+          'value': currentPlayer
         },
-        'over': over
+        'over': gameOver
       }
     }
   })

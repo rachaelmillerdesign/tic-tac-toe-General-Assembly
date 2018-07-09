@@ -52,7 +52,7 @@ const onChangePassword = function (event) {
 // ~~~~~~~~~~~~~~~~~~~~~~
 const onCreateGame = function (event) {
   event.preventDefault()
-  game.startGame()
+  // game.startGame()
   console.log('onCreateGame ran!')
 
   api.createGame()
@@ -60,11 +60,9 @@ const onCreateGame = function (event) {
     .catch(ui.createGameFailure)
 }
 
-const onupdateGame = function (event) {
+const onUpdateGame = function (cellid, currentPlayer, gameOver) {
   event.preventDefault()
-  const data = game.gameValues
-  const gameValues = (data.i, data.v, data.isOver)
-  api.updateGame(gameValues)
+  api.updateGame(cellid, currentPlayer, gameOver)
     .then(ui.updateGameSuccess)
     .catch(ui.updateGameSuccess)
 }
@@ -78,7 +76,8 @@ const addHandlers = () => {
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#game-new').on('click', onCreateGame)
-  $('#game-progress').on('submit', onupdateGame)
+  // $('#game-progress').on('submit', onupdateGame)
+  $('.square').on('click', game.onClickCallback)
 }
 
 // // ~~~~~~~~~~~~~~~~~~~~~
@@ -96,5 +95,6 @@ const addHandlers = () => {
 // ~~~~~~~~~~~~~~~~~~~~~~`
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onUpdateGame
 }
