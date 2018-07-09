@@ -42,7 +42,7 @@ const onChangePassword = function (event) {
   event.preventDefault()
   console.log('change password ran!')
 
-const data = getFormFields(this)
+  const data = getFormFields(this)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
@@ -52,7 +52,7 @@ const data = getFormFields(this)
 // ~~~~~~~~~~~~~~~~~~~~~~
 const onCreateGame = function (event) {
   event.preventDefault()
-  game.startGame
+  game.startGame()
   console.log('onCreateGame ran!')
 
   api.createGame()
@@ -63,7 +63,8 @@ const onCreateGame = function (event) {
 const onupdateGame = function (event) {
   event.preventDefault()
   const data = game.gameValues
-  api.updateGame(data.i, data.v, data.isOver)
+  const gameValues = (data.i, data.v, data.isOver)
+  api.updateGame(gameValues)
     .then(ui.updateGameSuccess)
     .catch(ui.updateGameSuccess)
 }

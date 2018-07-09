@@ -1,7 +1,6 @@
 'use strict'
-
-let apiUrls
-const apiUrlss = {
+let apiUrl
+const apiUrls = {
   // production: 'https://aqueous-atoll-85096.herokuapp.com',
   // development: 'http://localhost:4741'
   // development: 'http://tic-tac-toe.wdibos.com'
@@ -10,13 +9,13 @@ const apiUrlss = {
 }
 
 if (window.location.hostname === 'localhost') {
-  apiUrls = apiUrlss.development
+  apiUrl = apiUrls.development
 } else {
-  apiUrls = apiUrlss.production
+  apiUrl = apiUrls.production
 }
 
 module.exports = {
-  apiUrls
+  apiUrl
 }
 
 // 'use strict'

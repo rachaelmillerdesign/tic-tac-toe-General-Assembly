@@ -31,6 +31,7 @@ const signInSuccess = function (data) {
   $('#sign-in').addClass('hidden')
   $('#sign-up').addClass('hidden')
   $('#change-password').removeClass('hidden')
+  game.startGamebutton()
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 }
