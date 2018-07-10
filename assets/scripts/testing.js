@@ -1,5 +1,5 @@
 
-if cellid === text then no onClickCallBack
+if i === text then no startGame
 
 function checkIfPlayed() {
   if (array[index] != null)

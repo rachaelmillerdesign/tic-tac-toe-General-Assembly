@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -15,7 +14,63 @@
   }
   </style>
 </head>
-<body>
+<body class="container-fluid">
+
+<!--SIGN IN SIGN UP FORMS-->
+
+<p id="message"></p>
+
+      <form id="sign-up" class="border">
+        <fieldset>
+          <legend>Sign up!</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <input type="submit" value="Sign up!">
+        </fieldset>
+      </form>
+
+      <form id="sign-in" class="border">
+        <fieldset>
+          <legend>Sign in!</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="submit" value="Sign in!">
+        </fieldset>
+      </form>
+
+      <form id="sign-out" class="hidden border">
+        <fieldset>
+          <legend>Sign Out!</legend>
+          <input type="submit" value="Sign out!">
+        </fieldset>
+      </form>
+
+      <form id="change-password" class="hidden border">
+        <fieldset>
+          <legend>Change Password!</legend>
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
+          <input type="submit" value="Change Password!">
+        </fieldset>
+      </form>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~
+NEW FORMS
+~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- GET GAME RESULTS -->
+
+      <form id="getGames" class="hidden" class="border">
+        <fieldset>
+          <legend>Game Statistics</legend>
+          <input type="submit" value="Get Games!">
+        </fieldset>
+      </form>
+
+<!-- RETRIEVE AND UPDATE INCOMPLETE GAME -->
+
+<!-- TIC TAC TOE BOARD -->
+
   <h1>TIC TAC TOE</h1>
     <div id="emptyBoard" class="container">
       <div id="0" class="square"></div>
@@ -28,5 +83,17 @@
       <div id="7" class="square"></div>
       <div id="8" class="square"></div>
     </div>
-</body>
+
+<ul class='nav'>
+  <li><a id='game-new'>NEW GAME</a></li>
+  <li><a id='win-draw'></a></li>
+  <!-- <li><a id='getGames'>GET SCORES</a></li> -->
+  <li><a id='quit'>QUIT</a></li>
+</ul>
+
+<!-- add to store cell index for api? -->
+<!-- <div data-cell-index='0'>
+</div> -->
+
+  </body>
 </html>
