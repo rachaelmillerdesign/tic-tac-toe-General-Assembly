@@ -1,6 +1,7 @@
 const api = require('./auth/api')
 const store = require('./store.js')
-const gameEvents = require('./auth/events')
+// do not require gameEvents -- circular dependency
+// const gameEvents = require('./auth/events')
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // VARIABLES & CONSTANTS
@@ -16,47 +17,52 @@ let won
 let draw
 const possibleWins = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [6, 4, 2]]
 
+const gameLogic = {
+  currentPlayer,
+  emptyBoard
+}
 // ~~~~~~~~~~~~~~~~~~~~~
 // ALTERNATE TURNS
 // ~~~~~~~~~~~~~~~~~~~~~
-const alternateTurns = function () {
-  if (currentPlayer === 'x') {
-    currentPlayer = 'o'
+const alternateTurns = function (current) {
+  if (current === 'x') {
+    current = 'o'
   } else {
-    currentPlayer = 'x'
+    current = 'x'
   }
+  return current
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // WIN FUNCTION
 // ~~~~~~~~~~~~~~~~~~~~~
 
-const isGameOver = function () {
+const isGameOver = function (current, board) {
   for (q = 0; q < possibleWins.length; q++) {
     currentWin = possibleWins[q]
     // console.log('For' + currentPlayer + 'currentWin: ' + currentWin)
     won = true
     for (j = 0; j < currentWin.length; j++) {
-      if (emptyBoard[currentWin[j]] !== currentPlayer) {
+      if (board[currentWin[j]] !== current) {
         won = false
       }
     }
     if (won === true) {
-      console.log(currentPlayer + ' has won!')
-      // $('.square').addClass('unclickable')
+      // console.log(current + ' has won!')
+      $('.square').addClass('unclickable')
       return true
     }
   }
   if (won === false) {
     draw = true
-    for (i = 0; i < emptyBoard.length; i++) {
-      if (emptyBoard[i] === '') {
+    for (i = 0; i < board.length; i++) {
+      if (board[i] === '') {
         draw = false
       }
     }
     if (draw === true) {
-      console.log("It's a tie!")
-      // $('.square').addClass('unclickable')
+      // console.log("It's a tie!")
+      $('.square').addClass('unclickable')
       return true
     }
     else {
@@ -99,18 +105,6 @@ const isGameOver = function () {
 // EQUATE VALUES TO API REQUIRED
 // ~~~~~~~~~~~~~~~~~~~~~
 
-const onClickCallback = function (e) {
-  console.log(e.target.id)
-  const cellid = parseInt(e.target.id)
-  emptyBoard[cellid] = currentPlayer
-  const gameOver = isGameOver()
-  console.log(emptyBoard)
-  $(this).text(currentPlayer)
-  $(this).addClass('unclickable')
-  gameEvents.onUpdateGame(cellid, currentPlayer, gameOver)
-  alternateTurns()
-  console.log(currentPlayer)
-}
 // ~~~~~~~~~~~~~~~~~~~~~
 // CREATE NEW GAME
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -145,18 +139,10 @@ function emptySquares () {
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 const boardLockedAtStart = $('.square').addClass('unclickable')
-console.log('boardLockedAtStart')
-
-// function unlockBoard () {
-//   const squares1 = document.getElementsByClassName('square')
-//   for (let m = 0; m < squares1.length; m++) {
-//     squares1[m].classList.remove('unclickable')
-//   }
-//   console.log('start new game!')
-// }
+// console.log('boardLockedAtStart')
 
 const newGameButtonLockedAtStart = $('#game-new').addClass('unclickable')
-console.log('newGameButtonLockedAtStart')
+// console.log('newGameButtonLockedAtStart')
 
 function unlockNewGameButton () {
   $('#game-new').classList.remove('unclickable')
@@ -180,11 +166,11 @@ const startGamebutton = function (event) {
 // ~~~~~~~~~~~~~~~~~~~~~~`
 
 module.exports = {
-  // clearBoard,
-  // boardLockedAtStart,
+  alternateTurns,
+  gameLogic,
+  isGameOver,
   newGameButtonLockedAtStart,
   unlockNewGameButton,
-  onClickCallback,
   startGamebutton,
   unlockBoard,
   emptySquares

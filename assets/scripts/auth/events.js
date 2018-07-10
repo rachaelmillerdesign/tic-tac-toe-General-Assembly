@@ -11,7 +11,7 @@ const ui = require('./ui')
 
 const onSignUp = function (event) {
   event.preventDefault()
-  console.log('sign up ran!')
+  // console.log('sign up ran!')
 
   const data = getFormFields(this)
   api.signUp(data)
@@ -21,7 +21,7 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('sign in ran!')
+  // console.log('sign in ran!')
 
   const data = getFormFields(this)
   api.signIn(data)
@@ -31,7 +31,7 @@ const onSignIn = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  console.log('sign out ran')
+  // console.log('sign out ran')
 
   api.signOut()
     .then(ui.signOutSuccess)
@@ -40,7 +40,7 @@ const onSignOut = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  console.log('change password ran!')
+  // console.log('change password ran!')
 
   const data = getFormFields(this)
   api.changePassword(data)
@@ -52,8 +52,7 @@ const onChangePassword = function (event) {
 // ~~~~~~~~~~~~~~~~~~~~~~
 const onCreateGame = function (event) {
   event.preventDefault()
-  // game.startGame()
-  console.log('onCreateGame ran!')
+  // console.log('onCreateGame ran!')
 
   api.createGame()
     .then(ui.createGameSuccess)
@@ -70,14 +69,27 @@ const onUpdateGame = function (cellid, currentPlayer, gameOver) {
 // ~~~~~~~~~~~~~~~~~~~~~~
 //  ADD HANDLERS
 // ~~~~~~~~~~~~~~~~~~~~~~
+const onClickCallback = function (e) {
+  // console.log(e.target.id)
+  const cellid = parseInt(e.target.id)
+  game.gameLogic.emptyBoard[cellid] = game.gameLogic.currentPlayer
+  const gameOver = game.isGameOver(game.gameLogic.currentPlayer, game.gameLogic.emptyBoard)
+  // console.log(game.gameLogic.emptyBoard)
+  $(this).text(game.gameLogic.currentPlayer)
+  $(this).addClass('unclickable')
+  onUpdateGame(cellid, game.gameLogic.currentPlayer, gameOver)
+  // debugger
+  game.gameLogic.currentPlayer = game.alternateTurns(game.gameLogic.currentPlayer)
+  // console.log(game.gameLogic.currentPlayer)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#game-new').on('click', onCreateGame)
-  // $('#game-progress').on('submit', onupdateGame)
-  $('.square').on('click', game.onClickCallback)
+  $('.square').on('click', onClickCallback)
 }
 
 // // ~~~~~~~~~~~~~~~~~~~~~

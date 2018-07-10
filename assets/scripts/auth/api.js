@@ -12,7 +12,6 @@ const signUp = function (data) {
     url: config.apiUrl + '/sign-up',
     method: 'POST',
     data
-    // data: data
   })
 }
 
@@ -21,7 +20,6 @@ const signIn = function (data) {
     url: config.apiUrl + '/sign-in',
     method: 'POST',
     data
-    // data: data
   })
 }
 
@@ -36,7 +34,7 @@ const signOut = function () {
 }
 
 const changePassword = function (data) {
-  console.log('data is ', data)
+  // console.log('data is ', data)
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -44,7 +42,6 @@ const changePassword = function (data) {
       Authorization: 'Token token=' + store.user.token
     },
     data
-    // data: data
   })
 }
 
@@ -66,14 +63,6 @@ const index = function () {
 //   })
 // }
 
-// const update = function (data) {
-//   return $.ajax({
-//     url: config.apiUrls + '/games/' + store.game.id,
-//     method: 'PATCH',
-//     data
-//   })
-// }
-
 const createGame = function (data) {
   return $.ajax({
     url: config.apiUrl + '/games',
@@ -90,7 +79,7 @@ const createGame = function (data) {
 
 const updateGame = function (cellid, currentPlayer, gameOver) {
   return $.ajax({
-    url: config.apiUrl + '/games/',
+    url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -127,7 +116,6 @@ module.exports = {
   signOut,
   changePassword,
   index,
-  // show,
   getGames,
   updateGame,
   createGame

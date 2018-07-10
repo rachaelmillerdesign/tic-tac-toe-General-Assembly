@@ -42,7 +42,7 @@ ____________________
     event.preventDefault()
   }
   // return element to new array
-  console.log(gameBoard)
+  // console.log(gameBoard)
   // console.log(emptyBoard)
 
 // const gameBoard = function () {

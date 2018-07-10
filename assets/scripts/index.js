@@ -11,7 +11,6 @@
 // ~~~~~~~~~~~~~~~~~~~~~
 
 const authEvents = require('./auth/events.js')
-// const gameEvents = require('./auth/events.js')
 
 $(() => {
   authEvents.addHandlers()

@@ -7,13 +7,12 @@ const game = require('../game')
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
   $('#message').css('background-color', 'green')
-  // $('#square').removeClass('unclickable')
   $('#game-new').removeClass('unclickable')
   $('#sign-out').removeClass('hidden')
   $('#sign-up').addClass('hidden')
   $('#change-password').removeClass('hidden')
   $('#sign-up')[0].reset()
-  console.log('signUpSuccess ran. Data is :', data)
+  // console.log('signUpSuccess ran. Data is :', data)
 }
 
 const signUpFailure = function (error) {
@@ -25,14 +24,13 @@ const signUpFailure = function (error) {
 const signInSuccess = function (data) {
   $('#message').text('Signed in successfully')
   $('#message').css('background-color', 'green')
-  // $('#square').removeClass('unclickable')
   $('#game-new').removeClass('unclickable')
   $('#sign-out').removeClass('hidden')
   $('#sign-in').addClass('hidden')
   $('#sign-up').addClass('hidden')
   $('#change-password').removeClass('hidden')
   game.startGamebutton()
-  console.log('signInSuccess ran. Data is :', data)
+  // console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 }
 
@@ -50,7 +48,7 @@ const signOutSuccess = function () {
   $('#sign-out').addClass('hidden')
   $('#change-password').addClass('hidden')
   $('#sign-up')[0].reset()
-  console.log('signOutSuccess ran and nothing was returned!')
+  // console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
 }
 
@@ -63,7 +61,7 @@ const signOutFailure = function (error) {
 const changePasswordSuccess = function () {
   $('#message').text('Changed password successfully')
   $('#message').css('background-color', 'green')
-  console.log('changePasswordSuccess ran and nothing was returned!')
+  // console.log('changePasswordSuccess ran and nothing was returned!')
 }
 
 const changePasswordFailure = function (error) {
@@ -71,10 +69,11 @@ const changePasswordFailure = function (error) {
   $('#message').css('background-color', 'red')
   console.error('changePasswordFailure ran. Error is :', error)
 }
-const createGameSuccess = function () {
+const createGameSuccess = function (data) {
   $('#message').text('New game created successfully')
   $('#message').css('background-color', 'green')
-  console.log('newGameSuccess ran and nothing was returned!')
+  // console.log('newGameSuccess ran and nothing was returned!', data)
+  store.game = data.game
 }
 const createGameFailure = function (error) {
   $('#message').text('Error on create new game')
@@ -84,7 +83,7 @@ const createGameFailure = function (error) {
 const updateGameSuccess = function () {
   $('#message').text('New game created successfully')
   $('#message').css('background-color', 'green')
-  console.log('newGameSuccess ran and nothing was returned!')
+  // console.log('newGameSuccess ran and nothing was returned!')
 }
 const updateGameFailure = function (error) {
   $('#message').text('Error on create new game')
