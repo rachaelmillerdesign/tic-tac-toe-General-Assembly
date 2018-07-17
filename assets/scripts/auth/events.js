@@ -77,6 +77,8 @@ const onClickCallback = function (e) {
   // console.log(game.gameLogic.emptyBoard)
   $(this).text(game.gameLogic.currentPlayer)
   $(this).addClass('unclickable')
+  // const toggleUrl =
+  // $(this).scss(background-image = url(../images/x.jpg);
   onUpdateGame(cellid, game.gameLogic.currentPlayer, gameOver)
   // debugger
   game.gameLogic.currentPlayer = game.alternateTurns(game.gameLogic.currentPlayer)

@@ -13,14 +13,31 @@ $pink: #fce5eb;
  }
 
 .square {
-  align-items: center;
-  background-color: rgba(193,66,66,0.1);
+  // align-items: center;
+  background-image: url(../images/TTT-cell.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  object-fit: cover;
+  // background-color: rgba(193,66,66,0.1);
   display: flex;
   /* flex-direction: column; */
   font-size: 3em;
-  justify-content: center;
+  // justify-content: center;
   padding-bottom: 100%;
   /* text-align: center; */
+  animation: glow 1s infinite alternate;
+  animation-duration: 2s;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 6px -6px #e8ffba/*#dbffa5*/;
+    opacity: .5;
+  }
+  to {
+    box-shadow: 0 0 6px 6px #e8ffba/*#dbffa5*/;
+    opacity: .8;
+  }
 }
 
 .square:hover {
@@ -36,6 +53,7 @@ $pink: #fce5eb;
 h1 {
   color: grey;
   font-family: sans-serif;
+  font-weight: 400;
   font-size: 15vw;
   text-align: center;
 }
