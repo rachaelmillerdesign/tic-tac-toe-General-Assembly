@@ -75,14 +75,21 @@ const onClickCallback = function (e) {
   game.gameLogic.emptyBoard[cellid] = game.gameLogic.currentPlayer
   const gameOver = game.isGameOver(game.gameLogic.currentPlayer, game.gameLogic.emptyBoard)
   // console.log(game.gameLogic.emptyBoard)
-  $(this).text(game.gameLogic.currentPlayer)
+  // $(this).text(game.gameLogic.currentPlayer)
+  // $(this).css('background-image', 'url(../../../public/images/o.jpg)')
+  // .square[data-move="o"] {
+  //     background-image: url(../images/o.jpg);
+  // }
   $(this).addClass('unclickable')
-  // const toggleUrl =
-  // $(this).scss(background-image = url(../images/x.jpg);
   onUpdateGame(cellid, game.gameLogic.currentPlayer, gameOver)
   // debugger
   game.gameLogic.currentPlayer = game.alternateTurns(game.gameLogic.currentPlayer)
   // console.log(game.gameLogic.currentPlayer)
+  if (game.gameLogic.currentPlayer === 'x') {
+    return $(this).css('background-image', 'url(../../../public/images/x.jpg')
+  } else if (game.gameLogic.currentPlayer === 'o') {
+    return $(this).css('background-image', 'url(../../../public/images/o.jpg')
+  }
 }
 
 const addHandlers = () => {
