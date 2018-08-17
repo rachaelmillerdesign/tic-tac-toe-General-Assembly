@@ -13,9 +13,11 @@ body {
   background: linear-gradient(to bottom, rgba(250,240,250,1) 0%, rgba(240,243,255,1) 87%, rgba(240,243,255,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#faf0fa', endColorstr='#f0f3ff', GradientType=0 );
 }
+
 // ~~~~~~~~~~~~~~~~~~~~~
 // GAMEBOARD and CELLS
 // ~~~~~~~~~~~~~~~~~~~~~
+
 .container {
   display: grid;
   font-size: 5vw;
@@ -56,10 +58,9 @@ body {
 }
 
 .square:hover {
-  background: black;
+  background: rgba(0,0,0,0.2);
   cursor: pointer;
-  mix-blend-mode: multiply;
-  opacity: .2;
+  //mix-blend-mode: multiply;
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -71,6 +72,10 @@ h1 {
   font-weight: 400;
   font-size: 15vw;
   text-align: center;
+}
+
+:focus {
+    outline: -webkit-focus-ring-color none;
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~

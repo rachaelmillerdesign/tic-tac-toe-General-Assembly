@@ -64,8 +64,7 @@ const isGameOver = function (current, board) {
       // console.log("It's a tie!")
       $('.square').addClass('unclickable')
       return true
-    }
-    else {
+    } else {
       return false
     }
   }
@@ -161,15 +160,17 @@ const startGamebutton = function (event) {
   }
   )
 }
-// ~~~~~~~~~~~~~~~~~~~~~~`
+
+// ~~~~~~~~~~~~~~~~~~~~~~
 // MODULE EXPORTS
-// ~~~~~~~~~~~~~~~~~~~~~~`
+// ~~~~~~~~~~~~~~~~~~~~~~
 
 module.exports = {
   alternateTurns,
   gameLogic,
   isGameOver,
   newGameButtonLockedAtStart,
+  boardLockedAtStart,
   unlockNewGameButton,
   startGamebutton,
   unlockBoard,
