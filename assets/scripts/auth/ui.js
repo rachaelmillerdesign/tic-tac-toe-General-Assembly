@@ -69,22 +69,26 @@ const changePasswordFailure = function (error) {
   $('#message').css('background-color', '#ff9226')
   console.error('changePasswordFailure ran. Error is :', error)
 }
+
 const createGameSuccess = function (data) {
   $('#message').text('New game created successfully')
   $('#message').css('background-color', '#ceff5e')
   // console.log('newGameSuccess ran and nothing was returned!', data)
   store.game = data.game
 }
+
 const createGameFailure = function (error) {
   $('#message').text('Error on create new game')
   $('#message').css('background-color', '#ff9226')
   console.error('newGameFailure ran. Error is :', error)
 }
+
 const updateGameSuccess = function () {
   $('#message').text('New game created successfully')
   $('#message').css('background-color', '#ceff5e')
   // console.log('newGameSuccess ran and nothing was returned!')
 }
+
 const updateGameFailure = function (error) {
   $('#message').text('Error on create new game')
   $('#message').css('background-color', '#ff9226')

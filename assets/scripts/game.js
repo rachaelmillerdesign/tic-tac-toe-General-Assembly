@@ -48,8 +48,11 @@ const isGameOver = function (current, board) {
       }
     }
     if (won === true) {
-      // console.log(current + ' has won!')
+      console.log(current + ' has won!')
+      $('#gameOverModal').removeClass('hidden')
+      $('#hasWon').append(current + '  has won!')
       $('.square').addClass('unclickable')
+      api.updateGame()
       return true
     }
   }
@@ -69,7 +72,7 @@ const isGameOver = function (current, board) {
     }
   }
 }
-// const delayMessage = function () {
+// const playAgain = function () {
 //   setTimeout(3000)
 //   if (won === true || draw === true) {
 //     console.log('Play again?')

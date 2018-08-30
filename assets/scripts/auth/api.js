@@ -78,6 +78,7 @@ const createGame = function (data) {
 // ~~~~~~~~~~~~~~~~~~~~~~
 
 const updateGame = function (cellid, currentPlayer, gameOver) {
+  console.log(store.data)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',

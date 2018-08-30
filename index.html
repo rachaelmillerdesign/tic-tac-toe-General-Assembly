@@ -16,6 +16,15 @@
 </head>
 <body class="container-fluid">
 
+  <!--MODAL-->
+
+  <div class="modal hidden" id="gameOverModal" tabindex="-1" role="dialog">
+        <button type="button" class="close-fail" data-dismiss="modal" aria-label="Close">
+          <div id="hasWon" class="modal-body">
+          </div>
+        </button>
+      </div>
+
 <!--SIGN IN SIGN UP FORMS-->
 
 <p id="message"></p>
@@ -86,8 +95,8 @@ NEW FORMS
 
 <ul class='nav'>
   <li><a id='game-new'>NEW GAME</a></li>
-  <li><a id='win-draw'></a></li>
-  <!-- <li><a id='getGames'>GET SCORES</a></li> -->
+  <!-- <li><a id='win-draw'></a></li> -->
+  <li><a id='getGames'>GET SCORES</a></li>
   <li><a id='quit'>QUIT</a></li>
 </ul>
 
