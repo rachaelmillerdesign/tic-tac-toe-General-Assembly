@@ -26,9 +26,16 @@
       </div>
 
 <!--SIGN IN SIGN UP FORMS-->
+<ul class='nav'>
+  <li><a id='sign-up'>SIGN UP</a></li>
+  <li><a id='sign-in'>SIGN IN</a></li>
+  <li><a id='change-password' class="hidden">CHANGE PASSWORD</a></li>
+</ul>
 
 <p id="message"></p>
 
+<div class="modal hidden" id="signUp-modal" role="dialog">
+  <div class="modal-overlay"></div>
       <form id="sign-up" class="border">
         <fieldset>
           <legend>Sign up!</legend>
@@ -37,7 +44,9 @@
           <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
           <input type="submit" value="Sign up!">
         </fieldset>
-      </form>
+      <button type="button" class="button close" data-dismiss="modal">x</button>
+    </form>
+  </div>
 
       <form id="sign-in" class="border">
         <fieldset>

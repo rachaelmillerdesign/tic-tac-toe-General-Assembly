@@ -48,9 +48,15 @@ const isGameOver = function (current, board) {
       }
     }
     if (won === true) {
+      if (current === 'x') {
+        $('#message').text('o + has won!')
+        $('#message').css('background-color', '#85ecfc')
+      } else {
+        console.log('x + has won!')
+      }
       console.log(current + ' has won!')
       $('#gameOverModal').removeClass('hidden')
-      $('#hasWon').append(current + '  has won!')
+      // $('#hasWon').append(current + '  has won!')
       $('.square').addClass('unclickable')
       api.updateGame()
       return true

@@ -93,8 +93,8 @@ ul.nav {
     list-style: none;
     height: 10vw; line-height: 10vw;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 5vw;
-    font-weight: 200;
+    font-size: 3.8vw;
+    font-weight: 300;
     // padding: 5vw;
     background: #f5ffde;
     background-image: -webkit-linear-gradient(top, #f5ffde, #d1fff2);
@@ -114,6 +114,7 @@ ul.nav {
 ul.nav li {
     float:left;
 }
+
 ul.nav a {
     // display:block;
     color:grey;
@@ -128,7 +129,7 @@ ul.nav a:hover {
     background-image: -o-linear-gradient(top, #f3ffa3, #bbffb0);
     background-image: linear-gradient(to bottom, #f3ffa3, #bbffb0);
     background-size: contain;
-    border: solid #a6a6a6 2px;
+    // border: solid #a6a6a6 2px;
     text-decoration: none;
 }
 
