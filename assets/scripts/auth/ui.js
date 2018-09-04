@@ -17,6 +17,7 @@ const signUpSuccess = function (data) {
   $('#signUpNav').addClass('hidden')
   $('#changePasswordNav').removeClass('hidden')
   $('#sign-up')[0].reset()
+  setTimeout(closeSignUpModal, 3000)
   // console.log('signUpSuccess ran. Data is :', data)
 }
 
@@ -37,7 +38,7 @@ const signInSuccess = function (data) {
   $('#signInNav').addClass('hidden')
   $('#signUpNav').addClass('hidden')
   $('#changePasswordNav').removeClass('hidden')
-  game.startGamebutton()
+  setTimeout(closeSignInModal, 3000)
   // console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 }
@@ -46,6 +47,7 @@ const signInFailure = function (error) {
   $('#message').text('Error on sign in')
   $('#message').css('background-color', '#ff9226')
   setTimeout(hideMessage, 3000)
+  setTimeout(closeSignInModal, 3000)
   console.error('signInFailure ran. Error is :', error)
 }
 
@@ -58,6 +60,7 @@ const signOutSuccess = function () {
   $('#signOutNav').addClass('hidden')
   $('#changePasswordNav').addClass('hidden')
   $('#sign-up')[0].reset()
+  setTimeout(closeSignOutModal, 3000)
   // console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
 }
@@ -66,6 +69,7 @@ const signOutFailure = function (error) {
   $('#message').text('Error on sign out')
   $('#message').css('background-color', '#ff9226')
   setTimeout(hideMessage, 3000)
+  setTimeout(closeSignOutModal, 3000)
   console.error('signOutFailure ran. Error is :', error)
 }
 
@@ -80,6 +84,7 @@ const changePasswordFailure = function (error) {
   $('#message').text('Error on change password')
   $('#message').css('background-color', '#ff9226')
   setTimeout(hideMessage, 3000)
+  setTimeout(closeChangePasswordModal, 3000)
   console.error('changePasswordFailure ran. Error is :', error)
 }
 
@@ -87,6 +92,7 @@ const createGameSuccess = function (data) {
   $('#message').text('New game created successfully')
   $('#message').css('background-color', '#ceff5e')
   setTimeout(hideMessage, 3000)
+  setTimeout(closeChangePasswordModal, 3000)
   // console.log('newGameSuccess ran and nothing was returned!', data)
   store.game = data.game
 }
@@ -163,6 +169,61 @@ function clickOutsideSignIn (e) {
     signInModal.style.display = 'none'
   }
 }
+
+// ~~~~~~~~~~~~~~~~~~~~~~
+// SIGN OUT MODAL
+// ~~~~~~~~~~~~~~~~~~~~~~
+// Get modal element
+const signOutModal = document.getElementById('signOutModal')
+// Get modal button
+const signOutNav = document.getElementById('signOutNav')
+const closeSignOutBtn = document.getElementById('closeSignOutBtn')
+// Listen for Click
+$('#signOutNav').on('click', openSignOutModal)
+$('#closeSignOutBtn').on('click', closeSignOutModal)
+// Listen for click outside of modal
+$('#window').on('click', clickOutsideSignOut)
+// Functions that open and close modal
+function openSignOutModal () {
+  signOutModal.style.display = 'block'
+}
+function closeSignOutModal () {
+  signOutModal.style.display = 'none'
+}
+// Function that closes modal if outside click
+function clickOutsideSignOut (e) {
+  if (e.target === signOutModal) {
+    signOutModal.style.display = 'none'
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~
+// CHANGE PASSWORD MODAL
+// ~~~~~~~~~~~~~~~~~~~~~~
+// Get modal element
+const changePasswordModal = document.getElementById('changePasswordModal')
+// Get modal button
+const changePasswordNav = document.getElementById('changePasswordNav')
+const closeChangePasswordBtn = document.getElementById('closeChangePasswordBtn')
+// Listen for Click
+$('#changePasswordNav').on('click', openChangePasswordModal)
+$('#closeChangePasswordBtn').on('click', closeChangePasswordModal)
+// Listen for click outside of modal
+$('#window').on('click', clickOutsideChangePassword)
+// Functions that open and close modal
+function openChangePasswordModal () {
+  changePasswordModal.style.display = 'block'
+}
+function closeChangePasswordModal () {
+  changePasswordModal.style.display = 'none'
+}
+// Function that closes modal if outside click
+function clickOutsideChangePassword (e) {
+  if (e.target === changePasswordModal) {
+    changePasswordModal.style.display = 'none'
+  }
+}
+
 // ~~~~~~~~~~~~~~~~~~~~~~
 // MODULE EXPORTS
 // ~~~~~~~~~~~~~~~~~~~~~~
@@ -177,6 +238,14 @@ module.exports = {
   closeSignUpBtn,
   openSignUpModal,
   closeSignUpModal,
+  signOutNav,
+  closeSignOutBtn,
+  closeSignOutModal,
+  clickOutsideSignOut,
+  changePasswordNav,
+  closeChangePasswordBtn,
+  closeChangePasswordModal,
+  clickOutsideChangePassword,
   clickOutsideSignUp,
   signUpSuccess,
   signUpFailure,

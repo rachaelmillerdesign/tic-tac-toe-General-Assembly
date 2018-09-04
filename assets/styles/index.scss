@@ -58,11 +58,10 @@ body {
 }
 
 .square:hover {
-  background: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, .2);
   cursor: pointer;
   //mix-blend-mode: multiply;
 }
-
 // ~~~~~~~~~~~~~~~~~~~~~
 // FONTS
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -160,7 +159,6 @@ ul.nav a:hover {
   background-color: white;
   border: 1vw solid #68d8d1;
   outline: none;
-  z-index: 1;
   position: fixed;
   max-width: 60%; /* Could be more or less, depending on screen size */
   z-index: 100;
@@ -216,11 +214,11 @@ legend {
 }
 
 fieldset {
-  font-family: 'Josefin';
-  border-width: 0px;
-  border-style: none;
   border-color: none;
   border-image: none;
+  border-style: none;
+  border-width: 0;
+  font-family: 'Josefin';
 }
 
 fieldset,
@@ -229,7 +227,7 @@ textarea {
   font-family: 'Josefin', sans-serif;
   font-size: 2vw;
   font-weight: 400;
-  text-transform: uppercase;
+  text-transform: none;
   padding: .6vw;
   margin: .5vw;
   box-sizing: border-box;
