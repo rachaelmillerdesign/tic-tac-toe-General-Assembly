@@ -97,15 +97,10 @@ const addHandlers = () => {
   $('.square').on('click', onClickCallback)
 }
 
-// // ~~~~~~~~~~~~~~~~~~~~~
-// // GET SCORES
-// // ~~~~~~~~~~~~~~~~~~~~~
-//
-// const getScores = function (e) {
-//   document.getElementById('getGames')
-//   addEventListener('click', 'getGames')
-//   console.log('getting games')
-// }
+// ~~~~~~~~~~~~~~~~~~~~~
+// GET SCORES
+// ~~~~~~~~~~~~~~~~~~~~~
+
 
 // ~~~~~~~~~~~~~~~~~~~~~~`
 // MODULE EXPORTS

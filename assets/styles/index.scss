@@ -66,10 +66,14 @@ body {
 // ~~~~~~~~~~~~~~~~~~~~~
 // FONTS
 // ~~~~~~~~~~~~~~~~~~~~~
+* {
+  font-family: 'Josefin', sans-serif;
+}
+
 h1 {
   color: grey;
   font-family: sans-serif;
-  font-weight: 400;
+  font-weight: 350;
   font-size: 15vw;
   text-align: center;
 }
@@ -88,6 +92,10 @@ h1 {
 // ~~~~~~~~~~~~~~~~~~~~~
 // NAVBAR
 // ~~~~~~~~~~~~~~~~~~~~~
+#topNav {
+  margin-top: 4vw;
+}
+
 ul.nav {
     margin-top: 50px;
     list-style: none;
@@ -143,25 +151,28 @@ ul.nav a:hover {
 // ~~~~~~~~~~~~~~~~~~~~~
 //MODALS
 // ~~~~~~~~~~~~~~~~~~~~~
-.button {
+.modal {
   background-color: white;
+  border: 1vw solid #68d8d1;
   outline: none;
   z-index: 1;
+  position: fixed;
+  max-width: 60%; /* Could be more or less, depending on screen size */
+  z-index: 100;
+  left: 50%;
+  top: 40%;
+  /* Use this for centering if unknown width/height */
+  transform: translate(-50%, -50%);
+
 }
-.close-button {
+.close {
   border: none;
   color: #f98900;
-  // float: right;
-  // font-size: 24px;
-  font-size: 1.4rem;
-  font-weight: 300;
+  float: right;
+  font-size: 5.5vw;
+  font-weight: 650;
   margin: 0 auto;
   outline: none;
-  // padding: 5px;
-  position: fixed;
-    left: 50%;
-    top: 25%;
-  // transform: translate(-50%, -50%);
 }
 
 .close:hover,
@@ -181,6 +192,48 @@ button:active {
   outline-color: none;
   outline-style: auto;
   outline-width: 0;
+}
+
+.submit {
+  background-color: #c7f22e;
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~
+// CODE TO RESET AGENT STYLESHEET
+// ~~~~~~~~~~~~~~~~~~~~~
+legend {
+  padding: 0;
+  margin: 1vw;
+  display: table;
+  font-family: 'Josefin';
+  font-size: 4vw;
+  font-weight: 300;
+}
+
+fieldset {
+  font-family: 'Josefin';
+  border-width: 0px;
+  border-style: none;
+  border-color: none;
+  border-image: none;
+}
+
+fieldset,
+input,
+textarea {
+  font-family: 'Josefin', sans-serif;
+  font-size: 2vw;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: .6vw;
+  margin: .5vw;
+  box-sizing: border-box;
+  -webkit-padding-before: 5px;
+  -webkit-padding-start: 5px;
+}
+
+body:not(:-moz-handler-blocked) fieldset {
+  display: table-cell;
 }
 // ~~~~~~~~~~~~~~~~~~~~~
 //BUTTONS

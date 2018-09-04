@@ -110,12 +110,37 @@ const updateGameFailure = function (error) {
   setTimeout(hideMessage, 3000)
   console.error('newGameFailure ran. Error is :', error)
 }
-
+// Get modal element
+const signUpModal = document.getElementById('signUpModal')
+// Get modal button
+const signUpBtn = document.getElementById('sign-up')
+const closeSignUpBtn = document.getElementById('closeSignUpBtn')
+// Listen for Click
+signUpBtn.addEventListener('click', openSignUpModal)
+closeSignUpBtn.addEventListener('click', closeSigUpModal)
+// Listen for click outside of modal
+window.addEventListener('click', clickOutsideSignUp)
+// Functions that open and close modal
+function openSignUpModal () {
+  signUpModal.style.display = 'block'
+}
+function closeSigUpModal () {
+  signUpModal.style.display = 'none'
+}
+// Function that closes modal if outside click
+function clickOutsideSignUp (e) {
+  if (e.target === signUpModal) {
+    signUpModal.style.display = 'none'
+  }
+}
 // ~~~~~~~~~~~~~~~~~~~~~~
 // MODULE EXPORTS
 // ~~~~~~~~~~~~~~~~~~~~~~
 
 module.exports = {
+  openSignUpModal,
+  closeSigUpModal,
+  clickOutsideSignUp,
   signUpSuccess,
   signUpFailure,
   signInSuccess,
