@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
@@ -7,111 +8,126 @@
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
   <style>
-  .container {
-    display: grid;
-    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-    grid-gap: 1.5vw;
-  }
+    .container {
+      display: grid;
+      grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+      grid-gap: 1.5vw;
+    }
   </style>
 </head>
+
 <body class="container-fluid">
 
   <!--MODAL-->
 
   <div class="modal hidden" id="gameOverModal" tabindex="-1" role="dialog">
-        <button type="button" class="close-fail" data-dismiss="modal" aria-label="Close">
+    <button type="button" class="close-fail" data-dismiss="modal" aria-label="Close">
           <div id="hasWon" class="modal-body">
           </div>
         </button>
-      </div>
+  </div>
 
-<!--SIGN IN SIGN UP FORMS-->
-<ul id='topNav' class='nav'>
-  <li><a id='sign-up'>SIGN UP</a></li>
-  <li><a id='sign-in'>SIGN IN</a></li>
-  <li><a id='change-password' class="hidden">CHANGE PASSWORD</a></li>
-</ul>
+  <!--SIGN IN SIGN UP FORMS-->
+  <ul id='topNav' class='nav'>
+    <li><a id='signUpNav'>SIGN UP</a></li>
+    <li><a id='signInNav'>SIGN IN</a></li>
+    <li><a id='changePasswordNav' class="hidden">CHANGE PASSWORD</a></li>
+  </ul>
 
-<p id="message"></p>
+  <p id="message"></p>
 
-<div class="modal hidden" id="signUpModal" role="dialog">
-  <div class="modal-overlay"></div>
-      <form id="sign-up" class="border">
-        <fieldset>
-          <legend>Sign up!</legend>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-          <input class="submit" type="submit" value="Sign up!">
-          <button id="closeSignUpBtn" type="button" class="button close" data-dismiss="modal">&times;</button>
-        </fieldset>
+  <div class="modal hidden" id="signUpModal" role="dialog">
+    <div class="modal-overlay"></div>
+    <form id="sign-up" class="border">
+      <fieldset>
+        <legend>Sign up!</legend>
+        <input type="text" name="credentials[email]" placeholder="Email">
+        <input type="password" name="credentials[password]" placeholder="Password">
+        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+        <input class="submit" type="submit" value="Sign up!">
+        <button id="closeSignUpBtn" type="button" class="button close" data-dismiss="modal">&times;</button>
+      </fieldset>
     </form>
   </div>
 
-      <!-- <form id="sign-in" class="border">
-        <fieldset>
-          <legend>Sign in!</legend>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="submit" value="Sign in!">
-        </fieldset>
-      </form>
+  <div class="modal hidden" id="signInModal" role="dialog">
+    <div class="modal-overlay"></div>
+     <form id="sign-in" class="border">
+      <fieldset>
+        <legend>Sign in!</legend>
+        <input type="text" name="credentials[email]" placeholder="Email">
+        <input type="password" name="credentials[password]" placeholder="Password">
+        <input class="submit" type="submit" value="Sign in!">
+        <button id="closeSignInBtn" type="button" class="button close" data-dismiss="modal">&times;</button>
+      </fieldset>
+    </form>
+  </div>
 
-      <form id="sign-out" class="hidden border">
-        <fieldset>
-          <legend>Sign Out!</legend>
-          <input type="submit" value="Sign out!">
-        </fieldset>
-      </form>
+  <div class="modal hidden" id="signOutModal" role="dialog">
+    <div class="modal-overlay"></div>
+    <form id="sign-out" class="hidden border">
+      <fieldset>
+        <legend>Sign Out!</legend>
+        <input class="submit" type="submit" value="Sign out!">
+        <button id="closeSignOutBtn" type="button" class="button close" data-dismiss="modal">&times;</button>
+      </fieldset>
+    </form>
+  </div>
 
-      <form id="change-password" class="hidden border">
-        <fieldset>
-          <legend>Change Password!</legend>
-          <input type="password" name="passwords[old]" placeholder="Old Password">
-          <input type="password" name="passwords[new]" placeholder="New Password">
-          <input type="submit" value="Change Password!">
-        </fieldset>
-      </form> -->
+  <div class="modal hidden" id="changePassword" role="dialog">
+    <div class="modal-overlay"></div>
+     <form id="change-password" class="hidden border">
+      <fieldset>
+        <legend>Change Password!</legend>
+        <input type="password" name="passwords[old]" placeholder="Old Password">
+        <input type="password" name="passwords[new]" placeholder="New Password">
+        <input class="submit" type="submit" value="Change Password!">
+        <button id="closeChangePasswordBtn" type="button" class="button close" data-dismiss="modal">&times;</button>
 
-<!-- ~~~~~~~~~~~~~~~~~~~~~~
+      </fieldset>
+    </form>
+  </div>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~
 NEW FORMS
 ~~~~~~~~~~~~~~~~~~~~~~ -->
-<!-- GET GAME RESULTS -->
+  <!-- GET GAME RESULTS -->
 
-      <form id="getGames" class="hidden" class="border">
-        <fieldset>
-          <legend>Game Statistics</legend>
-          <input type="submit" value="Get Games!">
-        </fieldset>
-      </form>
+  <form id="getGames" class="hidden" class="border">
+    <fieldset>
+      <legend>Game Statistics</legend>
+      <input type="submit" value="Get Games!">
+    </fieldset>
+  </form>
 
-<!-- RETRIEVE AND UPDATE INCOMPLETE GAME -->
+  <!-- RETRIEVE AND UPDATE INCOMPLETE GAME -->
 
-<!-- TIC TAC TOE BOARD -->
+  <!-- TIC TAC TOE BOARD -->
 
   <h1>TIC TAC TOE</h1>
-    <div id="emptyBoard" class="container">
-      <div id="0" class="square"></div>
-      <div id="1" class="square"></div>
-      <div id="2" class="square"></div>
-      <div id="3" class="square"></div>
-      <div id="4" class="square"></div>
-      <div id="5" class="square"></div>
-      <div id="6" class="square"></div>
-      <div id="7" class="square"></div>
-      <div id="8" class="square"></div>
-    </div>
+  <div id="emptyBoard" class="container">
+    <div id="0" class="square"></div>
+    <div id="1" class="square"></div>
+    <div id="2" class="square"></div>
+    <div id="3" class="square"></div>
+    <div id="4" class="square"></div>
+    <div id="5" class="square"></div>
+    <div id="6" class="square"></div>
+    <div id="7" class="square"></div>
+    <div id="8" class="square"></div>
+  </div>
 
-<ul class='nav'>
-  <li><a id='game-new'>NEW GAME</a></li>
-  <!-- <li><a id='win-draw'></a></li> -->
-  <li><a id='getGames'>GET SCORES</a></li>
-  <li><a id='quit'>QUIT</a></li>
-</ul>
+  <ul class='nav'>
+    <li><a id='game-new'>NEW GAME</a></li>
+    <!-- <li><a id='win-draw'></a></li> -->
+    <li><a id='getGames'>GET SCORES</a></li>
+    <li><a id='quit'>QUIT</a></li>
+  </ul>
 
-<!-- add to store cell index for api? -->
-<!-- <div data-cell-index='0'>
+  <!-- add to store cell index for api? -->
+  <!-- <div data-cell-index='0'>
 </div> -->
 
-  </body>
+</body>
+
 </html>

@@ -13,9 +13,9 @@ const signUpSuccess = function (data) {
   $('#message').css('background-color', '#ceff5e')
   setTimeout(hideMessage, 3000)
   $('#game-new').removeClass('unclickable')
-  $('#sign-out').removeClass('hidden')
-  $('#sign-up').addClass('hidden')
-  $('#change-password').removeClass('hidden')
+  $('#signOutNav').removeClass('hidden')
+  $('#signUpNav').addClass('hidden')
+  $('#changePasswordNav').removeClass('hidden')
   $('#sign-up')[0].reset()
   // console.log('signUpSuccess ran. Data is :', data)
 }
@@ -24,6 +24,7 @@ const signUpFailure = function (error) {
   $('#message').text('Error on sign up')
   $('#message').css('background-color', '#ff9226')
   setTimeout(hideMessage, 3000)
+  setTimeout(closeSignUpModal, 3000)
   console.error('signUpFailure ran. Error is :', error)
 }
 
@@ -32,10 +33,10 @@ const signInSuccess = function (data) {
   $('#message').css('background-color', '#ceff5e')
   setTimeout(hideMessage, 3000)
   $('#game-new').removeClass('unclickable')
-  $('#sign-out').removeClass('hidden')
-  $('#sign-in').addClass('hidden')
-  $('#sign-up').addClass('hidden')
-  $('#change-password').removeClass('hidden')
+  $('#signOutNav').removeClass('hidden')
+  $('#signInNav').addClass('hidden')
+  $('#signUpNav').addClass('hidden')
+  $('#changePasswordNav').removeClass('hidden')
   game.startGamebutton()
   // console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
@@ -52,10 +53,10 @@ const signOutSuccess = function () {
   $('#message').text('Signed out successfully')
   $('#message').css('background-color', '#ceff5e')
   setTimeout(hideMessage, 3000)
-  $('#sign-in').removeClass('hidden')
-  $('#sign-up').removeClass('hidden')
-  $('#sign-out').addClass('hidden')
-  $('#change-password').addClass('hidden')
+  $('#signInNav').removeClass('hidden')
+  $('#signUpNav').removeClass('hidden')
+  $('#signOutNav').addClass('hidden')
+  $('#changePasswordNav').addClass('hidden')
   $('#sign-up')[0].reset()
   // console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
@@ -110,21 +111,24 @@ const updateGameFailure = function (error) {
   setTimeout(hideMessage, 3000)
   console.error('newGameFailure ran. Error is :', error)
 }
+// ~~~~~~~~~~~~~~~~~~~~~~
+// SIGN UP MODAL
+// ~~~~~~~~~~~~~~~~~~~~~~
 // Get modal element
 const signUpModal = document.getElementById('signUpModal')
 // Get modal button
-const signUpBtn = document.getElementById('sign-up')
+const signUpNav = document.getElementById('signUpNav')
 const closeSignUpBtn = document.getElementById('closeSignUpBtn')
 // Listen for Click
-signUpBtn.addEventListener('click', openSignUpModal)
-closeSignUpBtn.addEventListener('click', closeSigUpModal)
+$('#signUpNav').on('click', openSignUpModal)
+$('#closesignUpBtn').on('click', closeSignUpModal)
 // Listen for click outside of modal
-window.addEventListener('click', clickOutsideSignUp)
+$('window').on('click', clickOutsideSignUp)
 // Functions that open and close modal
 function openSignUpModal () {
   signUpModal.style.display = 'block'
 }
-function closeSigUpModal () {
+function closeSignUpModal () {
   signUpModal.style.display = 'none'
 }
 // Function that closes modal if outside click
@@ -134,12 +138,45 @@ function clickOutsideSignUp (e) {
   }
 }
 // ~~~~~~~~~~~~~~~~~~~~~~
+// SIGN IN MODAL
+// ~~~~~~~~~~~~~~~~~~~~~~
+// Get modal element
+const signInModal = document.getElementById('signInModal')
+// Get modal button
+const signInNav = document.getElementById('signInNav')
+const closeSignInBtn = document.getElementById('closeSignInBtn')
+// Listen for Click
+$('#signInNav').on('click', openSignInModal)
+$('#closeSignInBtn').on('click', closeSignInModal)
+// Listen for click outside of modal
+$('#window').on('click', clickOutsideSignIn)
+// Functions that open and close modal
+function openSignInModal () {
+  signInModal.style.display = 'block'
+}
+function closeSignInModal () {
+  signInModal.style.display = 'none'
+}
+// Function that closes modal if outside click
+function clickOutsideSignIn (e) {
+  if (e.target === signInModal) {
+    signInModal.style.display = 'none'
+  }
+}
+// ~~~~~~~~~~~~~~~~~~~~~~
 // MODULE EXPORTS
 // ~~~~~~~~~~~~~~~~~~~~~~
 
 module.exports = {
+  signInNav,
+  closeSignInBtn,
+  openSignInModal,
+  closeSignInModal,
+  clickOutsideSignIn,
+  signUpNav,
+  closeSignUpBtn,
   openSignUpModal,
-  closeSigUpModal,
+  closeSignUpModal,
   clickOutsideSignUp,
   signUpSuccess,
   signUpFailure,

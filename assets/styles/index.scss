@@ -78,6 +78,9 @@ h1 {
   text-align: center;
 }
 
+p {
+  -webkit-margin-before: 0px;
+}
 :focus {
     outline: -webkit-focus-ring-color none;
 }
@@ -118,6 +121,8 @@ ul.nav {
     box-shadow: 1px 1px 3px #9e9e9e;
     border: solid #a6a6a6 1px;
     text-decoration: none;
+    -webkit-padding-start: 14px;
+    -webkit-margin-after: 0px;
 }
 ul.nav li {
     float:left;
@@ -160,7 +165,7 @@ ul.nav a:hover {
   max-width: 60%; /* Could be more or less, depending on screen size */
   z-index: 100;
   left: 50%;
-  top: 40%;
+  top: 30%;
   /* Use this for centering if unknown width/height */
   transform: translate(-50%, -50%);
 
