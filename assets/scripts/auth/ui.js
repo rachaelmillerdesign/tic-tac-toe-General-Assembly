@@ -2,7 +2,7 @@
 
 const store = require('../store')
 // const events = require('./events')
-const game = require('../game')
+// const game = require('../game')
 
 const hideMessage = function () {
   $('#message').hide()
@@ -11,34 +11,34 @@ const hideMessage = function () {
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
   $('#message').css('background-color', '#ceff5e')
-  setTimeout(hideMessage, 3000)
+  setTimeout(hideMessage, 2000)
   $('#game-new').removeClass('unclickable')
   $('#signOutNav').removeClass('hidden')
   $('#signUpNav').addClass('hidden')
   $('#changePasswordNav').removeClass('hidden')
   $('#sign-up')[0].reset()
-  setTimeout(closeSignUpModal, 3000)
+  setTimeout(closeSignUpModal, 2000)
   // console.log('signUpSuccess ran. Data is :', data)
 }
 
 const signUpFailure = function (error) {
   $('#message').text('Error on sign up')
   $('#message').css('background-color', '#ff9226')
-  setTimeout(hideMessage, 3000)
-  setTimeout(closeSignUpModal, 3000)
-  console.error('signUpFailure ran. Error is :', error)
+  setTimeout(hideMessage, 2000)
+  setTimeout(closeSignUpModal, 2000)
+  console.log('signUpFailure ran. Error is :', error)
 }
 
 const signInSuccess = function (data) {
   $('#message').text('Signed in successfully')
   $('#message').css('background-color', '#ceff5e')
-  setTimeout(hideMessage, 3000)
+  setTimeout(hideMessage, 2000)
   $('#game-new').removeClass('unclickable')
   $('#signOutNav').removeClass('hidden')
   $('#signInNav').addClass('hidden')
   $('#signUpNav').addClass('hidden')
   $('#changePasswordNav').removeClass('hidden')
-  setTimeout(closeSignInModal, 3000)
+  setTimeout(closeSignInModal, 2000)
   // console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 }
@@ -46,21 +46,21 @@ const signInSuccess = function (data) {
 const signInFailure = function (error) {
   $('#message').text('Error on sign in')
   $('#message').css('background-color', '#ff9226')
-  setTimeout(hideMessage, 3000)
-  setTimeout(closeSignInModal, 3000)
-  console.error('signInFailure ran. Error is :', error)
+  setTimeout(hideMessage, 2000)
+  setTimeout(closeSignInModal, 2000)
+  console.log('signInFailure ran. Error is :', error)
 }
 
 const signOutSuccess = function () {
   $('#message').text('Signed out successfully')
   $('#message').css('background-color', '#ceff5e')
-  setTimeout(hideMessage, 3000)
+  setTimeout(hideMessage, 2000)
   $('#signInNav').removeClass('hidden')
   $('#signUpNav').removeClass('hidden')
   $('#signOutNav').addClass('hidden')
   $('#changePasswordNav').addClass('hidden')
   $('#sign-up')[0].reset()
-  setTimeout(closeSignOutModal, 3000)
+  setTimeout(closeSignOutModal, 2000)
   // console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
 }
@@ -68,31 +68,31 @@ const signOutSuccess = function () {
 const signOutFailure = function (error) {
   $('#message').text('Error on sign out')
   $('#message').css('background-color', '#ff9226')
-  setTimeout(hideMessage, 3000)
-  setTimeout(closeSignOutModal, 3000)
-  console.error('signOutFailure ran. Error is :', error)
+  setTimeout(hideMessage, 2000)
+  setTimeout(closeSignOutModal, 2000)
+  console.log('signOutFailure ran. Error is :', error)
 }
 
 const changePasswordSuccess = function () {
   $('#message').text('Changed password successfully')
   $('#message').css('background-color', '#ceff5e')
-  setTimeout(hideMessage, 3000)
+  setTimeout(hideMessage, 2000)
   // console.log('changePasswordSuccess ran and nothing was returned!')
 }
 
 const changePasswordFailure = function (error) {
   $('#message').text('Error on change password')
   $('#message').css('background-color', '#ff9226')
-  setTimeout(hideMessage, 3000)
-  setTimeout(closeChangePasswordModal, 3000)
-  console.error('changePasswordFailure ran. Error is :', error)
+  setTimeout(hideMessage, 2000)
+  setTimeout(closeChangePasswordModal, 2000)
+  console.log('changePasswordFailure ran. Error is :', error)
 }
 
 const createGameSuccess = function (data) {
   $('#message').text('New game created successfully')
   $('#message').css('background-color', '#ceff5e')
-  setTimeout(hideMessage, 3000)
-  setTimeout(closeChangePasswordModal, 3000)
+  setTimeout(hideMessage, 2000)
+  setTimeout(closeChangePasswordModal, 2000)
   // console.log('newGameSuccess ran and nothing was returned!', data)
   store.game = data.game
 }
@@ -100,23 +100,34 @@ const createGameSuccess = function (data) {
 const createGameFailure = function (error) {
   $('#message').text('Error on create new game')
   $('#message').css('background-color', '#ff9226')
-  setTimeout(hideMessage, 3000)
-  console.error('newGameFailure ran. Error is :', error)
+  setTimeout(hideMessage, 2000)
+  console.log('newGameFailure ran. Error is :', error)
 }
 
 const updateGameSuccess = function () {
   $('#message').text('New game created successfully')
   $('#message').css('background-color', '#ceff5e')
-  setTimeout(hideMessage, 3000)
+  setTimeout(hideMessage, 2000)
   // console.log('newGameSuccess ran and nothing was returned!')
 }
 
 const updateGameFailure = function (error) {
   $('#message').text('Error on create new game')
   $('#message').css('background-color', '#ff9226')
-  setTimeout(hideMessage, 3000)
-  console.error('newGameFailure ran. Error is :', error)
+  setTimeout(hideMessage, 2000)
+  console.log('newGameFailure ran. Error is :', error)
 }
+
+const getGamesSuccess = function (data) {
+  console.log('getGameSuccess ran.', data)
+  $('#getGamesModal').append(data.games.length)
+  $('#getGamesModal').toggle('hidden')
+}
+
+const getGamesFailure = function () {
+  console.log('newGameFailure ran. Error is :')
+}
+
 // ~~~~~~~~~~~~~~~~~~~~~~
 // SIGN UP MODAL
 // ~~~~~~~~~~~~~~~~~~~~~~
@@ -143,6 +154,7 @@ function clickOutsideSignUp (e) {
     signUpModal.style.display = 'none'
   }
 }
+
 // ~~~~~~~~~~~~~~~~~~~~~~
 // SIGN IN MODAL
 // ~~~~~~~~~~~~~~~~~~~~~~
@@ -238,15 +250,17 @@ module.exports = {
   closeSignUpBtn,
   openSignUpModal,
   closeSignUpModal,
+  clickOutsideSignUp,
   signOutNav,
+  openSignOutModal,
   closeSignOutBtn,
   closeSignOutModal,
   clickOutsideSignOut,
+  openChangePasswordModal,
   changePasswordNav,
   closeChangePasswordBtn,
   closeChangePasswordModal,
   clickOutsideChangePassword,
-  clickOutsideSignUp,
   signUpSuccess,
   signUpFailure,
   signInSuccess,
@@ -258,5 +272,7 @@ module.exports = {
   createGameSuccess,
   createGameFailure,
   updateGameSuccess,
-  updateGameFailure
+  updateGameFailure,
+  getGamesSuccess,
+  getGamesFailure
 }

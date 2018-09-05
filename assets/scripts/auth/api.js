@@ -49,13 +49,6 @@ const changePassword = function (data) {
 // CREATE GAME API
 // ~~~~~~~~~~~~~~~~~~~~
 
-const index = function () {
-  return $.ajax({
-    url: config.apiUrl + '/games',
-    method: 'GET'
-  })
-}
-
 // const show = function (id) {
 //   return $.ajax({
 //     url: config.apiUrl + '/games/' + store.game.id,
@@ -98,6 +91,7 @@ const updateGame = function (cellid, currentPlayer, gameOver) {
 }
 
 const getGames = function () {
+  console.log('in getGames')
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/games/',
@@ -107,6 +101,16 @@ const getGames = function () {
   })
 }
 
+// const index = function (data) {
+//   return $.ajax({
+//     url: config.apiUrl + '/games',
+//     method: 'GET',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data
+//   })
+// }
 // ~~~~~~~~~~~~~~~~~~~~~~
 // MODULE EXPORTS
 // ~~~~~~~~~~~~~~~~~~~~~~
@@ -116,7 +120,7 @@ module.exports = {
   signIn,
   signOut,
   changePassword,
-  index,
+  // index,
   getGames,
   updateGame,
   createGame

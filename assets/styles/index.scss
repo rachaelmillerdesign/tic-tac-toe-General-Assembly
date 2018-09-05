@@ -80,6 +80,16 @@ h1 {
 p {
   -webkit-margin-before: 0px;
 }
+
+#message {
+  padding: .5vw;
+  font-size: 3.5vw;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #303030;
+  text-align: center;
+}
+
 :focus {
     outline: -webkit-focus-ring-color none;
 }
@@ -166,8 +176,8 @@ ul.nav a:hover {
   top: 30%;
   /* Use this for centering if unknown width/height */
   transform: translate(-50%, -50%);
-
 }
+
 .close {
   border: none;
   color: #f98900;
@@ -201,6 +211,12 @@ button:active {
   background-color: #c7f22e;
 }
 
+#getGamesModal {
+ font-size: 6vw;
+ font-weight: 600;
+ color: grey;
+ margin-left: 1vw;
+}
 // ~~~~~~~~~~~~~~~~~~~~~
 // CODE TO RESET AGENT STYLESHEET
 // ~~~~~~~~~~~~~~~~~~~~~

@@ -63,9 +63,17 @@ const onUpdateGame = function (cellid, currentPlayer, gameOver) {
   event.preventDefault()
   api.updateGame(cellid, currentPlayer, gameOver)
     .then(ui.updateGameSuccess)
-    .catch(ui.updateGameSuccess)
+    .catch(ui.updateGameFailure)
 }
 
+const onGetGames = function (event) {
+  event.preventDefault()
+  console.log('onGetGames ran')
+
+  api.getGames()
+    .then(ui.getGamesSuccess)
+    .catch(ui.getGamesFailure)
+}
 // ~~~~~~~~~~~~~~~~~~~~~~
 //  ADD HANDLERS
 // ~~~~~~~~~~~~~~~~~~~~~~
@@ -95,6 +103,7 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword)
   $('#game-new').on('click', onCreateGame)
   $('.square').on('click', onClickCallback)
+  $('#getGamesNav').on('click', onGetGames)
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -108,5 +117,6 @@ const addHandlers = () => {
 module.exports = {
   addHandlers,
   onCreateGame,
-  onUpdateGame
+  onUpdateGame,
+  onGetGames
 }
