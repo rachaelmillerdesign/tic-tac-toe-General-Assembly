@@ -1,5 +1,5 @@
 const api = require('./auth/api')
-const store = require('./store.js')
+// const store = require('./store.js')
 // do not require gameEvents -- circular dependency
 // const gameEvents = require('./auth/events')
 
@@ -7,8 +7,8 @@ const store = require('./store.js')
 // VARIABLES & CONSTANTS
 // ~~~~~~~~~~~~~~~~~~~~~
 
-let currentPlayer = 'x'
-let emptyBoard = ['', '', '', '', '', '', '', '', '']
+const currentPlayer = 'x'
+const emptyBoard = ['', '', '', '', '', '', '', '', '']
 let i
 let j
 let q
@@ -78,12 +78,12 @@ const isGameOver = function (current, board) {
     }
   }
 }
-// const playAgain = function () {
-//   setTimeout(3000)
-//   if (won === true || draw === true) {
-//     console.log('Play again?')
-//   }
-// }
+const playAgain = function () {
+  setTimeout(3000)
+  if (won === true || draw === true) {
+    console.log('Play again?')
+  }
+}
 // ~~~~~~~~~~~~~~~~~~~~~
 // CALL BACK / ADD CURRENT PLAYER X OR O
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -109,9 +109,6 @@ const isGameOver = function (current, board) {
 // }
 
 // parseInt($(this).id)
-// ~~~~~~~~~~~~~~~~~~~~~
-// EQUATE VALUES TO API REQUIRED
-// ~~~~~~~~~~~~~~~~~~~~~
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // CREATE NEW GAME
@@ -121,7 +118,7 @@ function emptySquares () {
   const square = $('.square')
   for (let m = 0; m < square.length; m++) {
     square[m].innerHTML = ''
-    // square[m].classList.remove('unclickable')
+    square[m].classList.removeClass('unclickable')
   }
 }
 
@@ -149,11 +146,11 @@ function emptySquares () {
 const boardLockedAtStart = $('.square').addClass('unclickable')
 // console.log('boardLockedAtStart')
 
-const newGameButtonLockedAtStart = $('#game-new').addClass('unclickable')
+// const newGameButtonLockedAtStart = $('#playNav').addClass('unclickable')
 // console.log('newGameButtonLockedAtStart')
 
 function unlockNewGameButton () {
-  $('#game-new').classList.remove('unclickable')
+  $('#playNav').removeClass('unclickable')
 }
 
 function unlockBoard () {
@@ -161,8 +158,8 @@ function unlockBoard () {
 }
 
 const startGamebutton = function (event) {
-  // document.getElementById('game-new')
-  $('#game-new').on('click', function () {
+  // document.getElementById('playNav')
+  $('#playNav').on('click', function () {
     emptySquares()
     // startGame()
     unlockBoard()
@@ -178,10 +175,11 @@ module.exports = {
   alternateTurns,
   gameLogic,
   isGameOver,
-  newGameButtonLockedAtStart,
+  // newGameButtonLockedAtStart,
   boardLockedAtStart,
   unlockNewGameButton,
   startGamebutton,
   unlockBoard,
-  emptySquares
+  emptySquares,
+  playAgain
 }

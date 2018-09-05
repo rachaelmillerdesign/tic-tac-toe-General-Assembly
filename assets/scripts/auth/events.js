@@ -110,7 +110,7 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
-  $('#game-new').on('click', onCreateGame)
+  $('#playNav').on('click', onCreateGame)
   $('.square').on('click', onClickCallback)
   $('#getGamesNav').on('click', onGetGames)
   $('#getUnfinishedGamesNav').on('click', onGetUnfinishedGames)

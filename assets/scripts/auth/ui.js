@@ -12,7 +12,7 @@ const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
   $('#message').css('background-color', '#ceff5e')
   setTimeout(hideMessage, 2000)
-  $('#game-new').removeClass('unclickable')
+  $('#playNav').removeClass('unclickable')
   $('#signOutNav').removeClass('hidden')
   $('#signUpNav').addClass('hidden')
   $('#changePasswordNav').removeClass('hidden')
@@ -33,7 +33,7 @@ const signInSuccess = function (data) {
   $('#message').text('Signed in successfully')
   $('#message').css('background-color', '#ceff5e')
   setTimeout(hideMessage, 2000)
-  $('#game-new').removeClass('unclickable')
+  $('#playNav').removeClass('unclickable')
   $('#signOutNav').removeClass('hidden')
   $('#signInNav').addClass('hidden')
   $('#signUpNav').addClass('hidden')
@@ -116,7 +116,7 @@ const updateGameFailure = function (error) {
   $('#message').text('Error on create new game')
   $('#message').css('background-color', '#ff9226')
   setTimeout(hideMessage, 2000)
-  console.log('newGameFailure ran. Error is :', error)
+  console.log('updateGameFailure ran. Error is :', error)
 }
 
 const getGamesSuccess = function (data) {
