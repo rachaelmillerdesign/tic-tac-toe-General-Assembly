@@ -184,6 +184,7 @@ ul.nav a:hover {
   position: fixed;
   min-width: 60%;
   max-width: 60%; /* Could be more or less, depending on screen size */
+  height: auto;
   z-index: 100;
   left: 50%;
   top: 25%;
@@ -249,6 +250,16 @@ button:active {
   text-transform: uppercase;
   color: #303030;
   text-align: center;
+}
+
+#hasWon {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 2em;
+  font-weight: 300;
+  color: grey;
+  margin-top: 7vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 // ~~~~~~~~~~~~~~~~~~~~~
 // CODE TO RESET AGENT STYLESHEET

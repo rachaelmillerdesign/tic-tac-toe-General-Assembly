@@ -3,7 +3,7 @@
 const store = require('../store')
 // const events = require('./events')
 // const game = require('../game')
-const modals = require('../modals')
+const modals = require('../modals.js')
 // TODO: this short circuits:
 const hideMessage = function () {
   $('#message').hide()
@@ -130,7 +130,7 @@ const updateGameFailure = function (error) {
 const getGamesSuccess = function (data) {
   console.log('getGamesSuccess ran.', data)
   $('#getGamesModal').append(data.games.length)
-  $('#getGamesModal').toggle('hidden')
+  $('#getGamesModal').removeClass('hidden')
   setTimeout(modals.closeGetGamesModal, 2000)
 }
 
@@ -139,13 +139,13 @@ const getGamesFailure = function () {
 }
 
 const getUnfinishedGamesSuccess = function (data) {
-  $('#getUnfinishedGamesModal').toggle('hidden')
+  $('#getUnfinishedGamesModal').removeClass('hidden')
   for (let i = 0; i < data.games.length; i++) {
     $('#getUnfinishedGamesModal').append('<p>ID: ' + data.games[i].id + ' </p> <p>Game Squares:' + data.games[i].cells + '</p>')
-    // console.log(data.games[i])
+    setTimeout(modals.closeGetUnfinishedGamesModal, 2000)
+    console.log(data.games[i])
   }
 }
-// setTimeout(closeGetUnfinishedGamesModal, 2000)
 
 const getUnfinishedGamesFailure = function () {
   console.log('getUnfinishedGamesFailure ran. Error is :')

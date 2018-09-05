@@ -2,7 +2,7 @@ const api = require('./auth/api')
 // const store = require('./store.js')
 // do not require gameEvents -- circular dependency
 // const gameEvents = require('./auth/events')
-const modals = require('./modals')
+const modals = require('./modals.js')
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // VARIABLES & CONSTANTS
@@ -10,13 +10,22 @@ const modals = require('./modals')
 
 const currentPlayer = 'x'
 const emptyBoard = ['', '', '', '', '', '', '', '', '']
-let i
+// let i
 let j
 let q
 let currentWin
 let won
 let draw
-const possibleWins = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [6, 4, 2]]
+const possibleWins = [
+  [0, 1, 2],
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6],
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8],
+  [6, 4, 2]
+]
 
 const gameLogic = {
   currentPlayer,
@@ -37,15 +46,22 @@ const alternateTurns = function (current) {
 // ~~~~~~~~~~~~~~~~~~~~~
 // WIN FUNCTION
 // ~~~~~~~~~~~~~~~~~~~~~
-
 const isGameOver = function (current, board) {
+  draw = true
   for (q = 0; q < possibleWins.length; q++) {
     currentWin = possibleWins[q]
     // console.log('For' + currentPlayer + 'currentWin: ' + currentWin)
     won = true
+    let test
+    test = 0
     for (j = 0; j < currentWin.length; j++) {
       if (board[currentWin[j]] !== current) {
         won = false
+      }
+      if (board[currentWin[j]] === 'x') {
+        test += 1
+      } else if (board[currentWin[j]] === 'y') {
+        test += 10
       }
     }
     if (won === true) {
@@ -57,29 +73,20 @@ const isGameOver = function (current, board) {
       }
       console.log(current + ' has won!')
       $('#gameOverModal').removeClass('hidden')
-      // $('#hasWon').append(current + '  has won!')
-      setTimeout(modals.gameOverModal, 2000)
+      $('#hasWon').append(current + '  has won!')
       $('.square').addClass('unclickable')
       api.updateGame()
       return true
+    } else if (test < 3 || test % 10 === 0) {
+      draw = false
     }
   }
-  if (won === false) {
-    draw = true
-    for (i = 0; i < board.length; i++) {
-      if (board[i] === '') {
-        draw = false
-      }
-    }
-    if (draw === true) {
-      console.log("It's a tie!")
-      $('#itsATieModal').removeClass('hidden')
-      setTimeout(modals.itsATieModal, 2000)
-      $('.square').addClass('unclickable')
-      return true
-    } else {
-      return false
-    }
+  if (draw === true) {
+    console.log("It's a tie!")
+    $('.square').addClass('unclickable')
+    return true
+  } else {
+    return false
   }
 }
 
@@ -89,6 +96,51 @@ const playAgain = function () {
     modals.openPlayAgainModal()
   }
 }
+
+// const isGameOver = function (current, board) {
+//   for (q = 0; q < possibleWins.length; q++) {
+//     currentWin = possibleWins[q]
+//     // console.log('For' + currentPlayer + 'currentWin: ' + currentWin)
+//     won = true
+//     for (j = 0; j < currentWin.length; j++) {
+//       if (board[currentWin[j]] !== current) {
+//         won = false
+//       }
+//     }
+//     if (won === true) {
+//       if (current === 'x') {
+//         $('#message').text('x + has won!')
+//         $('#message').css('background-color', '#85ecfc')
+//       } else {
+//         console.log('o + has won!')
+//       }
+//       console.log(current + ' has won!')
+//       $('#gameOverModal').removeClass('hidden')
+//       // $('#hasWon').append(current + '  has won!')
+//       setTimeout(modals.gameOverModal, 2000)
+//       $('.square').addClass('unclickable')
+//       api.updateGame()
+//       return true
+//     }
+//   }
+//   if (won === false) {
+//     draw = true
+//     for (i = 0; i < board.length; i++) {
+//       if (board[i] === '') {
+//         draw = false
+//       }
+//     }
+//     if (draw === true) {
+//       console.log("It's a tie!")
+//       $('#itsATieModal').removeClass('hidden')
+//       setTimeout(modals.itsATieModal, 2000)
+//       $('.square').addClass('unclickable')
+//       return true
+//     } else {
+//       return false
+//     }
+//   }
+// }
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // CALL BACK / ADD CURRENT PLAYER X OR O
@@ -120,7 +172,7 @@ const playAgain = function () {
 // CREATE NEW GAME
 // ~~~~~~~~~~~~~~~~~~~~~
 
-function emptySquares () {
+function emptySquares() {
   const square = $('.square')
   for (let m = 0; m < square.length; m++) {
     square[m].innerHTML = ''
@@ -159,19 +211,18 @@ function emptySquares () {
 //   $('#playNav').removeClass('unclickable')
 // }
 
-function unlockBoard () {
+function unlockBoard() {
   $('.square').removeClass('unclickable')
 }
 
-const startGamebutton = function (event) {
+const startGamebutton = function(event) {
   console.log('play button clicked')
   // document.getElementById('playNav')
-  $('#playNav').on('click', function () {
+  $('#playNav').on('click', function() {
     emptySquares()
     // startGame()
     unlockBoard()
-  }
-  )
+  })
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~

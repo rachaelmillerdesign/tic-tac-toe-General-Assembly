@@ -13,15 +13,15 @@ $('#closesignUpBtn').on('click', closeSignUpModal)
 $('window').on('click', clickOutsideSignUp)
 // Functions that open and close modal
 function openSignUpModal () {
-  signUpModal.style.display = 'block'
+  $('#openSignUpModal').removeClass('hidden')
 }
 function closeSignUpModal () {
-  signUpModal.style.display = 'none'
+  $('#openSignUpModal').addClass('hidden')
 }
 // Function that closes modal if outside click
 function clickOutsideSignUp (e) {
   if (e.target === signUpModal) {
-    signUpModal.style.display = 'none'
+    $('#openSignUpModal').addClass('hidden')
   }
 }
 
@@ -40,15 +40,15 @@ $('#closeSignInBtn').on('click', closeSignInModal)
 $('#window').on('click', clickOutsideSignIn)
 // Functions that open and close modal
 function openSignInModal () {
-  signInModal.style.display = 'block'
+  $('#signInModal').removeClass('hidden')
 }
 function closeSignInModal () {
-  signInModal.style.display = 'none'
+  $('#signInModal').addClass('hidden')
 }
 // Function that closes modal if outside click
 function clickOutsideSignIn (e) {
   if (e.target === signInModal) {
-    signInModal.style.display = 'none'
+    $('#signUpModal').addClass('hidden')
   }
 }
 
@@ -67,15 +67,15 @@ $('#closeSignOutBtn').on('click', closeSignOutModal)
 $('#window').on('click', clickOutsideSignOut)
 // Functions that open and close modal
 function openSignOutModal () {
-  signOutModal.style.display = 'block'
+  $('#signOutModal').removeClass('hidden')
 }
 function closeSignOutModal () {
-  signOutModal.style.display = 'none'
+  $('#signOutModal').addClass('hidden')
 }
 // Function that closes modal if outside click
 function clickOutsideSignOut (e) {
   if (e.target === signOutModal) {
-    signOutModal.style.display = 'none'
+    $('#signOutModal').addClass('hidden')
   }
 }
 
@@ -94,15 +94,15 @@ $('#closeChangePasswordBtn').on('click', closeChangePasswordModal)
 $('#window').on('click', clickOutsideChangePassword)
 // Functions that open and close modal
 function openChangePasswordModal () {
-  changePasswordModal.style.display = 'block'
+  $('#changePasswordModal').removeClass('hidden')
 }
 function closeChangePasswordModal () {
-  changePasswordModal.style.display = 'none'
+  $('#changePasswordModal').addClass('hidden')
 }
 // Function that closes modal if outside click
 function clickOutsideChangePassword (e) {
   if (e.target === changePasswordModal) {
-    changePasswordModal.style.display = 'none'
+    $('#changePasswordModal').addClass('hidden')
   }
 }
 
@@ -121,15 +121,15 @@ $('#closeGetGamesBtn').on('click', closeGetGamesModal)
 $('#window').on('click', clickOutsideGetGames)
 // Functions that open and close modal
 function openGetGamesModal () {
-  getGamesModal.style.display = 'block'
+  $('#getGamesModal').removeClass('hidden')
 }
 function closeGetGamesModal () {
-  getGamesModal.style.display = 'none'
+  $('#getGamesModal').addClass('hidden')
 }
 // Function that closes modal if outside click
 function clickOutsideGetGames (e) {
   if (e.target === getGamesModal) {
-    getGamesModal.style.display = 'none'
+    $('#getGamesModal').addClass('hidden')
   }
 }
 
@@ -148,15 +148,15 @@ $('#closeGetUnfinishedGamesBtn').on('click', closeGetUnfinishedGamesModal)
 $('#window').on('click', clickOutsideGetUnfinishedGames)
 // Functions that open and close modal
 function openGetUnfinishedGamesModal () {
-  getUnfinishedGamesModal.style.display = 'block'
+  $('#getUnfinishedGamesModal').addClass('hidden')
 }
 function closeGetUnfinishedGamesModal () {
-  getUnfinishedGamesModal.style.display = 'none'
+  $('#getUnfinishedGamesModal').removeClass('hidden')
 }
 // Function that closes modal if outside click
 function clickOutsideGetUnfinishedGames (e) {
   if (e.target === getUnfinishedGamesModal) {
-    getUnfinishedGamesModal.style.display = 'none'
+    $('#getUnfinishedGamesModal').addClass('hidden')
   }
 }
 
@@ -172,15 +172,15 @@ $('#closePlayAgainBtn').on('click', closePlayAgainModal)
 $('#window').on('click', clickOutsidePlayAgain)
 // Functions that open and close modal
 function openPlayAgainModal () {
-  playAgainModal.style.display = 'block'
+  $('#playAgainModal').removeClass('hidden')
 }
 function closePlayAgainModal () {
-  playAgainModal.style.display = 'none'
+  $('#playAgainModal').addClass('hidden')
 }
 // Function that closes modal if outside click
 function clickOutsidePlayAgain (e) {
   if (e.target === playAgainModal) {
-    playAgainModal.style.display = 'none'
+    $('#playAgainModal').addClass('hidden')
   }
 }
 // ~~~~~~~~~~~~~~~~~~~~~~
@@ -191,14 +191,14 @@ const closeItsATieBtn = document.getElementById('closeItsATieBtn')
 $('#closeItsATieBtn').on('click', closeItsATieModal)
 $('#window').on('click', clickOutsideItsATie)
 function openItsATieModal () {
-  itsATieModal.style.display = 'block'
+  $('#itsATieModal').removeClass('hidden')
 }
 function closeItsATieModal () {
-  itsATieModal.style.display = 'none'
+  $('#itsATieModal').addClass('hidden')
 }
 function clickOutsideItsATie (e) {
   if (e.target === itsATieModal) {
-    itsATieModal.style.display = 'none'
+    $('#itsATieModal').addClass('hidden')
   }
 }
 
