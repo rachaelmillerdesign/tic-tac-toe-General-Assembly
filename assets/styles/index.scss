@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
 // ~~~~~~~~~~~~~~~~~~~~~
 // COLORS
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -66,19 +68,21 @@ body {
 // FONTS
 // ~~~~~~~~~~~~~~~~~~~~~
 * {
-  font-family: 'Josefin', sans-serif;
+  font: 'Josefin', sans-serif;
 }
 
 h1 {
   color: grey;
-  font-family: sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-weight: 350;
   font-size: 15vw;
   text-align: center;
 }
 
 p {
+  font-family: 'Josefin Sans', sans-serif;
   -webkit-margin-before: 0px;
+  font-size: 3.8vw;
 }
 
 #message {
@@ -168,12 +172,13 @@ ul.nav a:hover {
 .modal {
   background-color: white;
   border: 1vw solid #68d8d1;
+  font-family: 'Josefin Sans', sans-serif;
   outline: none;
   position: fixed;
   max-width: 60%; /* Could be more or less, depending on screen size */
   z-index: 100;
   left: 50%;
-  top: 30%;
+  top: 25%;
   /* Use this for centering if unknown width/height */
   transform: translate(-50%, -50%);
 }
@@ -212,19 +217,30 @@ button:active {
 }
 
 #getGamesModal {
- font-size: 6vw;
- font-weight: 600;
- color: grey;
- margin-left: 1vw;
+  font-size: 6vw;
+  font-weight: 600;
+  color: grey;
+  margin-left: 1vw;
+}
+
+#signOut {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 4vw;
+  font-weight: 200;
+  color: grey;
+  margin-top: 7vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
 // ~~~~~~~~~~~~~~~~~~~~~
 // CODE TO RESET AGENT STYLESHEET
 // ~~~~~~~~~~~~~~~~~~~~~
 legend {
-  padding: 0;
+  color: grey;
+  padding-top: 1vw;
   margin: 1vw;
   display: table;
-  font-family: 'Josefin';
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 4vw;
   font-weight: 300;
 }
@@ -234,7 +250,7 @@ fieldset {
   border-image: none;
   border-style: none;
   border-width: 0;
-  font-family: 'Josefin';
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 fieldset,

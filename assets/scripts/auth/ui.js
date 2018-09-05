@@ -51,7 +51,7 @@ const signInFailure = function (error) {
   console.log('signInFailure ran. Error is :', error)
 }
 
-const signOutSuccess = function () {
+const signOutSuccess = function (data) {
   $('#message').text('Signed out successfully')
   $('#message').css('background-color', '#ceff5e')
   setTimeout(hideMessage, 2000)
@@ -73,10 +73,11 @@ const signOutFailure = function (error) {
   console.log('signOutFailure ran. Error is :', error)
 }
 
-const changePasswordSuccess = function () {
+const changePasswordSuccess = function (data) {
   $('#message').text('Changed password successfully')
   $('#message').css('background-color', '#ceff5e')
   setTimeout(hideMessage, 2000)
+  setTimeout(closeChangePasswordModal, 2000)
   // console.log('changePasswordSuccess ran and nothing was returned!')
 }
 
