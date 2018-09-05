@@ -146,14 +146,26 @@ ul.nav a:hover {
     text-decoration: none;
 }
 
-#playNav,
-#getGamesNav,
-#getUnfinishedGamesNav,
-#quitNav, {
-  word-wrap: break-word;
+#playNav {
   font-size: 3vw;
   font-weight: 400;
 }
+
+#getGamesNav {
+  font-size: 3vw;
+  font-weight: 400;
+}
+
+#getUnfinishedGamesNav {
+  font-size: 3vw;
+  font-weight: 400;
+}
+
+#quitNav {
+  font-size: 3vw;
+  font-weight: 400;
+}
+
 // ~~~~~~~~~~~~~~~~~~~~~
 // HIDE FORMS UNLESS SIGNED IN / SIGNED UP
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -170,6 +182,7 @@ ul.nav a:hover {
   font-family: 'Josefin Sans', sans-serif;
   outline: none;
   position: fixed;
+  min-width: 60%;
   max-width: 60%; /* Could be more or less, depending on screen size */
   z-index: 100;
   left: 50%;

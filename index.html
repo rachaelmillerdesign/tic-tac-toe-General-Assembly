@@ -20,11 +20,10 @@
 
   <!--MODAL-->
 
-  <div class="modal hidden" id="gameOverModal" tabindex="-1" role="dialog">
+  <div class="modal hidden" id="gameOverModal" role="dialog">
+    <div id="hasWon" class="modal-body"></div>
+    <div class="border"></div>
     <button type="button" class="close-fail" data-dismiss="modal" aria-label="Close">
-          <div id="hasWon" class="modal-body">
-          </div>
-        </button>
   </div>
 
   <!--SIGN IN SIGN UP FORMS-->
@@ -47,7 +46,7 @@
         <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
         <input class="submit" type="submit" value="Sign up!">
         <button id="closeSignUpBtn" type="button" class="button close" data-dismiss="modal">&times;</button>
-      </fieldset>
+    </fieldset>
     </form>
   </div>
 
@@ -84,7 +83,7 @@
     </form>
   </div>
 
-<!-- ~~~~~~~~~~~~~~~~~~~~~~
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~
 NEW FORMS
 ~~~~~~~~~~~~~~~~~~~~~~ -->
 
@@ -93,13 +92,21 @@ NEW FORMS
     <div class="modal-overlay"></div>
     <button id="closeGetGamesBtn" type="button" class="button close" data-dismiss="modal">&times;</button>
   </div>
-
+  <!-- RETRIEVE AND UPDATE INCOMPLETE GAME -->
   <div class="modal hidden" id="getUnfinishedGamesModal" role="dialog">
     <div class="modal-overlay"></div>
     <button id="finishGame" class="button">Resume Game</button>
     <button id="closeGetUnfinishedGamesBtn" type="button" class="button close" data-dismiss="modal">&times;</button>
   </div>
-  <!-- RETRIEVE AND UPDATE INCOMPLETE GAME -->
+
+  <div class="modal hidden" id="playAgainModal" role="dialog">
+    <div class="modal-overlay"></div>
+    <div id="playAgain" class="border">
+      <p>Play again?</p>
+      <button id="yesPlayAgain" class="button">PLAY</button>
+      <button id="closePlayAgainBtn" type="button" class="button close" data-dismiss="modal">&times;</button>
+    </div>
+  </div>
 
   <!-- TIC TAC TOE BOARD -->
 
@@ -115,7 +122,7 @@ NEW FORMS
     <div id="7" class="square"></div>
     <div id="8" class="square"></div>
   </div>
-<!-- BOTTOM NAV BAR -->
+  <!-- BOTTOM NAV BAR -->
   <ul class='nav'>
     <li><a id='playNav' class="unclickable">PLAY</a></li>
     <li><a id='playAgainNav' class="hidden">PLAY AGAIN</a></li>

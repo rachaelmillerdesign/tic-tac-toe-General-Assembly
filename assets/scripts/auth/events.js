@@ -52,7 +52,7 @@ const onChangePassword = function (event) {
 // ~~~~~~~~~~~~~~~~~~~~~~
 const onCreateGame = function (event) {
   event.preventDefault()
-  // console.log('onCreateGame ran!')
+  console.log('onCreateGame ran!')
 
   api.createGame()
     .then(ui.createGameSuccess)
