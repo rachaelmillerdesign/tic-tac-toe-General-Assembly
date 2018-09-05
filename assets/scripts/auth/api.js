@@ -49,13 +49,6 @@ const changePassword = function (data) {
 // CREATE GAME API
 // ~~~~~~~~~~~~~~~~~~~~
 
-// const show = function (id) {
-//   return $.ajax({
-//     url: config.apiUrl + '/games/' + store.game.id,
-//     method: 'GET'
-//   })
-// }
-
 const createGame = function (data) {
   return $.ajax({
     url: config.apiUrl + '/games',
@@ -101,6 +94,16 @@ const getGames = function () {
   })
 }
 
+const getUnfinishedGames = function () {
+  console.log('in getUnfinishedGames')
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/games?over=false',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 // const index = function (data) {
 //   return $.ajax({
 //     url: config.apiUrl + '/games',
@@ -123,5 +126,6 @@ module.exports = {
   // index,
   getGames,
   updateGame,
-  createGame
+  createGame,
+  getUnfinishedGames
 }

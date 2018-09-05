@@ -74,6 +74,15 @@ const onGetGames = function (event) {
     .then(ui.getGamesSuccess)
     .catch(ui.getGamesFailure)
 }
+
+const onGetUnfinishedGames = function (event) {
+  event.preventDefault()
+  console.log('onGetUnfinishedGames ran')
+
+  api.getUnfinishedGames()
+    .then(ui.getUnfinishedGamesSuccess)
+    .catch(ui.getUnfinishedGamesFailure)
+}
 // ~~~~~~~~~~~~~~~~~~~~~~
 //  ADD HANDLERS
 // ~~~~~~~~~~~~~~~~~~~~~~
@@ -104,6 +113,7 @@ const addHandlers = () => {
   $('#game-new').on('click', onCreateGame)
   $('.square').on('click', onClickCallback)
   $('#getGamesNav').on('click', onGetGames)
+  $('#getUnfinishedGamesNav').on('click', onGetUnfinishedGames)
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~

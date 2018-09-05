@@ -120,15 +120,28 @@ const updateGameFailure = function (error) {
 }
 
 const getGamesSuccess = function (data) {
-  console.log('getGameSuccess ran.', data)
+  console.log('getGamesSuccess ran.', data)
   $('#getGamesModal').append(data.games.length)
   $('#getGamesModal').toggle('hidden')
+  setTimeout(closeGetGamesModal, 2000)
 }
 
 const getGamesFailure = function () {
-  console.log('newGameFailure ran. Error is :')
+  console.log('getGamesFailure ran. Error is :')
 }
 
+const getUnfinishedGamesSuccess = function (data) {
+  $('#getUnfinishedGamesModal').toggle('hidden')
+  for (let i = 0; i < data.games.length; i++) {
+    $('#getUnfinishedGamesModal').append('<p>ID: ' + data.games[i].id + ' </p> <p>Game Squares:' + data.games[i].cells + '</p>')
+    // console.log(data.games[i])
+  }
+}
+// setTimeout(closeGetUnfinishedGamesModal, 2000)
+
+const getUnfinishedGamesFailure = function () {
+  console.log('getUnfinishedGamesFailure ran. Error is :')
+}
 // ~~~~~~~~~~~~~~~~~~~~~~
 // SIGN UP MODAL
 // ~~~~~~~~~~~~~~~~~~~~~~
@@ -238,6 +251,59 @@ function clickOutsideChangePassword (e) {
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~
+// GET GAMES MODAL
+// ~~~~~~~~~~~~~~~~~~~~~~
+// Get modal element
+const getGamesModal = document.getElementById('getGamesModal')
+// Get modal button
+const getGamesNav = document.getElementById('getGamesNav')
+const closeGetGamesBtn = document.getElementById('closeGetGamesBtn')
+// Listen for Click
+$('#getGamesNav').on('click', openGetGamesModal)
+$('#closeGetGamesBtn').on('click', closeGetGamesModal)
+// Listen for click outside of modal
+$('#window').on('click', clickOutsideGetGames)
+// Functions that open and close modal
+function openGetGamesModal () {
+  getGamesModal.style.display = 'block'
+}
+function closeGetGamesModal () {
+  getGamesModal.style.display = 'none'
+}
+// Function that closes modal if outside click
+function clickOutsideGetGames (e) {
+  if (e.target === getGamesModal) {
+    getGamesModal.style.display = 'none'
+  }
+}
+
+// ~~~~~~~~~~~~~~~~~~~~~~
+// GET UNFINISHED GAMES MODAL
+// ~~~~~~~~~~~~~~~~~~~~~~
+// Get modal element
+const getUnfinishedGamesModal = document.getElementById('getUnfinishedGamesModal')
+// Get modal button
+const getUnfinishedGamesNav = document.getElementById('getUnfinishedGamesNav')
+const closeGetUnfinishedGamesBtn = document.getElementById('closeUnfinishedGamesBtn')
+// Listen for Click
+$('#getUnfinishedGamesNav').on('click', openGetUnfinishedGamesModal)
+$('#closeGetUnfinishedGamesBtn').on('click', closeGetUnfinishedGamesModal)
+// Listen for click outside of modal
+$('#window').on('click', clickOutsideGetUnfinishedGames)
+// Functions that open and close modal
+function openGetUnfinishedGamesModal () {
+  getUnfinishedGamesModal.style.display = 'block'
+}
+function closeGetUnfinishedGamesModal () {
+  getUnfinishedGamesModal.style.display = 'none'
+}
+// Function that closes modal if outside click
+function clickOutsideGetUnfinishedGames (e) {
+  if (e.target === getUnfinishedGamesModal) {
+    getUnfinishedGamesModal.style.display = 'none'
+  }
+}
+// ~~~~~~~~~~~~~~~~~~~~~~
 // MODULE EXPORTS
 // ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -262,6 +328,16 @@ module.exports = {
   closeChangePasswordBtn,
   closeChangePasswordModal,
   clickOutsideChangePassword,
+  getGamesNav,
+  closeGetGamesBtn,
+  openGetGamesModal,
+  closeGetGamesModal,
+  clickOutsideGetGames,
+  getUnfinishedGamesNav,
+  closeGetUnfinishedGamesBtn,
+  openGetUnfinishedGamesModal,
+  closeGetUnfinishedGamesModal,
+  clickOutsideGetUnfinishedGames,
   signUpSuccess,
   signUpFailure,
   signInSuccess,
@@ -275,5 +351,7 @@ module.exports = {
   updateGameSuccess,
   updateGameFailure,
   getGamesSuccess,
-  getGamesFailure
+  getGamesFailure,
+  getUnfinishedGamesSuccess,
+  getUnfinishedGamesFailure
 }
