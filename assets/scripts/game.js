@@ -2,7 +2,7 @@ const api = require('./auth/api')
 // const store = require('./store.js')
 // do not require gameEvents -- circular dependency
 // const gameEvents = require('./auth/events')
-const modals = require('./modals.js')
+// const modals = require('./modals.js')
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // VARIABLES & CONSTANTS
@@ -10,7 +10,6 @@ const modals = require('./modals.js')
 
 const currentPlayer = 'x'
 const emptyBoard = ['', '', '', '', '', '', '', '', '']
-// let i
 let j
 let q
 let currentWin
@@ -31,6 +30,7 @@ const gameLogic = {
   currentPlayer,
   emptyBoard
 }
+
 // ~~~~~~~~~~~~~~~~~~~~~
 // ALTERNATE TURNS
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -49,32 +49,39 @@ const alternateTurns = function (current) {
 const isGameOver = function (current, board) {
   draw = true
   for (q = 0; q < possibleWins.length; q++) {
+    let testX = false
+    let testO = false
     currentWin = possibleWins[q]
     // console.log('For ' + current + ' currentWin: ' + currentWin)
     won = true
-    let test
-    test = 0
     for (j = 0; j < currentWin.length; j++) {
       if (board[currentWin[j]] !== current) {
         won = false
       }
       if (board[currentWin[j]] === 'x') {
-        test += 1
+        testX = true
         // console.log('found x in ' + currentWin[j])
       } else if (board[currentWin[j]] === 'o') {
-        test += 10
+        testO = true
         // console.log('found o in ' + currentWin[j])
       }
     }
+    // console.log('test = ' + testX + testO)
+    // console.log('current win = ' + currentWin)
+    // console.log('draw = ' + draw)
     if (won === true) {
       if (current === 'x') {
-        $('#message').text('x + has won!')
+        $('#message').text('x has won!')
         $('#message').css('background-color', '#85ecfc')
-        console.log('x + has won!')
+        console.log('x has won!')
+        $('#playNav').addClass('hidden')
+        $('#playAgainNav').removeClass('hidden')
       } else {
-        $('#message').text('o + has won!')
+        $('#message').text('o has won!')
         $('#message').css('background-color', '#85ecfc')
-        console.log('o + has won!')
+        console.log('o has won!')
+        $('#playNav').addClass('hidden')
+        $('#playAgainNav').removeClass('hidden')
       }
       // console.log(current + ' has won!')
       // $('#gameOverModal').removeClass('hidden')
@@ -83,13 +90,16 @@ const isGameOver = function (current, board) {
       $('.square').addClass('unclickable')
       api.updateGame()
       return true
-    } else if (test < 3 || test % 10 === 0) {
+    } else if (!(testX && testO)) {
       draw = false
     }
   }
   if (draw === true) {
     console.log("It's a tie!")
+    $('#playNav').addClass('hidden')
+    $('#playAgainNav').removeClass('hidden')
     $('.square').addClass('unclickable')
+    api.updateGame()
     return true
   } else {
     return false
@@ -97,10 +107,7 @@ const isGameOver = function (current, board) {
 }
 
 const playAgain = function () {
-  if (won === true || draw === true) {
-    console.log('Play again?')
-    modals.openPlayAgainModal()
-  }
+
 }
 
 // const isGameOver = function (current, board) {
@@ -186,7 +193,6 @@ function emptySquares () {
 //   const square = $('.square')
 //   for (let m = 0; m < square.length; m++) {
 //     square[m].innerHTML = ''
-//     square[m].removeClass('unclickable')
 //   }
 // }
 
@@ -219,8 +225,6 @@ module.exports = {
   alternateTurns,
   gameLogic,
   isGameOver,
-  // boardLockedAtStart,
   unlockBoard,
-  emptySquares,
-  playAgain
+  emptySquares
 }

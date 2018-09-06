@@ -104,7 +104,7 @@ const createGameSuccess = function (data) {
   game.emptySquares()
   game.unlockBoard()
   // setTimeout(hideMessage, 2000)
-  setTimeout(modals.closeChangePasswordModal, 2000)
+  // setTimeout(modals.closeChangePasswordModal, 2000)
   // console.log('newGameSuccess ran and nothing was returned!', data)
   store.game = data.game
 }
@@ -117,8 +117,8 @@ const createGameFailure = function (error) {
 }
 
 const updateGameSuccess = function (data) {
-  $('#message').text('New game created successfully')
-  $('#message').css('background-color', '#ceff5e')
+  // $('#message').text('New game created successfully')
+  // $('#message').css('background-color', '#ceff5e')
   // setTimeout(hideMessage, 2000)
   // console.log('newGameSuccess ran and nothing was returned!')
   store.game = data.game

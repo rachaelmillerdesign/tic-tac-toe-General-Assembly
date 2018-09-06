@@ -115,12 +115,8 @@ const addHandlers = () => {
   $('.square').on('click', onClickCallback)
   $('#getGamesNav').on('click', onGetGames)
   $('#getUnfinishedGamesNav').on('click', onGetUnfinishedGames)
+  $('#playAgainNav').on('click', onCreateGame)
 }
-  // return $(this).css('background-image', 'url(../../../public/images/o.jpg')
-
-// ~~~~~~~~~~~~~~~~~~~~~
-// GET SCORES
-// ~~~~~~~~~~~~~~~~~~~~~
 
 // ~~~~~~~~~~~~~~~~~~~~~~`
 // MODULE EXPORTS
