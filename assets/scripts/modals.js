@@ -13,15 +13,15 @@ $('#closesignUpBtn').on('click', closeSignUpModal)
 $('window').on('click', clickOutsideSignUp)
 // Functions that open and close modal
 function openSignUpModal () {
-  $('#openSignUpModal').removeClass('hidden')
+  $('#signUpModal').removeClass('hidden')
 }
 function closeSignUpModal () {
-  $('#openSignUpModal').addClass('hidden')
+  $('#signUpModal').addClass('hidden')
 }
 // Function that closes modal if outside click
 function clickOutsideSignUp (e) {
   if (e.target === signUpModal) {
-    $('#openSignUpModal').addClass('hidden')
+    $('#signUpModal').addClass('hidden')
   }
 }
 

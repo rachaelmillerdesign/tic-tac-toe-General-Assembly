@@ -50,7 +50,7 @@ const isGameOver = function (current, board) {
   draw = true
   for (q = 0; q < possibleWins.length; q++) {
     currentWin = possibleWins[q]
-    // console.log('For' + currentPlayer + 'currentWin: ' + currentWin)
+    // console.log('For ' + current + ' currentWin: ' + currentWin)
     won = true
     let test
     test = 0
@@ -60,20 +60,26 @@ const isGameOver = function (current, board) {
       }
       if (board[currentWin[j]] === 'x') {
         test += 1
-      } else if (board[currentWin[j]] === 'y') {
+        // console.log('found x in ' + currentWin[j])
+      } else if (board[currentWin[j]] === 'o') {
         test += 10
+        // console.log('found o in ' + currentWin[j])
       }
     }
     if (won === true) {
       if (current === 'x') {
         $('#message').text('x + has won!')
         $('#message').css('background-color', '#85ecfc')
+        console.log('x + has won!')
       } else {
+        $('#message').text('o + has won!')
+        $('#message').css('background-color', '#85ecfc')
         console.log('o + has won!')
       }
-      console.log(current + ' has won!')
-      $('#gameOverModal').removeClass('hidden')
-      $('#hasWon').append(current + '  has won!')
+      // console.log(current + ' has won!')
+      // $('#gameOverModal').removeClass('hidden')
+      // $('#hasWon').append(current + '  has won!')
+      // setTimeout($('#gameOverModal').removeClass('hidden')), 2000)
       $('.square').addClass('unclickable')
       api.updateGame()
       return true
@@ -172,13 +178,17 @@ const playAgain = function () {
 // CREATE NEW GAME
 // ~~~~~~~~~~~~~~~~~~~~~
 
-function emptySquares() {
-  const square = $('.square')
-  for (let m = 0; m < square.length; m++) {
-    square[m].innerHTML = ''
-    square[m].classList.removeClass('unclickable')
-  }
+function emptySquares () {
+  $('.square').removeClass('unclickable')
 }
+
+// function emptySquares () {
+//   const square = $('.square')
+//   for (let m = 0; m < square.length; m++) {
+//     square[m].innerHTML = ''
+//     square[m].removeClass('unclickable')
+//   }
+// }
 
 // ~~~~~~~~~~~~~~~~~~~~
 //  CLEAR BOARD AFTER WIN/DRAW
@@ -197,32 +207,8 @@ function emptySquares() {
 //   'emptyBoard' = 'clearBoard'
 // }
 
-// ~~~~~~~~~~~~~~~~~~~~
-//  BOARD AND NEW GAME BUTTON LOCKED / unlocked BEFORE SIGN IN / UP
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-// const boardLockedAtStart = $('.square').addClass('unclickable')
-// console.log('boardLockedAtStart')
-
-// const newGameButtonLockedAtStart = $('#playNav').addClass('unclickable')
-// console.log('newGameButtonLockedAtStart')
-
-// function unlockNewGameButton () {
-//   $('#playNav').removeClass('unclickable')
-// }
-
-function unlockBoard() {
+function unlockBoard () {
   $('.square').removeClass('unclickable')
-}
-
-const startGamebutton = function(event) {
-  console.log('play button clicked')
-  // document.getElementById('playNav')
-  $('#playNav').on('click', function() {
-    emptySquares()
-    // startGame()
-    unlockBoard()
-  })
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~
@@ -234,7 +220,6 @@ module.exports = {
   gameLogic,
   isGameOver,
   // boardLockedAtStart,
-  startGamebutton,
   unlockBoard,
   emptySquares,
   playAgain

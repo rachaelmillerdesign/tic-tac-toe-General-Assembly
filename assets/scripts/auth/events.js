@@ -95,14 +95,15 @@ const onClickCallback = function (e) {
   // $(this).text(game.gameLogic.currentPlayer)
   $(this).addClass('unclickable')
   onUpdateGame(cellid, game.gameLogic.currentPlayer, gameOver)
-
-  game.gameLogic.currentPlayer = game.alternateTurns(game.gameLogic.currentPlayer)
+  let targetImage
   // console.log(game.gameLogic.currentPlayer)
   if (game.gameLogic.currentPlayer === 'x') {
-    return $(this).css('background-image', 'url(../../../public/images/x.jpg')
+    targetImage = 'url(../../../public/images/x.jpg'
   } else if (game.gameLogic.currentPlayer === 'o') {
-    return $(this).css('background-image', 'url(../../../public/images/o.jpg')
+    targetImage = 'url(../../../public/images/o.jpg'
   }
+  game.gameLogic.currentPlayer = game.alternateTurns(game.gameLogic.currentPlayer)
+  return $(this).css('background-image', targetImage)
 }
 
 const addHandlers = () => {
@@ -115,6 +116,7 @@ const addHandlers = () => {
   $('#getGamesNav').on('click', onGetGames)
   $('#getUnfinishedGamesNav').on('click', onGetUnfinishedGames)
 }
+  // return $(this).css('background-image', 'url(../../../public/images/o.jpg')
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // GET SCORES
