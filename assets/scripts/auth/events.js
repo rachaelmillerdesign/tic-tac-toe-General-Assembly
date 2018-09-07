@@ -98,9 +98,9 @@ const onClickCallback = function (e) {
   let targetImage
   // console.log(game.gameLogic.currentPlayer)
   if (game.gameLogic.currentPlayer === 'x') {
-    targetImage = 'url("https://rachaelmillerdesign.github.io/public/images/X.jpg")'
+    targetImage = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/X.jpg")'
   } else if (game.gameLogic.currentPlayer === 'o') {
-    targetImage = 'url("https://rachaelmillerdesign.github.io/public/images/O.jpg")'
+    targetImage = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/O.jpg")'
   }
   game.gameLogic.currentPlayer = game.alternateTurns(game.gameLogic.currentPlayer)
   return $(this).css('background-image', targetImage)
