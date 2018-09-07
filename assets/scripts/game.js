@@ -73,13 +73,13 @@ const isGameOver = function (current, board) {
       if (current === 'x') {
         $('#message').text('x has won!')
         $('#message').css('background-color', '#85ecfc')
-        console.log('x has won!')
+        // console.log('x has won!')
         $('#playNav').addClass('hidden')
         $('#playAgainNav').removeClass('hidden')
       } else {
         $('#message').text('o has won!')
         $('#message').css('background-color', '#85ecfc')
-        console.log('o has won!')
+        // console.log('o has won!')
         $('#playNav').addClass('hidden')
         $('#playAgainNav').removeClass('hidden')
       }
@@ -95,7 +95,7 @@ const isGameOver = function (current, board) {
     }
   }
   if (draw === true) {
-    console.log("It's a tie!")
+    // console.log("It's a tie!")
     $('#playNav').addClass('hidden')
     $('#playAgainNav').removeClass('hidden')
     $('.square').addClass('unclickable')

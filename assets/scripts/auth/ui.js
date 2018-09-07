@@ -132,7 +132,7 @@ const updateGameFailure = function (error) {
 }
 
 const getGamesSuccess = function (data) {
-  console.log('getGamesSuccess ran.', data)
+  // console.log('getGamesSuccess ran.', data)
   $('#getGamesModal').append(data.games.length)
   $('#getGamesModal').removeClass('hidden')
   setTimeout(modals.closeGetGamesModal, 2000)
@@ -148,7 +148,7 @@ const getUnfinishedGamesSuccess = function (data) {
   for (let i = 0; i < data.games.length; i++) {
     $('#getUnfinishedGamesModal').append('<p>ID: ' + data.games[i].id + ' </p> <p>Game Squares:' + data.games[i].cells + '</p>')
     setTimeout(modals.closeGetUnfinishedGamesModal, 2000)
-    console.log(data.games[i])
+    // console.log(data.games[i])
     store.game = data.game
   }
 }

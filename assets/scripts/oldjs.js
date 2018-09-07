@@ -84,10 +84,10 @@ ________________________
     // convert that string to an integer, and use it to
     // write to emptyBoard at that index with whoever
     // the current player is
-    console.log(e.target.id)
+    // console.log(e.target.id)
     $(this).text(currentPlayer)
     alternateTurns()
-    console.log(currentPlayer)
+    // console.log(currentPlayer)
   }
 
   $('.square').on('click', startGame)
@@ -134,5 +134,5 @@ let emptyBoard = ['', '', '', '', '', '', '', '', '']
 
   $('.square').on('click', startGame)
 
-  console.log(gameBoard)
-  console.log(emptyBoard)
+  // console.log(gameBoard)
+  // console.log(emptyBoard)

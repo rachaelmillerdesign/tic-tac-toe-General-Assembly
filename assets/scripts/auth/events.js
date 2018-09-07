@@ -40,7 +40,7 @@ const onSignOut = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  console.log('change password ran!')
+  // console.log('change password ran!')
 
   const data = getFormFields(this)
   api.changePassword(data)
@@ -52,7 +52,7 @@ const onChangePassword = function (event) {
 // ~~~~~~~~~~~~~~~~~~~~~~
 const onCreateGame = function (event) {
   event.preventDefault()
-  console.log('onCreateGame ran!')
+  // console.log('onCreateGame ran!')
 
   api.createGame()
     .then(ui.createGameSuccess)
@@ -68,7 +68,7 @@ const onUpdateGame = function (cellid, currentPlayer, gameOver) {
 
 const onGetGames = function (event) {
   event.preventDefault()
-  console.log('onGetGames ran')
+  // console.log('onGetGames ran')
 
   api.getGames()
     .then(ui.getGamesSuccess)
@@ -77,7 +77,7 @@ const onGetGames = function (event) {
 
 const onGetUnfinishedGames = function (event) {
   event.preventDefault()
-  console.log('onGetUnfinishedGames ran')
+  // console.log('onGetUnfinishedGames ran')
 
   api.getUnfinishedGames()
     .then(ui.getUnfinishedGamesSuccess)

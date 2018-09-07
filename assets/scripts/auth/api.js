@@ -34,7 +34,7 @@ const signOut = function () {
 }
 
 const changePassword = function (data) {
-  console.log('in changePassword and the data is ', data)
+  // console.log('in changePassword and the data is ', data)
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -64,7 +64,7 @@ const createGame = function (data) {
 // ~~~~~~~~~~~~~~~~~~~~~~
 
 const updateGame = function (cellid, currentPlayer, gameOver) {
-  console.log(store.data)
+  // console.log(store.data)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
@@ -84,7 +84,7 @@ const updateGame = function (cellid, currentPlayer, gameOver) {
 }
 
 const getGames = function () {
-  console.log('in getGames')
+  // console.log('in getGames')
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/games/',
@@ -95,7 +95,7 @@ const getGames = function () {
 }
 
 const getUnfinishedGames = function () {
-  console.log('in getUnfinishedGames')
+  // console.log('in getUnfinishedGames')
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/games?over=false',
