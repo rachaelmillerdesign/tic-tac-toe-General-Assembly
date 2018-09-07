@@ -40,7 +40,7 @@ const onSignOut = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  // console.log('change password ran!')
+  console.log('change password ran!')
 
   const data = getFormFields(this)
   api.changePassword(data)
@@ -52,7 +52,7 @@ const onChangePassword = function (event) {
 // ~~~~~~~~~~~~~~~~~~~~~~
 const onCreateGame = function (event) {
   event.preventDefault()
-  // console.log('onCreateGame ran!')
+  console.log('onCreateGame ran!')
 
   api.createGame()
     .then(ui.createGameSuccess)
@@ -63,9 +63,26 @@ const onUpdateGame = function (cellid, currentPlayer, gameOver) {
   event.preventDefault()
   api.updateGame(cellid, currentPlayer, gameOver)
     .then(ui.updateGameSuccess)
-    .catch(ui.updateGameSuccess)
+    .catch(ui.updateGameFailure)
 }
 
+const onGetGames = function (event) {
+  event.preventDefault()
+  console.log('onGetGames ran')
+
+  api.getGames()
+    .then(ui.getGamesSuccess)
+    .catch(ui.getGamesFailure)
+}
+
+const onGetUnfinishedGames = function (event) {
+  event.preventDefault()
+  console.log('onGetUnfinishedGames ran')
+
+  api.getUnfinishedGames()
+    .then(ui.getUnfinishedGamesSuccess)
+    .catch(ui.getUnfinishedGamesFailure)
+}
 // ~~~~~~~~~~~~~~~~~~~~~~
 //  ADD HANDLERS
 // ~~~~~~~~~~~~~~~~~~~~~~
@@ -75,12 +92,18 @@ const onClickCallback = function (e) {
   game.gameLogic.emptyBoard[cellid] = game.gameLogic.currentPlayer
   const gameOver = game.isGameOver(game.gameLogic.currentPlayer, game.gameLogic.emptyBoard)
   // console.log(game.gameLogic.emptyBoard)
-  $(this).text(game.gameLogic.currentPlayer)
+  // $(this).text(game.gameLogic.currentPlayer)
   $(this).addClass('unclickable')
   onUpdateGame(cellid, game.gameLogic.currentPlayer, gameOver)
-  // debugger
-  game.gameLogic.currentPlayer = game.alternateTurns(game.gameLogic.currentPlayer)
+  let targetImage
   // console.log(game.gameLogic.currentPlayer)
+  if (game.gameLogic.currentPlayer === 'x') {
+    targetImage = 'url(../../../public/images/x.jpg'
+  } else if (game.gameLogic.currentPlayer === 'o') {
+    targetImage = 'url(../../../public/images/o.jpg'
+  }
+  game.gameLogic.currentPlayer = game.alternateTurns(game.gameLogic.currentPlayer)
+  return $(this).css('background-image', targetImage)
 }
 
 const addHandlers = () => {
@@ -88,19 +111,12 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
-  $('#game-new').on('click', onCreateGame)
+  $('#playNav').on('click', onCreateGame)
   $('.square').on('click', onClickCallback)
+  $('#getGamesNav').on('click', onGetGames)
+  $('#getUnfinishedGamesNav').on('click', onGetUnfinishedGames)
+  $('#playAgainNav').on('click', onCreateGame)
 }
-
-// // ~~~~~~~~~~~~~~~~~~~~~
-// // GET SCORES
-// // ~~~~~~~~~~~~~~~~~~~~~
-//
-// const getScores = function (e) {
-//   document.getElementById('getGames')
-//   addEventListener('click', 'getGames')
-//   console.log('getting games')
-// }
 
 // ~~~~~~~~~~~~~~~~~~~~~~`
 // MODULE EXPORTS
@@ -108,5 +124,7 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
-  onUpdateGame
+  onCreateGame,
+  onUpdateGame,
+  onGetGames
 }

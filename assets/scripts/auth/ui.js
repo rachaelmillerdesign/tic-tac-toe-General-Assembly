@@ -1,94 +1,160 @@
 'use strict'
 
 const store = require('../store')
-const events = require('./events')
+// const events = require('./events')
 const game = require('../game')
+const modals = require('../modals.js')
+
+// TODO: this short circuits:
+// const hideMessage = function () {
+//   $('#message').hide()
+// }
 
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
-  $('#message').css('background-color', 'green')
-  $('#game-new').removeClass('unclickable')
-  $('#sign-out').removeClass('hidden')
-  $('#sign-up').addClass('hidden')
-  $('#change-password').removeClass('hidden')
+  $('#message').css('background-color', '#ceff5e')
+  // setTimeout(hideMessage, 2000)
+  $('#playNav').removeClass('unclickable')
+  $('#signOutNav').removeClass('hidden')
+  $('#signUpNav').addClass('hidden')
+  $('#changePasswordNav').removeClass('hidden')
   $('#sign-up')[0].reset()
+  setTimeout(modals.closeSignUpModal, 2000)
   // console.log('signUpSuccess ran. Data is :', data)
 }
 
 const signUpFailure = function (error) {
   $('#message').text('Error on sign up')
-  $('#message').css('background-color', 'red')
-  console.error('signUpFailure ran. Error is :', error)
+  $('#message').css('background-color', '#ff9226')
+  $('#sign-up')[0].reset()
+  // setTimeout(hideMessage, 2000)
+  setTimeout(modals.closeSignUpModal, 2000)
+  console.log('signUpFailure ran. Error is :', error)
 }
 
 const signInSuccess = function (data) {
   $('#message').text('Signed in successfully')
-  $('#message').css('background-color', 'green')
-  $('#game-new').removeClass('unclickable')
-  $('#sign-out').removeClass('hidden')
-  $('#sign-in').addClass('hidden')
-  $('#sign-up').addClass('hidden')
-  $('#change-password').removeClass('hidden')
-  game.startGamebutton()
+  $('#message').css('background-color', '#ceff5e')
+  // setTimeout(hideMessage, 2000)
+  $('#playNav').removeClass('unclickable')
+  $('#signOutNav').removeClass('hidden')
+  $('#signInNav').addClass('hidden')
+  $('#signUpNav').addClass('hidden')
+  $('#changePasswordNav').removeClass('hidden')
+  $('#sign-in')[0].reset()
+  setTimeout(modals.closeSignInModal, 2000)
   // console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 }
 
 const signInFailure = function (error) {
   $('#message').text('Error on sign in')
-  $('#message').css('background-color', 'red')
-  console.error('signInFailure ran. Error is :', error)
+  $('#message').css('background-color', '#ff9226')
+  $('#sign-in')[0].reset()
+  // setTimeout(hideMessage, 2000)
+  setTimeout(modals.closeSignInModal, 2000)
+  console.log('signInFailure ran. Error is :', error)
 }
 
-const signOutSuccess = function () {
+const signOutSuccess = function (data) {
   $('#message').text('Signed out successfully')
-  $('#message').css('background-color', 'green')
-  $('#sign-in').removeClass('hidden')
-  $('#sign-up').removeClass('hidden')
-  $('#sign-out').addClass('hidden')
-  $('#change-password').addClass('hidden')
-  $('#sign-up')[0].reset()
+  $('#message').css('background-color', '#ceff5e')
+  // setTimeout(hideMessage, 2000)
+  $('#playNav').addClass('unclickable')
+  $('#signInNav').removeClass('hidden')
+  $('#signUpNav').removeClass('hidden')
+  $('#signOutNav').addClass('hidden')
+  $('#changePasswordNav').addClass('hidden')
+  $('#sign-out')[0].reset()
+  setTimeout(modals.closeSignOutModal, 2000)
   // console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
 }
 
 const signOutFailure = function (error) {
   $('#message').text('Error on sign out')
-  $('#message').css('background-color', 'red')
-  console.error('signOutFailure ran. Error is :', error)
+  $('#message').css('background-color', '#ff9226')
+  $('#sign-out')[0].reset()
+  // setTimeout(hideMessage, 2000)
+  setTimeout(modals.closeSignOutModal, 2000)
+  console.log('signOutFailure ran. Error is :', error)
 }
 
-const changePasswordSuccess = function () {
+const changePasswordSuccess = function (data) {
   $('#message').text('Changed password successfully')
-  $('#message').css('background-color', 'green')
+  $('#message').css('background-color', '#ceff5e')
+  $('#change-password')[0].reset()
+  // setTimeout(hideMessage, 2000)
+  setTimeout(modals.closeChangePasswordModal, 2000)
   // console.log('changePasswordSuccess ran and nothing was returned!')
 }
 
 const changePasswordFailure = function (error) {
   $('#message').text('Error on change password')
-  $('#message').css('background-color', 'red')
-  console.error('changePasswordFailure ran. Error is :', error)
+  $('#message').css('background-color', '#ff9226')
+  $('#change-password')[0].reset()
+  // setTimeout(hideMessage, 2000)
+  setTimeout(modals.closeChangePasswordModal, 2000)
+  console.log('changePasswordFailure ran. Error is :', error)
 }
+
 const createGameSuccess = function (data) {
   $('#message').text('New game created successfully')
-  $('#message').css('background-color', 'green')
+  $('#message').css('background-color', '#ceff5e')
+  game.emptySquares()
+  game.unlockBoard()
+  // setTimeout(hideMessage, 2000)
+  // setTimeout(modals.closeChangePasswordModal, 2000)
   // console.log('newGameSuccess ran and nothing was returned!', data)
   store.game = data.game
 }
+
 const createGameFailure = function (error) {
   $('#message').text('Error on create new game')
-  $('#message').css('background-color', 'red')
-  console.error('newGameFailure ran. Error is :', error)
+  $('#message').css('background-color', '#ff9226')
+  // setTimeout(hideMessage, 2000)
+  console.log('newGameFailure ran. Error is :', error)
 }
-const updateGameSuccess = function () {
-  $('#message').text('New game created successfully')
-  $('#message').css('background-color', 'green')
+
+const updateGameSuccess = function (data) {
+  // $('#message').text('New game created successfully')
+  // $('#message').css('background-color', '#ceff5e')
+  // setTimeout(hideMessage, 2000)
   // console.log('newGameSuccess ran and nothing was returned!')
+  store.game = data.game
 }
+
 const updateGameFailure = function (error) {
   $('#message').text('Error on create new game')
-  $('#message').css('background-color', 'red')
-  console.error('newGameFailure ran. Error is :', error)
+  $('#message').css('background-color', '#ff9226')
+  // setTimeout(hideMessage, 2000)
+  console.log('updateGameFailure ran. Error is :', error)
+}
+
+const getGamesSuccess = function (data) {
+  console.log('getGamesSuccess ran.', data)
+  $('#getGamesModal').append(data.games.length)
+  $('#getGamesModal').removeClass('hidden')
+  setTimeout(modals.closeGetGamesModal, 2000)
+  store.game = data.game
+}
+
+const getGamesFailure = function () {
+  console.log('getGamesFailure ran. Error is :')
+}
+
+const getUnfinishedGamesSuccess = function (data) {
+  $('#getUnfinishedGamesModal').removeClass('hidden')
+  for (let i = 0; i < data.games.length; i++) {
+    $('#getUnfinishedGamesModal').append('<p>ID: ' + data.games[i].id + ' </p> <p>Game Squares:' + data.games[i].cells + '</p>')
+    setTimeout(modals.closeGetUnfinishedGamesModal, 2000)
+    console.log(data.games[i])
+    store.game = data.game
+  }
+}
+
+const getUnfinishedGamesFailure = function () {
+  console.log('getUnfinishedGamesFailure ran. Error is :')
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~
@@ -107,5 +173,9 @@ module.exports = {
   createGameSuccess,
   createGameFailure,
   updateGameSuccess,
-  updateGameFailure
+  updateGameFailure,
+  getGamesSuccess,
+  getGamesFailure,
+  getUnfinishedGamesSuccess,
+  getUnfinishedGamesFailure
 }

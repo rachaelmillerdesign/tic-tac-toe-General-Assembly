@@ -31,9 +31,16 @@ const onClickBoard = function (event) {
 $('.emptyBoard').on('click', 'square', function(event) {
     let $square = $(event.currentTarget)
     $square.addclass('square-' + currentPlayer)
+    }
     console.log(emptyBoard)
 })
 
+
+//$('#plus-symbol-button).click(function() {
+//
+// $(this).attr('src', 'images/minus-symbol.png');
+//
+// });
 //arjun code from square one: data-move="O" data-random="hello"
 //for ( i = 0; i < emptyBoard.length; i++ ) {
 //cons ole.log(emptyBoard[i]);

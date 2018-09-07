@@ -34,7 +34,7 @@ const signOut = function () {
 }
 
 const changePassword = function (data) {
-  // console.log('data is ', data)
+  console.log('in changePassword and the data is ', data)
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -48,20 +48,6 @@ const changePassword = function (data) {
 // ~~~~~~~~~~~~~~~~~~~~
 // CREATE GAME API
 // ~~~~~~~~~~~~~~~~~~~~
-
-const index = function () {
-  return $.ajax({
-    url: config.apiUrl + '/games',
-    method: 'GET'
-  })
-}
-
-// const show = function (id) {
-//   return $.ajax({
-//     url: config.apiUrl + '/games/' + store.game.id,
-//     method: 'GET'
-//   })
-// }
 
 const createGame = function (data) {
   return $.ajax({
@@ -78,6 +64,7 @@ const createGame = function (data) {
 // ~~~~~~~~~~~~~~~~~~~~~~
 
 const updateGame = function (cellid, currentPlayer, gameOver) {
+  console.log(store.data)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
@@ -97,6 +84,7 @@ const updateGame = function (cellid, currentPlayer, gameOver) {
 }
 
 const getGames = function () {
+  console.log('in getGames')
   return $.ajax({
     method: 'GET',
     url: config.apiUrl + '/games/',
@@ -106,6 +94,26 @@ const getGames = function () {
   })
 }
 
+const getUnfinishedGames = function () {
+  console.log('in getUnfinishedGames')
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/games?over=false',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+// const index = function (data) {
+//   return $.ajax({
+//     url: config.apiUrl + '/games',
+//     method: 'GET',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data
+//   })
+// }
 // ~~~~~~~~~~~~~~~~~~~~~~
 // MODULE EXPORTS
 // ~~~~~~~~~~~~~~~~~~~~~~
@@ -115,8 +123,9 @@ module.exports = {
   signIn,
   signOut,
   changePassword,
-  index,
+  // index,
   getGames,
   updateGame,
-  createGame
+  createGame,
+  getUnfinishedGames
 }
