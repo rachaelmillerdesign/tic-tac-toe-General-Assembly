@@ -98,9 +98,9 @@ const onClickCallback = function (e) {
   let targetImage
   // console.log(game.gameLogic.currentPlayer)
   if (game.gameLogic.currentPlayer === 'x') {
-    targetImage = 'url(../../../public/images/x.jpg'
+    targetImage = 'url("../../../public/images/x.jpg")'
   } else if (game.gameLogic.currentPlayer === 'o') {
-    targetImage = 'url(../../../public/images/o.jpg'
+    targetImage = 'url("../../../public/images/o.jpg")'
   }
   game.gameLogic.currentPlayer = game.alternateTurns(game.gameLogic.currentPlayer)
   return $(this).css('background-image', targetImage)
