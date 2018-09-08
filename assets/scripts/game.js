@@ -106,55 +106,6 @@ const isGameOver = function (current, board) {
   }
 }
 
-const playAgain = function () {
-
-}
-
-// const isGameOver = function (current, board) {
-//   for (q = 0; q < possibleWins.length; q++) {
-//     currentWin = possibleWins[q]
-//     // console.log('For' + currentPlayer + 'currentWin: ' + currentWin)
-//     won = true
-//     for (j = 0; j < currentWin.length; j++) {
-//       if (board[currentWin[j]] !== current) {
-//         won = false
-//       }
-//     }
-//     if (won === true) {
-//       if (current === 'x') {
-//         $('#message').text('x + has won!')
-//         $('#message').css('background-color', '#85ecfc')
-//       } else {
-//         console.log('o + has won!')
-//       }
-//       console.log(current + ' has won!')
-//       $('#gameOverModal').removeClass('hidden')
-//       // $('#hasWon').append(current + '  has won!')
-//       setTimeout(modals.gameOverModal, 2000)
-//       $('.square').addClass('unclickable')
-//       api.updateGame()
-//       return true
-//     }
-//   }
-//   if (won === false) {
-//     draw = true
-//     for (i = 0; i < board.length; i++) {
-//       if (board[i] === '') {
-//         draw = false
-//       }
-//     }
-//     if (draw === true) {
-//       console.log("It's a tie!")
-//       $('#itsATieModal').removeClass('hidden')
-//       setTimeout(modals.itsATieModal, 2000)
-//       $('.square').addClass('unclickable')
-//       return true
-//     } else {
-//       return false
-//     }
-//   }
-// }
-
 // ~~~~~~~~~~~~~~~~~~~~~
 // CALL BACK / ADD CURRENT PLAYER X OR O
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -184,18 +135,25 @@ const playAgain = function () {
 // ~~~~~~~~~~~~~~~~~~~~~
 // CREATE NEW GAME
 // ~~~~~~~~~~~~~~~~~~~~~
-
-function emptySquares () {
+function unlockBoard () {
   $('.square').removeClass('unclickable')
+  console.log('emptied squares')
 }
 
-// function emptySquares () {
-//   const square = $('.square')
-//   for (let m = 0; m < square.length; m++) {
-//     square[m].innerHTML = ''
-//   }
-// }
+function clearBoard () {
+  console.log('in clearBoard')
+  for (let element of document.getElementsByClassName('square')) {
+    element.style.backgroundImage = 'url("../../public/images/TTT-cell.jpg")'
+    console.log(element)
+  }
+  console.log('cleared board')
+}
 
+const playAgain = function () {
+  console.log('play again clicked')
+  $('#playAgainNav').on('click', 'unlockBoard', 'clearBoard')
+  api.createGame()
+}
 // ~~~~~~~~~~~~~~~~~~~~
 //  CLEAR BOARD AFTER WIN/DRAW
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -213,10 +171,6 @@ function emptySquares () {
 //   'emptyBoard' = 'clearBoard'
 // }
 
-function unlockBoard () {
-  $('.square').removeClass('unclickable')
-}
-
 // ~~~~~~~~~~~~~~~~~~~~~~
 // MODULE EXPORTS
 // ~~~~~~~~~~~~~~~~~~~~~~
@@ -226,5 +180,6 @@ module.exports = {
   gameLogic,
   isGameOver,
   unlockBoard,
-  emptySquares
+  clearBoard,
+  playAgain
 }

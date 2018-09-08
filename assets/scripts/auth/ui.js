@@ -101,7 +101,7 @@ const changePasswordFailure = function (error) {
 const createGameSuccess = function (data) {
   $('#message').text('New game created successfully')
   $('#message').css('background-color', '#ceff5e')
-  game.emptySquares()
+  game.clearBoard()
   game.unlockBoard()
   // setTimeout(hideMessage, 2000)
   // setTimeout(modals.closeChangePasswordModal, 2000)

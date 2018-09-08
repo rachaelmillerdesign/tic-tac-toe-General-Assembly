@@ -103,6 +103,7 @@ const onClickCallback = function (e) {
     targetImage = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/O.jpg")'
   }
   game.gameLogic.currentPlayer = game.alternateTurns(game.gameLogic.currentPlayer)
+  console.log($(this))
   return $(this).css('background-image', targetImage)
 }
 
