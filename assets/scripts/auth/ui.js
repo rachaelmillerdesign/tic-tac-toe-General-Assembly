@@ -144,7 +144,6 @@ const getGamesFailure = function () {
 }
 
 const getUnfinishedGamesSuccess = function (data) {
-  store.game = data.game
   // const unfinishedGamesData = ['game', 'cell', 'index', 'over']
   const table = document.createElement('table')
   let tableRow = document.createElement('tr')
@@ -156,9 +155,10 @@ const getUnfinishedGamesSuccess = function (data) {
   tableData.innerHTML = 'SQUARES'
   tableRow.appendChild(tableData)
   tableData = document.createElement('th')
-  // tableData.innerHTML = 'PLAYER'
-  // tableRow.appendChild(tableData)
+  tableData.innerHTML = ''
+  // tableData.appendChild(tableData)
   // tableData = document.createElement('th')
+  tableRow.appendChild(tableData)
   table.appendChild(tableRow)
   for (let row = 0; row < data.games.length; row++) {
     let tableRow = document.createElement('tr')
@@ -168,15 +168,20 @@ const getUnfinishedGamesSuccess = function (data) {
     tableData = document.createElement('td')
     tableData.innerHTML = data.games[row]['cells']
     tableRow.appendChild(tableData)
-    tableData = document.createElement('td')
-    // tableData.innerHTML = data.games[row]['PLAYER']
-    // tableRow.appendChild(tableData)
-    // tableData = document.createElement('td')
+    tableData = document.createElement('button')
+    tableData.innerHTML = 'resume'
+    tableRow.appendChild('<input type="button", class="resume"')
+    $('.button').on('click', resumeGame)
     tableRow.appendChild(tableData)
     table.appendChild(tableRow)
     // $('#getUnfinishedGamesModal').append('<p>ID: ' + data.games[i].id + ' </p> <p>Game Squares:' + data.games[i].cells + '</p>')
+    store.game = data.game
   }
   document.getElementById('getUnfinishedGamesModal').appendChild(table)
+}
+
+const resumeGame = function () {
+
 }
 
 const getUnfinishedGamesFailure = function () {
