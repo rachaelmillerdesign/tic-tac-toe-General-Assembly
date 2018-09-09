@@ -57,6 +57,7 @@ const signInFailure = function (error) {
 }
 
 const signOutSuccess = function (data) {
+  console.log('ui signoutsuccess ran')
   $('#message').text('Signed out successfully')
   $('#message').css('background-color', '#ceff5e')
   // setTimeout(hideMessage, 2000)
@@ -65,9 +66,8 @@ const signOutSuccess = function (data) {
   $('#signUpNav').removeClass('hidden')
   $('#signOutNav').addClass('hidden')
   $('#changePasswordNav').addClass('hidden')
-  $('#sign-out')[0].reset()
   setTimeout(modals.closeSignOutModal, 2000)
-  // console.log('signOutSuccess ran and nothing was returned!')
+  console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
 }
 

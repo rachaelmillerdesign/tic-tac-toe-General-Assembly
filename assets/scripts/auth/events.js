@@ -21,7 +21,7 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  // console.log('sign in ran!')
+  console.log('sign in ran!')
 
   const data = getFormFields(this)
   api.signIn(data)
@@ -31,7 +31,7 @@ const onSignIn = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  // console.log('sign out ran')
+  console.log('events sign out ran')
 
   api.signOut()
     .then(ui.signOutSuccess)
@@ -110,7 +110,7 @@ const onClickCallback = function (e) {
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
-  $('#sign-out').on('submit', onSignOut)
+  $('#signOutNav').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#playNav').on('click', onCreateGame)
   $('.square').on('click', onClickCallback)
@@ -125,7 +125,12 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers,
+  onSignUp,
+  onSignIn,
+  onSignOut,
+  onChangePassword,
   onCreateGame,
   onUpdateGame,
-  onGetGames
+  onGetGames,
+  onGetUnfinishedGames
 }

@@ -72,9 +72,11 @@ body {
 h1 {
   color: grey;
   font-family: 'Helvetica', sans-serif;
-  font-weight: 350;
+  font-weight: 325;
   font-size: 15vw;
   text-align: center;
+  -webkit-margin-before: 30px;
+  -webkit-margin-after: 30px;
 }
 
 p {
@@ -96,11 +98,11 @@ p {
 // ~~~~~~~~~~~~~~~~~~~~~
 
 #topNav {
-  margin-top: 4vw;
+  margin-top: 3vw;
 }
 
 ul.nav {
-    margin-top: 50px;
+    margin-top: 30px;
     list-style: none;
     height: 10vw; line-height: 10vw;
     font-family: Arial, Helvetica, sans-serif;
