@@ -67,6 +67,7 @@ const signOutSuccess = function (data) {
   $('#signOutNav').addClass('hidden')
   $('#changePasswordNav').addClass('hidden')
   setTimeout(modals.closeSignOutModal, 2000)
+  game.clearBoard()
   console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
 }
@@ -169,8 +170,9 @@ const getUnfinishedGamesSuccess = function (data) {
     tableData.innerHTML = data.games[row]['cells']
     tableRow.appendChild(tableData)
     tableData = document.createElement('button')
-    tableData.innerHTML = 'resume'
-    tableRow.appendChild('<input type="button", class="resume"')
+    tableData.innerHTML = '<button class="resume">Resume</button>'
+    // tableData.innerHTML = 'resume'
+    // tableRow.appendChild('<input type="button", class="resume"')
     $('.button').on('click', resumeGame)
     tableRow.appendChild(tableData)
     table.appendChild(tableRow)
