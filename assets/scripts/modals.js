@@ -1,3 +1,5 @@
+'use strict'
+
 // ~~~~~~~~~~~~~~~~~~~~~~
 // SIGN UP MODAL
 // ~~~~~~~~~~~~~~~~~~~~~~
@@ -148,10 +150,10 @@ $('#closeGetUnfinishedGamesBtn').on('click', closeGetUnfinishedGamesModal)
 $('#window').on('click', clickOutsideGetUnfinishedGames)
 // Functions that open and close modal
 function openGetUnfinishedGamesModal () {
-  $('#getUnfinishedGamesModal').addClass('hidden')
+  $('#getUnfinishedGamesModal').removeClass('hidden')
 }
 function closeGetUnfinishedGamesModal () {
-  $('#getUnfinishedGamesModal').removeClass('hidden')
+  $('#getUnfinishedGamesModal').addClass('hidden')
 }
 // Function that closes modal if outside click
 function clickOutsideGetUnfinishedGames (e) {

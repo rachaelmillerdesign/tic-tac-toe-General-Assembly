@@ -57,6 +57,7 @@ const signInFailure = function (error) {
 }
 
 const signOutSuccess = function (data) {
+  console.log('ui signoutsuccess ran')
   $('#message').text('Signed out successfully')
   $('#message').css('background-color', '#ceff5e')
   // setTimeout(hideMessage, 2000)
@@ -65,9 +66,9 @@ const signOutSuccess = function (data) {
   $('#signUpNav').removeClass('hidden')
   $('#signOutNav').addClass('hidden')
   $('#changePasswordNav').addClass('hidden')
-  $('#sign-out')[0].reset()
   setTimeout(modals.closeSignOutModal, 2000)
-  // console.log('signOutSuccess ran and nothing was returned!')
+  game.clearBoard()
+  console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
 }
 
@@ -101,7 +102,7 @@ const changePasswordFailure = function (error) {
 const createGameSuccess = function (data) {
   $('#message').text('New game created successfully')
   $('#message').css('background-color', '#ceff5e')
-  game.emptySquares()
+  game.clearBoard()
   game.unlockBoard()
   // setTimeout(hideMessage, 2000)
   // setTimeout(modals.closeChangePasswordModal, 2000)
@@ -144,13 +145,45 @@ const getGamesFailure = function () {
 }
 
 const getUnfinishedGamesSuccess = function (data) {
+  // const unfinishedGamesData = ['game', 'cell', 'index', 'over']
+  const table = document.createElement('table')
+  let tableRow = document.createElement('tr')
+  let tableData = document.createElement('th')
   $('#getUnfinishedGamesModal').removeClass('hidden')
-  for (let i = 0; i < data.games.length; i++) {
-    $('#getUnfinishedGamesModal').append('<p>ID: ' + data.games[i].id + ' </p> <p>Game Squares:' + data.games[i].cells + '</p>')
-    setTimeout(modals.closeGetUnfinishedGamesModal, 2000)
-    // console.log(data.games[i])
+  tableData.innerHTML = 'ID'
+  tableRow.appendChild(tableData)
+  tableData = document.createElement('th')
+  tableData.innerHTML = 'SQUARES'
+  tableRow.appendChild(tableData)
+  tableData = document.createElement('th')
+  tableData.innerHTML = ''
+  // tableData.appendChild(tableData)
+  // tableData = document.createElement('th')
+  tableRow.appendChild(tableData)
+  table.appendChild(tableRow)
+  for (let row = 0; row < data.games.length; row++) {
+    let tableRow = document.createElement('tr')
+    let tableData = document.createElement('td')
+    tableData.innerHTML = data.games[row]['id']
+    tableRow.appendChild(tableData)
+    tableData = document.createElement('td')
+    tableData.innerHTML = data.games[row]['cells']
+    tableRow.appendChild(tableData)
+    tableData = document.createElement('button')
+    tableData.innerHTML = '<button class="resume">Resume</button>'
+    // tableData.innerHTML = 'resume'
+    // tableRow.appendChild('<input type="button", class="resume"')
+    $('.button').on('click', resumeGame)
+    tableRow.appendChild(tableData)
+    table.appendChild(tableRow)
+    // $('#getUnfinishedGamesModal').append('<p>ID: ' + data.games[i].id + ' </p> <p>Game Squares:' + data.games[i].cells + '</p>')
     store.game = data.game
   }
+  document.getElementById('getUnfinishedGamesModal').appendChild(table)
+}
+
+const resumeGame = function () {
+
 }
 
 const getUnfinishedGamesFailure = function () {
