@@ -16,7 +16,7 @@ const signUp = function (data) {
 }
 
 const signIn = function (data) {
-  console.log('api sign in ran')
+//  console.log('api sign in ran')
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -25,7 +25,7 @@ const signIn = function (data) {
 }
 
 const signOut = function () {
-  console.log('api sign out ran')
+//  console.log('api sign out ran')
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',

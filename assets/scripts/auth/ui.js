@@ -57,7 +57,7 @@ const signInFailure = function (error) {
 }
 
 const signOutSuccess = function (data) {
-  console.log('ui signoutsuccess ran')
+//  console.log('ui signoutsuccess ran')
   $('#message').text('Signed out successfully')
   $('#message').css('background-color', '#ceff5e')
   // setTimeout(hideMessage, 2000)
@@ -68,7 +68,7 @@ const signOutSuccess = function (data) {
   $('#changePasswordNav').addClass('hidden')
   setTimeout(modals.closeSignOutModal, 2000)
   game.clearBoard()
-  console.log('signOutSuccess ran and nothing was returned!')
+//  console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
 }
 
@@ -187,7 +187,7 @@ const resumeGame = function () {
 }
 
 const getUnfinishedGamesFailure = function () {
-  console.log('getUnfinishedGamesFailure ran. Error is :')
+//  console.log('getUnfinishedGamesFailure ran. Error is :')
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~

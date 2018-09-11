@@ -137,20 +137,20 @@ const isGameOver = function (current, board) {
 // ~~~~~~~~~~~~~~~~~~~~~
 function unlockBoard () {
   $('.square').removeClass('unclickable')
-  console.log('emptied squares')
+//  console.log('emptied squares')
 }
 
 function clearBoard () {
   console.log('in clearBoard')
   for (let element of document.getElementsByClassName('square')) {
     element.style.backgroundImage = 'url("../../public/images/TTT-cell.jpg")'
-    console.log(element)
+//    console.log(element)
   }
-  console.log('cleared board')
+//  console.log('cleared board')
 }
 
 const playAgain = function () {
-  console.log('play again clicked')
+//  console.log('play again clicked')
   $('#playAgainNav').on('click', 'unlockBoard', 'clearBoard')
   api.createGame()
 }
