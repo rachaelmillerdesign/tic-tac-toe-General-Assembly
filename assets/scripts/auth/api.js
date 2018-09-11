@@ -106,6 +106,30 @@ const getUnfinishedGames = function () {
     }
   })
 }
+
+const getSingleGame = function (data) {
+  console.log('in getSingleGame')
+// store.data = game.data
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/games/' + data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateSingleGame = function (data) {
+//  console.log('inside api.editTasting and the data is', data)
+  return $.ajax({
+    url: config.apiUrl + 'games/' + data.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 // const index = function (data) {
 //   return $.ajax({
 //     url: config.apiUrl + '/games',
@@ -129,5 +153,7 @@ module.exports = {
   getGames,
   updateGame,
   createGame,
-  getUnfinishedGames
+  getUnfinishedGames,
+  getSingleGame,
+  updateSingleGame
 }

@@ -83,6 +83,24 @@ const onGetUnfinishedGames = function (event) {
     .then(ui.getUnfinishedGamesSuccess)
     .catch(ui.getUnfinishedGamesFailure)
 }
+
+// const getGameId = function (event) {
+//   console.log(event)
+//   console.log('in getGameId')
+//   console.log(event.currentTarget.parentElement.parentElement.firstChild.innerHTML)
+//   api.getSingleGame(event.currentTarget.parentElement.parentElement.firstChild.innerHTML)
+// }
+
+const onResumeGame = function (event) {
+  console.log('in onResumeGame')
+  event.preventDefault()
+  // console.log('onResumeGame ran')
+
+  api.getSingleGame()
+    .then(ui.getSingleGameSuccess)
+    .catch(ui.getSingleGameFailure)
+}
+
 // ~~~~~~~~~~~~~~~~~~~~~~
 //  ADD HANDLERS
 // ~~~~~~~~~~~~~~~~~~~~~~
@@ -117,6 +135,8 @@ const addHandlers = () => {
   $('#getGamesNav').on('click', onGetGames)
   $('#getUnfinishedGamesNav').on('click', onGetUnfinishedGames)
   $('#playAgainNav').on('click', onCreateGame)
+  // $('button.resume').on('click', getGameId)
+  // $('button.resume').on('click', onResumeGame)
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~`
@@ -132,5 +152,6 @@ module.exports = {
   onCreateGame,
   onUpdateGame,
   onGetGames,
-  onGetUnfinishedGames
+  onGetUnfinishedGames,
+  onResumeGame
 }

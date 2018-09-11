@@ -140,13 +140,16 @@ function unlockBoard () {
 //  console.log('emptied squares')
 }
 
-function clearBoard () {
+const clearBoard = function () {
   console.log('in clearBoard')
-  for (let element of document.getElementsByClassName('square')) {
-    element.style.backgroundImage = 'url("../../public/images/TTT-cell.jpg")'
-//    console.log(element)
-  }
+  document.getElementsByClassName('square')
+  let s
+  for (s = 0; s < 9; s++) {
+    if ($('.square').attr.backgroundImage !== '../../public/images/TTT-cell.jpg') {
+      ($('.square').attr.backgroundImage = '../../public/images/TTT-cell.jpg')
+    }
 //  console.log('cleared board')
+  }
 }
 
 const playAgain = function () {
