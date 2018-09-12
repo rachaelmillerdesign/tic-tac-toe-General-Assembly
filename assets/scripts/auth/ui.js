@@ -150,7 +150,7 @@ const getSingleGameSuccess = function (data) {
   console.log('getGamesSuccess ran.', data)
   $('#getGamesModal').removeClass('hidden')
   setTimeout(modals.closeGetGamesModal, 2000)
-  resumeGame()
+  game.processGame()
   store.game = data.game
 }
 
@@ -164,27 +164,6 @@ const getUnfinishedGamesFailure = function () {
   $('#message').text('Error on get unfinished games.')
   $('#message').css('background-color', '#ff9226')
   console.log('getUnfinishedGamesFailure ran. Error is :')
-}
-
-function processGame (data) {
-  console.log(data)
-  // console.log(data.game)
-  // console.log(data.game.cells)
-  const count = 0
-  for (let i = 0; i < data.game.cells.length; i++) {
-    game.emptyBoard[i] = data.game.cells[i]
-    if (game.emptyBoard[i] === 'x') {
-      // set tile to x
-      count++
-    } else {
-    if (game.emptyBoard[i] === 'o') {
-      // set tile to o
-      count++
-    }
-  }
-  if (count % 2 === 0) {
-    // player is x
-  }
 }
 
 function errorReadingGame (data) {
@@ -204,7 +183,7 @@ const getGameId = function (event) {
   //   game.emptyBoard[i] = singleGameId.cells[i]
   // }
   api.getSingleGame(event.currentTarget.parentElement.parentElement.firstChild.innerHTML)
-    .then(processGame)
+    .then(game.processGame)
     .catch(errorReadingGame)
 }
 

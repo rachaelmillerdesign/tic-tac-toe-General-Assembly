@@ -3,6 +3,7 @@ const api = require('./auth/api')
 // do not require gameEvents -- circular dependency
 // const gameEvents = require('./auth/events')
 // const modals = require('./modals.js')
+const events = require('./auth/events')
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // VARIABLES & CONSTANTS
@@ -107,6 +108,67 @@ const isGameOver = function (current, board) {
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~
+// RESUME GAME
+// ~~~~~~~~~~~~~~~~~~~~~
+function processGame (data) {
+  console.log(data)
+  // console.log(data.game)
+  let targetImage
+  let count = 0
+  console.log(data.game)
+  const cellId = parseInt(data.game)
+  console.log(data.game.cells)
+  for (let i = 0; i < data.game.length; i++) {
+    emptyBoard[cellId] = data.game[cellId]
+    console.log(emptyBoard[cellId])
+    if (emptyBoard[cellId] === 'x') {
+      targetImage = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/X.jpg")'
+      for (let i = 0; i < data.newGameSuccess.cells.length; ++i) {
+        count++
+      } if (emptyBoard.cells[i] === 'o') {
+        targetImage = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/O.jpg")'
+        count++
+        console.log(count)
+      }
+    }
+    if (count % 2 === 0) {
+      const currentPlayer = 'x'
+      console.log(currentPlayer)
+    }
+  }
+  resumeGame()
+}
+
+const addMoves = function (event) {
+  console.log(event)
+  document.getElementsByClassName('square')
+  $('this.square').addClass('unclickable')
+}
+
+function resumeGame (data) {
+  console.log(gameLogic.emptyBoard)
+  debugger
+  addMoves()
+  const cellId = parseInt(data.game)
+  gameLogic.emptyBoard[cellId] = gameLogic.currentPlayer
+  const gameOver = isGameOver(gameLogic.currentPlayer, gameLogic.emptyBoard)
+  console.log(data.game)
+  debugger
+  emptyBoard[cellId] = data.game[cellId]
+  console.log(emptyBoard[cellId])
+  events.onUpdateGame(cellId, gameLogic.currentPlayer, gameOver)
+  let targetImage
+  // console.log(game.gameLogic.currentPlayer)
+  if (gameLogic.currentPlayer === 'x') {
+    targetImage = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/X.jpg")'
+  } else if (gameLogic.currentPlayer === 'o') {
+    targetImage = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/O.jpg")'
+  }
+  gameLogic.currentPlayer = alternateTurns(gameLogic.currentPlayer)
+  console.log($(this))
+  return $(this).css('background-image', targetImage)
+}
+// ~~~~~~~~~~~~~~~~~~~~~
 // CALL BACK / ADD CURRENT PLAYER X OR O
 // ~~~~~~~~~~~~~~~~~~~~~
 // let value
@@ -184,5 +246,7 @@ module.exports = {
   isGameOver,
   unlockBoard,
   clearBoard,
-  playAgain
+  playAgain,
+  resumeGame,
+  processGame
 }

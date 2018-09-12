@@ -65,7 +65,7 @@ const createGame = function (data) {
 // NEW FORMS
 // ~~~~~~~~~~~~~~~~~~~~~~
 
-const updateGame = function (cellid, currentPlayer, gameOver) {
+const updateGame = function (cellId, currentPlayer, gameOver) {
   // console.log(store.data)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
@@ -76,7 +76,7 @@ const updateGame = function (cellid, currentPlayer, gameOver) {
     data: {
       'game': {
         'cell': {
-          'index': cellid,
+          'index': cellId,
           'value': currentPlayer
         },
         'over': gameOver
