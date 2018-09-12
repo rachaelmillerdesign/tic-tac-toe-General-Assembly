@@ -147,13 +147,11 @@ const addMoves = function (event) {
 
 function resumeGame (data) {
   console.log(gameLogic.emptyBoard)
-  debugger
   addMoves()
   const cellId = parseInt(data.game)
   gameLogic.emptyBoard[cellId] = gameLogic.currentPlayer
   const gameOver = isGameOver(gameLogic.currentPlayer, gameLogic.emptyBoard)
   console.log(data.game)
-  debugger
   emptyBoard[cellId] = data.game[cellId]
   console.log(emptyBoard[cellId])
   events.onUpdateGame(cellId, gameLogic.currentPlayer, gameOver)
@@ -168,35 +166,11 @@ function resumeGame (data) {
   console.log($(this))
   return $(this).css('background-image', targetImage)
 }
-// ~~~~~~~~~~~~~~~~~~~~~
-// CALL BACK / ADD CURRENT PLAYER X OR O
-// ~~~~~~~~~~~~~~~~~~~~~
-// let value
-// let index
-// const currentBoard = (api.game)
-// const over = $(this).win
-//
-// const startGame = function (event) {
-//   $('.square').on('click', startGame)
-//   // console.log($(this).id)
-//   $(this).onclick = (api.index, api.value)
-//   $(this).index = parseInt
-//   $(this).text(currentPlayer)
-//   $(this).currentPlayer = api.value
-//   $(this).emptyBoard = $(this).currentBoard
-//   console.log('this works')
-//   // $(this).addClass('unclickable')
-//   win()
-//   alternateTurns()
-//   console.log(currentPlayer)
-//   api.updateGame(index, value)
-// }
-
-// parseInt($(this).id)
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // CREATE NEW GAME
 // ~~~~~~~~~~~~~~~~~~~~~
+
 function unlockBoard () {
   $('.square').removeClass('unclickable')
 //  console.log('emptied squares')
@@ -219,22 +193,22 @@ const playAgain = function () {
   $('#playAgainNav').on('click', 'unlockBoard', 'clearBoard')
   api.createGame()
 }
-// ~~~~~~~~~~~~~~~~~~~~
-//  CLEAR BOARD AFTER WIN/DRAW
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~~~~~~~~~~~~~~~~~~~~
+// CREATE NEW GAME
+// ~~~~~~~~~~~~~~~~~~~~~
 
-// function clearBoard () {
-//   const squares1 = document.getElementsByClassName('square')
-//   for (let p = 0; p < squares1.length; p++) {
-//     squares1[p].innerHTML = ''
-//     squares1[p].classList.remove('unclickable')
-//   }
-//   console.log('play again?')
-// }
-// onWinOrDraw = function () {
-//   if (won === true || draw === true)
-//   'emptyBoard' = 'clearBoard'
-// }
+const quitGame = function () {
+  console.log('in quitGame')
+  if (won === false && draw === false) {
+    api.updateGame()
+    return true
+  }
+  $('.square').addClass('unclickable')
+  clearBoard()
+}
+
+document.getElementById('quitNav')
+$('#quitNav').on('click', quitGame)
 
 // ~~~~~~~~~~~~~~~~~~~~~~
 // MODULE EXPORTS

@@ -135,8 +135,6 @@ const addHandlers = () => {
   $('#getGamesNav').on('click', onGetGames)
   $('#getUnfinishedGamesNav').on('click', onGetUnfinishedGames)
   $('#playAgainNav').on('click', onCreateGame)
-  // $('button.resume').on('click', getGameId)
-  // $('button.resume').on('click', onResumeGame)
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~`
