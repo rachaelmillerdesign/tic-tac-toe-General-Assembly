@@ -59,9 +59,9 @@ const onCreateGame = function (event) {
     .catch(ui.createGameFailure)
 }
 
-const onUpdateGame = function (cellid, currentPlayer, gameOver) {
+const onUpdateGame = function (cellId, currentPlayer, gameOver) {
   event.preventDefault()
-  api.updateGame(cellid, currentPlayer, gameOver)
+  api.updateGame(cellId, currentPlayer, gameOver)
     .then(ui.updateGameSuccess)
     .catch(ui.updateGameFailure)
 }
@@ -83,18 +83,29 @@ const onGetUnfinishedGames = function (event) {
     .then(ui.getUnfinishedGamesSuccess)
     .catch(ui.getUnfinishedGamesFailure)
 }
+
+const onResumeGame = function (event) {
+  console.log('in onResumeGame')
+  event.preventDefault()
+  // console.log('onResumeGame ran')
+
+  api.getSingleGame()
+    .then(ui.getSingleGameSuccess)
+    .catch(ui.getSingleGameFailure)
+}
+
 // ~~~~~~~~~~~~~~~~~~~~~~
 //  ADD HANDLERS
 // ~~~~~~~~~~~~~~~~~~~~~~
 const onClickCallback = function (e) {
   // console.log(e.target.id)
-  const cellid = parseInt(e.target.id)
-  game.gameLogic.emptyBoard[cellid] = game.gameLogic.currentPlayer
+  const cellId = parseInt(e.target.id)
+  game.gameLogic.emptyBoard[cellId] = game.gameLogic.currentPlayer
   const gameOver = game.isGameOver(game.gameLogic.currentPlayer, game.gameLogic.emptyBoard)
   // console.log(game.gameLogic.emptyBoard)
   // $(this).text(game.gameLogic.currentPlayer)
   $(this).addClass('unclickable')
-  onUpdateGame(cellid, game.gameLogic.currentPlayer, gameOver)
+  onUpdateGame(cellId, game.gameLogic.currentPlayer, gameOver)
   let targetImage
   // console.log(game.gameLogic.currentPlayer)
   if (game.gameLogic.currentPlayer === 'x') {
@@ -132,5 +143,6 @@ module.exports = {
   onCreateGame,
   onUpdateGame,
   onGetGames,
-  onGetUnfinishedGames
+  onGetUnfinishedGames,
+  onResumeGame
 }

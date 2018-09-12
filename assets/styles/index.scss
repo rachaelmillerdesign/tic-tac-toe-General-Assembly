@@ -198,10 +198,11 @@ ul.nav a:hover {
   border: none;
   color: #f98900;
   float: right;
-  font-size: 5.5vw;
+  font-size: 6vw;
   font-weight: 650;
   margin: 0 auto;
   outline: none;
+  padding: 1vw;
 }
 
 .close:hover,
@@ -263,6 +264,25 @@ button:active {
   margin-left: 5vw;
   margin-right: 5vw;
 }
+
+button {
+  padding: 2.5px;
+  border: 1.5px;
+}
+
+.resume {
+  color: grey;
+  padding: 2.5px;
+  float: right;
+  margin: 2px, 2px, 2px, 7px;
+  border: 1px solid grey;
+  background-color: #d1fbff;
+}
+
+#getUnfinishedGamesModal {
+  padding: 1.75vw;
+}
+
 // ~~~~~~~~~~~~~~~~~~~~~
 // CODE TO RESET AGENT STYLESHEET
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -296,6 +316,17 @@ textarea {
   box-sizing: border-box;
   -webkit-padding-before: 5px;
   -webkit-padding-start: 5px;
+}
+
+table {
+  margin: auto;
+  color: grey;
+}
+
+th {
+  margin: 1vw, 2vw, 2.5vw, 0vw;
+  padding: 2vw;
+  word-wrap: normal;
 }
 
 body:not(:-moz-handler-blocked) fieldset {

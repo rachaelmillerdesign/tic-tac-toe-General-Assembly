@@ -65,7 +65,7 @@ const createGame = function (data) {
 // NEW FORMS
 // ~~~~~~~~~~~~~~~~~~~~~~
 
-const updateGame = function (cellid, currentPlayer, gameOver) {
+const updateGame = function (cellId, currentPlayer, gameOver) {
   // console.log(store.data)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
@@ -76,7 +76,7 @@ const updateGame = function (cellid, currentPlayer, gameOver) {
     data: {
       'game': {
         'cell': {
-          'index': cellid,
+          'index': cellId,
           'value': currentPlayer
         },
         'over': gameOver
@@ -106,6 +106,30 @@ const getUnfinishedGames = function () {
     }
   })
 }
+
+const getSingleGame = function (data) {
+  console.log('in getSingleGame')
+// store.data = game.data
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/games/' + data,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateSingleGame = function (data) {
+//  console.log('inside api.editTasting and the data is', data)
+  return $.ajax({
+    url: config.apiUrl + 'games/' + data.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 // const index = function (data) {
 //   return $.ajax({
 //     url: config.apiUrl + '/games',
@@ -125,9 +149,10 @@ module.exports = {
   signIn,
   signOut,
   changePassword,
-  // index,
   getGames,
   updateGame,
   createGame,
-  getUnfinishedGames
+  getUnfinishedGames,
+  getSingleGame,
+  updateSingleGame
 }

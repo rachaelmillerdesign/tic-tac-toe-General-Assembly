@@ -1,8 +1,7 @@
 const api = require('./auth/api')
-// const store = require('./store.js')
 // do not require gameEvents -- circular dependency
-// const gameEvents = require('./auth/events')
-// const modals = require('./modals.js')
+
+const events = require('./auth/events')
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // VARIABLES & CONSTANTS
@@ -84,9 +83,6 @@ const isGameOver = function (current, board) {
         $('#playAgainNav').removeClass('hidden')
       }
       // console.log(current + ' has won!')
-      // $('#gameOverModal').removeClass('hidden')
-      // $('#hasWon').append(current + '  has won!')
-      // setTimeout($('#gameOverModal').removeClass('hidden')), 2000)
       $('.square').addClass('unclickable')
       api.updateGame()
       return true
@@ -107,46 +103,84 @@ const isGameOver = function (current, board) {
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~
-// CALL BACK / ADD CURRENT PLAYER X OR O
+// RESUME GAME
 // ~~~~~~~~~~~~~~~~~~~~~
-// let value
-// let index
-// const currentBoard = (api.game)
-// const over = $(this).win
-//
-// const startGame = function (event) {
-//   $('.square').on('click', startGame)
-//   // console.log($(this).id)
-//   $(this).onclick = (api.index, api.value)
-//   $(this).index = parseInt
-//   $(this).text(currentPlayer)
-//   $(this).currentPlayer = api.value
-//   $(this).emptyBoard = $(this).currentBoard
-//   console.log('this works')
-//   // $(this).addClass('unclickable')
-//   win()
-//   alternateTurns()
-//   console.log(currentPlayer)
-//   api.updateGame(index, value)
-// }
+function processGame (data) {
+  console.log(data)
+  // console.log(data.game)
+  let targetImage
+  let count = 0
+  console.log(data.game)
+  const cellId = parseInt(data.game)
+  console.log(data.game.cells)
+  for (let i = 0; i < data.game.length; i++) {
+    emptyBoard[cellId] = data.game[cellId]
+    console.log(emptyBoard[cellId])
+    if (emptyBoard[cellId] === 'x') {
+      targetImage = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/X.jpg")'
+      for (let i = 0; i < data.newGameSuccess.cells.length; ++i) {
+        count++
+      } if (emptyBoard.cells[i] === 'o') {
+        targetImage = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/O.jpg")'
+        count++
+        console.log(count)
+      }
+    }
+    if (count % 2 === 0) {
+      const currentPlayer = 'x'
+      console.log(currentPlayer)
+    }
+  }
+  resumeGame()
+}
 
-// parseInt($(this).id)
+const addMoves = function (event) {
+  console.log(event)
+  document.getElementsByClassName('square')
+  $('this.square').addClass('unclickable')
+}
+
+function resumeGame (data) {
+  console.log(gameLogic.emptyBoard)
+  addMoves()
+  const cellId = parseInt(data.game)
+  gameLogic.emptyBoard[cellId] = gameLogic.currentPlayer
+  const gameOver = isGameOver(gameLogic.currentPlayer, gameLogic.emptyBoard)
+  console.log(data.game)
+  emptyBoard[cellId] = data.game[cellId]
+  console.log(emptyBoard[cellId])
+  events.onUpdateGame(cellId, gameLogic.currentPlayer, gameOver)
+  let targetImage
+  // console.log(game.gameLogic.currentPlayer)
+  if (gameLogic.currentPlayer === 'x') {
+    targetImage = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/X.jpg")'
+  } else if (gameLogic.currentPlayer === 'o') {
+    targetImage = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/O.jpg")'
+  }
+  gameLogic.currentPlayer = alternateTurns(gameLogic.currentPlayer)
+  console.log($(this))
+  return $(this).css('background-image', targetImage)
+}
 
 // ~~~~~~~~~~~~~~~~~~~~~
 // CREATE NEW GAME
 // ~~~~~~~~~~~~~~~~~~~~~
+
 function unlockBoard () {
   $('.square').removeClass('unclickable')
 //  console.log('emptied squares')
 }
 
-function clearBoard () {
+const clearBoard = function () {
   console.log('in clearBoard')
-  for (let element of document.getElementsByClassName('square')) {
-    element.style.backgroundImage = 'url("../../public/images/TTT-cell.jpg")'
-//    console.log(element)
-  }
+  document.getElementsByClassName('square')
+  let s
+  for (s = 0; s < 9; s++) {
+    if ($('.square').attr.backgroundImage !== '../../public/images/TTT-cell.jpg') {
+      ($('.square').attr.backgroundImage = '../../public/images/TTT-cell.jpg')
+    }
 //  console.log('cleared board')
+  }
 }
 
 const playAgain = function () {
@@ -154,22 +188,22 @@ const playAgain = function () {
   $('#playAgainNav').on('click', 'unlockBoard', 'clearBoard')
   api.createGame()
 }
-// ~~~~~~~~~~~~~~~~~~~~
-//  CLEAR BOARD AFTER WIN/DRAW
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// ~~~~~~~~~~~~~~~~~~~~~
+// CREATE NEW GAME
+// ~~~~~~~~~~~~~~~~~~~~~
 
-// function clearBoard () {
-//   const squares1 = document.getElementsByClassName('square')
-//   for (let p = 0; p < squares1.length; p++) {
-//     squares1[p].innerHTML = ''
-//     squares1[p].classList.remove('unclickable')
-//   }
-//   console.log('play again?')
-// }
-// onWinOrDraw = function () {
-//   if (won === true || draw === true)
-//   'emptyBoard' = 'clearBoard'
-// }
+const quitGame = function () {
+  console.log('in quitGame')
+  if (won === false && draw === false) {
+    api.updateGame()
+    return true
+  }
+  $('.square').addClass('unclickable')
+  clearBoard()
+}
+
+document.getElementById('quitNav')
+$('#quitNav').on('click', quitGame)
 
 // ~~~~~~~~~~~~~~~~~~~~~~
 // MODULE EXPORTS
@@ -181,5 +215,7 @@ module.exports = {
   isGameOver,
   unlockBoard,
   clearBoard,
-  playAgain
+  playAgain,
+  resumeGame,
+  processGame
 }
