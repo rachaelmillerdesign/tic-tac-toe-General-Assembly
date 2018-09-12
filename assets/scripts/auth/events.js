@@ -61,6 +61,7 @@ const onCreateGame = function (event) {
 
 const onUpdateGame = function (cellId, currentPlayer, gameOver) {
   event.preventDefault()
+
   api.updateGame(cellId, currentPlayer, gameOver)
     .then(ui.updateGameSuccess)
     .catch(ui.updateGameFailure)
@@ -100,6 +101,8 @@ const onResumeGame = function (event) {
 const onClickCallback = function (e) {
   // console.log(e.target.id)
   const cellId = parseInt(e.target.id)
+  // console.log('cellId: ' + cellId)
+  // console.log(e.target.id)
   game.gameLogic.emptyBoard[cellId] = game.gameLogic.currentPlayer
   const gameOver = game.isGameOver(game.gameLogic.currentPlayer, game.gameLogic.emptyBoard)
   // console.log(game.gameLogic.emptyBoard)

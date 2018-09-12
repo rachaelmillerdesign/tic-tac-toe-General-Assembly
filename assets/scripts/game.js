@@ -1,8 +1,6 @@
 const api = require('./auth/api')
 // do not require gameEvents -- circular dependency
 
-const events = require('./auth/events')
-
 // ~~~~~~~~~~~~~~~~~~~~~
 // VARIABLES & CONSTANTS
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -84,7 +82,7 @@ const isGameOver = function (current, board) {
       }
       // console.log(current + ' has won!')
       $('.square').addClass('unclickable')
-      api.updateGame()
+      // api.updateGame()
       return true
     } else if (!(testX && testO)) {
       draw = false
@@ -95,7 +93,7 @@ const isGameOver = function (current, board) {
     $('#playNav').addClass('hidden')
     $('#playAgainNav').removeClass('hidden')
     $('.square').addClass('unclickable')
-    api.updateGame()
+    // api.updateGame()
     return true
   } else {
     return false
@@ -106,60 +104,29 @@ const isGameOver = function (current, board) {
 // RESUME GAME
 // ~~~~~~~~~~~~~~~~~~~~~
 function processGame (data) {
-  console.log(data)
-  // console.log(data.game)
-  let targetImage
+  let image
   let count = 0
-  console.log(data.game)
-  const cellId = parseInt(data.game)
-  console.log(data.game.cells)
-  for (let i = 0; i < data.game.length; i++) {
-    emptyBoard[cellId] = data.game[cellId]
-    console.log(emptyBoard[cellId])
-    if (emptyBoard[cellId] === 'x') {
-      targetImage = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/X.jpg")'
-      for (let i = 0; i < data.newGameSuccess.cells.length; ++i) {
-        count++
-      } if (emptyBoard.cells[i] === 'o') {
-        targetImage = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/O.jpg")'
-        count++
-        console.log(count)
-      }
-    }
-    if (count % 2 === 0) {
-      const currentPlayer = 'x'
-      console.log(currentPlayer)
+  let gameArray = Array.from(data.game.cells)
+  let gameArrayIterate = [...gameArray]
+  // console.log(gameArrayIterate)
+  // console.log(data.game.cells)
+  for (let i = 0; i < gameArray.length; i++) {
+    if (gameArrayIterate[i] === 'x') {
+      image = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/X.jpg")'
+      $('#' + i).css('background-image', image)
+      count++
+    } else if (gameArrayIterate[i] === 'o') {
+      image = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/O.jpg")'
+      $('#' + i).css('background-image', image)
+      count++
     }
   }
-  resumeGame()
-}
-
-const addMoves = function (event) {
-  console.log(event)
-  document.getElementsByClassName('square')
-  $('this.square').addClass('unclickable')
-}
-
-function resumeGame (data) {
-  console.log(gameLogic.emptyBoard)
-  addMoves()
-  const cellId = parseInt(data.game)
-  gameLogic.emptyBoard[cellId] = gameLogic.currentPlayer
-  const gameOver = isGameOver(gameLogic.currentPlayer, gameLogic.emptyBoard)
-  console.log(data.game)
-  emptyBoard[cellId] = data.game[cellId]
-  console.log(emptyBoard[cellId])
-  events.onUpdateGame(cellId, gameLogic.currentPlayer, gameOver)
-  let targetImage
-  // console.log(game.gameLogic.currentPlayer)
-  if (gameLogic.currentPlayer === 'x') {
-    targetImage = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/X.jpg")'
-  } else if (gameLogic.currentPlayer === 'o') {
-    targetImage = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/O.jpg")'
+  if (count % 2 === 0) {
+    gameLogic.currentPlayer = 'x'
+  } else {
+    gameLogic.currentPlayer = 'o'
   }
-  gameLogic.currentPlayer = alternateTurns(gameLogic.currentPlayer)
-  console.log($(this))
-  return $(this).css('background-image', targetImage)
+  if
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -216,6 +183,5 @@ module.exports = {
   unlockBoard,
   clearBoard,
   playAgain,
-  resumeGame,
   processGame
 }
