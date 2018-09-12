@@ -5,11 +5,6 @@ const api = require('./api')
 const game = require('../game')
 const modals = require('../modals.js')
 
-// TODO: this short circuits:
-// const hideMessage = function () {
-//   $('#message').hide()
-// }
-
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
   $('#message').css('background-color', '#ceff5e')
@@ -61,13 +56,13 @@ const signOutSuccess = function (data) {
   $('#message').text('Signed out successfully')
   $('#message').css('background-color', '#ceff5e')
   // setTimeout(hideMessage, 2000)
+  game.clearBoard()
   $('#playNav').addClass('unclickable')
   $('#signInNav').removeClass('hidden')
   $('#signUpNav').removeClass('hidden')
   $('#signOutNav').addClass('hidden')
   $('#changePasswordNav').addClass('hidden')
   setTimeout(modals.closeSignOutModal, 2000)
-  game.clearBoard()
 //  console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
 }
@@ -174,14 +169,7 @@ const getGameId = function (event) {
   console.log(event)
   console.log('in getGameId')
   console.log(event.currentTarget.parentElement.parentElement.firstChild.innerHTML)
-  // const singleGameId = api.getSingleGame(event.currentTarget.parentElement.parentElement.firstChild.innerHTML)
-  // get properties of game from database, console.log of game
-  // console.log(singleGameId)
-  // const game = JSON.parse(singleGameId.responseText)
-  // console.log(game)
-  // for (let i = 0; i < singleGameId.cells.length; i++) {
-  //   game.emptyBoard[i] = singleGameId.cells[i]
-  // }
+
   api.getSingleGame(event.currentTarget.parentElement.parentElement.firstChild.innerHTML)
     .then(game.processGame)
     .catch(errorReadingGame)

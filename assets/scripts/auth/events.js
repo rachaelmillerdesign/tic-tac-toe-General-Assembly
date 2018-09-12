@@ -84,13 +84,6 @@ const onGetUnfinishedGames = function (event) {
     .catch(ui.getUnfinishedGamesFailure)
 }
 
-// const getGameId = function (event) {
-//   console.log(event)
-//   console.log('in getGameId')
-//   console.log(event.currentTarget.parentElement.parentElement.firstChild.innerHTML)
-//   api.getSingleGame(event.currentTarget.parentElement.parentElement.firstChild.innerHTML)
-// }
-
 const onResumeGame = function (event) {
   console.log('in onResumeGame')
   event.preventDefault()

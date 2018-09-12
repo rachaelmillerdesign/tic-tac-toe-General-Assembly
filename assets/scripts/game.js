@@ -1,8 +1,6 @@
 const api = require('./auth/api')
-// const store = require('./store.js')
 // do not require gameEvents -- circular dependency
-// const gameEvents = require('./auth/events')
-// const modals = require('./modals.js')
+
 const events = require('./auth/events')
 
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -85,9 +83,6 @@ const isGameOver = function (current, board) {
         $('#playAgainNav').removeClass('hidden')
       }
       // console.log(current + ' has won!')
-      // $('#gameOverModal').removeClass('hidden')
-      // $('#hasWon').append(current + '  has won!')
-      // setTimeout($('#gameOverModal').removeClass('hidden')), 2000)
       $('.square').addClass('unclickable')
       api.updateGame()
       return true

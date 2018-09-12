@@ -30,24 +30,20 @@ function clickOutsideSignUp (e) {
 // ~~~~~~~~~~~~~~~~~~~~~~
 // SIGN IN MODAL
 // ~~~~~~~~~~~~~~~~~~~~~~
-// Get modal element
 const signInModal = document.getElementById('signInModal')
-// Get modal button
 const signInNav = document.getElementById('signInNav')
 const closeSignInBtn = document.getElementById('closeSignInBtn')
-// Listen for Click
+
 $('#signInNav').on('click', openSignInModal)
 $('#closeSignInBtn').on('click', closeSignInModal)
-// Listen for click outside of modal
 $('#window').on('click', clickOutsideSignIn)
-// Functions that open and close modal
+
 function openSignInModal () {
   $('#signInModal').removeClass('hidden')
 }
 function closeSignInModal () {
   $('#signInModal').addClass('hidden')
 }
-// Function that closes modal if outside click
 function clickOutsideSignIn (e) {
   if (e.target === signInModal) {
     $('#signUpModal').addClass('hidden')
@@ -57,24 +53,21 @@ function clickOutsideSignIn (e) {
 // ~~~~~~~~~~~~~~~~~~~~~~
 // SIGN OUT MODAL
 // ~~~~~~~~~~~~~~~~~~~~~~
-// Get modal element
+
 const signOutModal = document.getElementById('signOutModal')
-// Get modal button
 const signOutNav = document.getElementById('signOutNav')
 const closeSignOutBtn = document.getElementById('closeSignOutBtn')
-// Listen for Click
+
 $('#signOutNav').on('click', openSignOutModal)
 $('#closeSignOutBtn').on('click', closeSignOutModal)
-// Listen for click outside of modal
 $('#window').on('click', clickOutsideSignOut)
-// Functions that open and close modal
+
 function openSignOutModal () {
   $('#signOutModal').removeClass('hidden')
 }
 function closeSignOutModal () {
   $('#signOutModal').addClass('hidden')
 }
-// Function that closes modal if outside click
 function clickOutsideSignOut (e) {
   if (e.target === signOutModal) {
     $('#signOutModal').addClass('hidden')
@@ -84,24 +77,21 @@ function clickOutsideSignOut (e) {
 // ~~~~~~~~~~~~~~~~~~~~~~
 // CHANGE PASSWORD MODAL
 // ~~~~~~~~~~~~~~~~~~~~~~
-// Get modal element
+
 const changePasswordModal = document.getElementById('changePasswordModal')
-// Get modal button
 const changePasswordNav = document.getElementById('changePasswordNav')
 const closeChangePasswordBtn = document.getElementById('closeChangePasswordBtn')
-// Listen for Click
+
 $('#changePasswordNav').on('click', openChangePasswordModal)
 $('#closeChangePasswordBtn').on('click', closeChangePasswordModal)
-// Listen for click outside of modal
 $('#window').on('click', clickOutsideChangePassword)
-// Functions that open and close modal
+
 function openChangePasswordModal () {
   $('#changePasswordModal').removeClass('hidden')
 }
 function closeChangePasswordModal () {
   $('#changePasswordModal').addClass('hidden')
 }
-// Function that closes modal if outside click
 function clickOutsideChangePassword (e) {
   if (e.target === changePasswordModal) {
     $('#changePasswordModal').addClass('hidden')
@@ -111,24 +101,21 @@ function clickOutsideChangePassword (e) {
 // ~~~~~~~~~~~~~~~~~~~~~~
 // GET GAMES MODAL
 // ~~~~~~~~~~~~~~~~~~~~~~
-// Get modal element
+
 const getGamesModal = document.getElementById('getGamesModal')
-// Get modal button
 const getGamesNav = document.getElementById('getGamesNav')
 const closeGetGamesBtn = document.getElementById('closeGetGamesBtn')
-// Listen for Click
+
 $('#getGamesNav').on('click', openGetGamesModal)
 $('#closeGetGamesBtn').on('click', closeGetGamesModal)
-// Listen for click outside of modal
 $('#window').on('click', clickOutsideGetGames)
-// Functions that open and close modal
+
 function openGetGamesModal () {
   $('#getGamesModal').removeClass('hidden')
 }
 function closeGetGamesModal () {
   $('#getGamesModal').addClass('hidden')
 }
-// Function that closes modal if outside click
 function clickOutsideGetGames (e) {
   if (e.target === getGamesModal) {
     $('#getGamesModal').addClass('hidden')
@@ -138,24 +125,20 @@ function clickOutsideGetGames (e) {
 // ~~~~~~~~~~~~~~~~~~~~~~
 // GET UNFINISHED GAMES MODAL
 // ~~~~~~~~~~~~~~~~~~~~~~
-// Get modal element
 const getUnfinishedGamesModal = document.getElementById('getUnfinishedGamesModal')
-// Get modal button
 const getUnfinishedGamesNav = document.getElementById('getUnfinishedGamesNav')
 const closeGetUnfinishedGamesBtn = document.getElementById('closeUnfinishedGamesBtn')
-// Listen for Click
+
 $('#getUnfinishedGamesNav').on('click', openGetUnfinishedGamesModal)
 $('#closeGetUnfinishedGamesBtn').on('click', closeGetUnfinishedGamesModal)
-// Listen for click outside of modal
 $('#window').on('click', clickOutsideGetUnfinishedGames)
-// Functions that open and close modal
+
 function openGetUnfinishedGamesModal () {
   $('#getUnfinishedGamesModal').removeClass('hidden')
 }
 function closeGetUnfinishedGamesModal () {
   $('#getUnfinishedGamesModal').addClass('hidden')
 }
-// Function that closes modal if outside click
 function clickOutsideGetUnfinishedGames (e) {
   if (e.target === getUnfinishedGamesModal) {
     $('#getUnfinishedGamesModal').addClass('hidden')
@@ -165,21 +148,18 @@ function clickOutsideGetUnfinishedGames (e) {
 // ~~~~~~~~~~~~~~~~~~~~~~
 // PLAY AGAIN? MODAL
 // ~~~~~~~~~~~~~~~~~~~~~~
-// Get modal element
 const playAgainModal = document.getElementById('playAgainModal')
 const closePlayAgainBtn = document.getElementById('closePlayAgainBtn')
-// Listen for Click
+
 $('#closePlayAgainBtn').on('click', closePlayAgainModal)
-// Listen for click outside of modal
 $('#window').on('click', clickOutsidePlayAgain)
-// Functions that open and close modal
+
 function openPlayAgainModal () {
   $('#playAgainModal').removeClass('hidden')
 }
 function closePlayAgainModal () {
   $('#playAgainModal').addClass('hidden')
 }
-// Function that closes modal if outside click
 function clickOutsidePlayAgain (e) {
   if (e.target === playAgainModal) {
     $('#playAgainModal').addClass('hidden')

@@ -149,7 +149,6 @@ module.exports = {
   signIn,
   signOut,
   changePassword,
-  // index,
   getGames,
   updateGame,
   createGame,
