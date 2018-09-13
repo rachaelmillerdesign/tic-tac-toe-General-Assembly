@@ -29,6 +29,7 @@ Technologies used:
 - GIT repository
 
 click here to view the project: https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/
+![Imgur](https://i.imgur.com/B5kBn8k.png)
 
 “where do I begin??”
 
