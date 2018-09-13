@@ -1,6 +1,5 @@
 const api = require('./auth/api')
 // do not require gameEvents -- circular dependency
-const events = require('./auth/events')
 const store = require('./store')
 
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -107,7 +106,6 @@ const isGameOver = function (current, board) {
 // ~~~~~~~~~~~~~~~~~~~~~
 function processGame (data) {
   console.log(data)
-  let b
   let image
   let count = 0
   store.game = data.game
@@ -122,11 +120,13 @@ function processGame (data) {
       image = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/X.jpg")'
       $('#' + i).css('background-image', image)
       $('#' + i).addClass('unclickable')
+      gameLogic.emptyBoard[i] = 'x'
       count++
     } else if (gameArrayIterate[i] === 'o') {
       image = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/O.jpg")'
       $('#' + i).css('background-image', image)
       $('#' + i).addClass('unclickable')
+      gameLogic.emptyBoard[i] = 'o'
       count++
     }
   }
@@ -135,25 +135,6 @@ function processGame (data) {
   } else {
     gameLogic.currentPlayer = 'o'
   }
-  $('.square').on('click', function (event) {
-    const cellId = parseInt(event.target.id)
-    gameLogic.emptyBoard[cellId] = gameLogic.currentPlayer
-    $(this).addClass('unclickable')
-    const gameOver = isGameOver(gameLogic.currentPlayer, gameLogic.emptyBoard)
-    console.log(gameLogic.emptyBoard)
-    console.log(gameLogic.currentPlayer)
-    console.log(gameLogic.emptyBoard, gameLogic.currentPlayer, gameOver)
-    events.onUpdateGame(gameLogic.emptyBoard, gameLogic.currentPlayer, gameOver)
-    let targetImage
-    console.log(gameLogic.currentPlayer)
-    if (gameLogic.currentPlayer === 'x') {
-      targetImage = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/X.jpg")'
-    } else if (gameLogic.currentPlayer === 'o') {
-      targetImage = 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/O.jpg")'
-    }
-    gameLogic.currentPlayer = alternateTurns(gameLogic.currentPlayer)
-    return $(this).css('background-image', targetImage)
-  })
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -170,11 +151,9 @@ const clearBoard = function () {
   document.getElementsByClassName('square')
   let s
   for (s = 0; s < 9; s++) {
-    if ($('.square').attr.backgroundImage !== '../../public/images/TTT-cell.jpg') {
-      ($('.square').attr.backgroundImage = '../../public/images/TTT-cell.jpg')
-    }
-//  console.log('cleared board')
+    ($('.square').attr.backgroundImage = '../../public/images/TTT-cell.jpg')
   }
+//  console.log('cleared board')
 }
 
 const playAgain = function () {

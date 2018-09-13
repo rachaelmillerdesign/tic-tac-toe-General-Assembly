@@ -101,10 +101,12 @@ const onResumeGame = function (event) {
 const onClickCallback = function (e) {
   // console.log(e.target.id)
   const cellId = parseInt(e.target.id)
-  // console.log('cellId: ' + cellId)
-  // console.log(e.target.id)
+  console.log('cellId: ' + cellId)
+  console.log(e.target.id)
   game.gameLogic.emptyBoard[cellId] = game.gameLogic.currentPlayer
   const gameOver = game.isGameOver(game.gameLogic.currentPlayer, game.gameLogic.emptyBoard)
+  console.log(game.gameLogic.emptyBoard)
+  console.log('game over: ' + gameOver)
   // console.log(game.gameLogic.emptyBoard)
   // $(this).text(game.gameLogic.currentPlayer)
   $(this).addClass('unclickable')
