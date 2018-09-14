@@ -147,14 +147,23 @@ function unlockBoard () {
 }
 
 const clearBoard = function () {
-//  console.log('in clearBoard')
+  gameLogic.emptyBoard = ['', '', '', '', '', '', '', '', '']
   document.getElementsByClassName('square')
-  let s
-  for (s = 0; s < 9; s++) {
-    ($('.square').attr.backgroundImage = '../../public/images/TTT-cell.jpg')
+  $('.square').removeClass('unclickable')
+  for (let i = 0; i < emptyBoard.length; i++) {
+    $('#' + i).css('background-image', 'url("../../public/images/TTT-cell.jpg")')
   }
-//  console.log('cleared board')
 }
+
+// const clearBoard = function () {
+// //  console.log('in clearBoard')
+//   document.getElementsByClassName('square')
+//   let s
+//   for (s = 0; s < 9; s++) {
+//     ($('.square').attr.backgroundImage = '../../public/images/TTT-cell.jpg')
+//   }
+// //  console.log('cleared board')
+// }
 
 const playAgain = function () {
 //  console.log('play again clicked')

@@ -150,7 +150,7 @@ ul.nav a:hover {
 
 #playNav {
   font-size: 3vw;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 #getGamesNav {
@@ -158,9 +158,15 @@ ul.nav a:hover {
   font-weight: 400;
 }
 
+#playAgainNav {
+  font-size: 3vw;
+  font-weight: 400;
+}
+
 #getUnfinishedGamesNav {
   font-size: 3vw;
   font-weight: 400;
+  word-wrap: break-word;
 }
 
 #quitNav {
@@ -281,6 +287,7 @@ button {
 
 #getUnfinishedGamesModal {
   padding: 1.75vw;
+  margin-top: 20vw;
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~
