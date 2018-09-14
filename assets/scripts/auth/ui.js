@@ -166,9 +166,9 @@ function errorReadingGame (data) {
 }
 
 const getGameId = function (event) {
-  console.log(event)
-  console.log('in getGameId')
-  console.log(event.currentTarget.parentElement.parentElement.firstChild.innerHTML)
+//  console.log(event)
+//  console.log('in getGameId')
+//  console.log(event.currentTarget.parentElement.parentElement.firstChild.innerHTML)
 
   api.getSingleGame(event.currentTarget.parentElement.parentElement.firstChild.innerHTML)
     .then(game.processGame)
