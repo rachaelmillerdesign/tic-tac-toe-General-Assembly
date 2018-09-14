@@ -105,7 +105,7 @@ const isGameOver = function (current, board) {
 // RESUME GAME
 // ~~~~~~~~~~~~~~~~~~~~~
 function processGame (data) {
-  console.log(data)
+//  console.log(data)
   let image
   let count = 0
   store.game = data.game
@@ -147,7 +147,7 @@ function unlockBoard () {
 }
 
 const clearBoard = function () {
-  console.log('in clearBoard')
+//  console.log('in clearBoard')
   document.getElementsByClassName('square')
   let s
   for (s = 0; s < 9; s++) {
@@ -166,7 +166,7 @@ const playAgain = function () {
 // ~~~~~~~~~~~~~~~~~~~~~
 
 const quitGame = function () {
-  console.log('in quitGame')
+//  console.log('in quitGame')
   if (won === false && draw === false) {
     api.updateGame()
     return true

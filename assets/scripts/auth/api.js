@@ -108,7 +108,7 @@ const getUnfinishedGames = function () {
 }
 
 const getSingleGame = function (data) {
-  console.log('in getSingleGame')
+  // console.log('in getSingleGame')
 // store.data = game.data
   return $.ajax({
     method: 'GET',
