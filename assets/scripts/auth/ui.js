@@ -209,6 +209,7 @@ const getUnfinishedGamesSuccess = function (data) {
   }
   document.getElementById('getUnfinishedGamesModal').appendChild(table)
   $('.resume').on('click', getGameId)
+  $('.resume').on('click', modals.closeGetUnfinishedGamesModal)
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~~
