@@ -151,10 +151,12 @@ const clearBoard = function () {
   document.getElementsByClassName('square')
   $('.square').removeClass('unclickable')
   for (let i = 0; i < emptyBoard.length; i++) {
-    $('#' + i).css('background-image', 'url("../../public/images/TTT-cell.jpg")')
+    $('#' + i).css('background-image', 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/TTT-cell.jpg")')
   }
 }
 
+// 'url("../../public/images/TTT-cell.jpg")'
+// background-image: url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/X.jpg");
 // const clearBoard = function () {
 // //  console.log('in clearBoard')
 //   document.getElementsByClassName('square')
