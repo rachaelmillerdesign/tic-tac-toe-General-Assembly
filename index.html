@@ -7,16 +7,17 @@
   <title>Tic Tac Toe</title>
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-  <style>
-    .container {
-      display: grid;
-      grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-      grid-gap: 1.5vw;
-    }
-  </style>
 </head>
 
 <body class="container-fluid">
+<span class="maxWidth">
+
+  <ul id='topNav' class='nav'>
+    <li><a id='signUpNav'>SIGN UP</a></li>
+    <li><a id='signInNav'>SIGN IN</a></li>
+    <li><a id='changePasswordNav' class="hidden">CHANGE PASSWORD</a></li>
+    <li><a id='signOutNav' class="hidden">SIGN OUT</a></li>
+  </ul>
 
   <!--MODAL-->
 
@@ -27,12 +28,6 @@
   </div>
 
   <!--SIGN IN SIGN UP FORMS-->
-  <ul id='topNav' class='nav'>
-    <li><a id='signUpNav'>SIGN UP</a></li>
-    <li><a id='signInNav'>SIGN IN</a></li>
-    <li><a id='changePasswordNav' class="hidden">CHANGE PASSWORD</a></li>
-    <li><a id='signOutNav' class="hidden">SIGN OUT</a></li>
-  </ul>
 
   <p id="message"></p>
 
@@ -133,7 +128,7 @@ NEW FORMS
     <li><a id='getUnfinishedGamesNav'>UNFINISHED GAMES</a></li>
     <li><a id='quitNav'>QUIT</a></li>
   </ul>
-
+</span>
 </body>
 
 </html>
