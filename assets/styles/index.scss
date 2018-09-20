@@ -10,6 +10,16 @@ $pink: #fce5eb;
 // GRADIENT + GLOW
 // ~~~~~~~~~~~~~~~~~~~~~
 
+@media screen and (min-width: 600px) {
+  h1 {
+    font-size: 98px;
+  }
+}
+
+@media screen and (max-width: 600px) { //if smaller than 600px
+
+}
+
 body {
   background: rgba(250,240,250,1);
   background: -moz-linear-gradient(top, rgba(250,240,250,1) 0%, rgba(240,243,255,1) 87%, rgba(240,243,255,1) 100%);
@@ -19,7 +29,10 @@ body {
   background: -ms-linear-gradient(top, rgba(250,240,250,1) 0%, rgba(240,243,255,1) 87%, rgba(240,243,255,1) 100%);
   background: linear-gradient(to bottom, rgba(250,240,250,1) 0%, rgba(240,243,255,1) 87%, rgba(240,243,255,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#faf0fa', endColorstr='#f0f3ff', GradientType=0 );
+  max-width: 600px;
+  margin: auto;
 }
+
 
 @keyframes glow {
   from {
@@ -41,16 +54,21 @@ body {
 
 .container {
   display: grid;
-  // font-size: 5vw;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   grid-gap: 1.25vw;
-
   }
 
-// .maxWidth {
-//   margin: auto 0;
-//
-// }
+.maxWidth {
+
+  background: rgba(250,240,250,1);
+  background: -moz-linear-gradient(top, rgba(250,240,250,1) 0%, rgba(240,243,255,1) 87%, rgba(240,243,255,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(250,240,250,1)), color-stop(87%, rgba(240,243,255,1)), color-stop(100%, rgba(240,243,255,1)));
+  background: -webkit-linear-gradient(top, rgba(250,240,250,1) 0%, rgba(240,243,255,1) 87%, rgba(240,243,255,1) 100%);
+  background: -o-linear-gradient(top, rgba(250,240,250,1) 0%, rgba(240,243,255,1) 87%, rgba(240,243,255,1) 100%);
+  background: -ms-linear-gradient(top, rgba(250,240,250,1) 0%, rgba(240,243,255,1) 87%, rgba(240,243,255,1) 100%);
+  background: linear-gradient(to bottom, rgba(250,240,250,1) 0%, rgba(240,243,255,1) 87%, rgba(240,243,255,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#faf0fa', endColorstr='#f0f3ff', GradientType=0 );
+}
 
 .square {
   // align-items: center;
@@ -84,7 +102,7 @@ h1 {
   color: grey;
   font-family: 'Helvetica', sans-serif;
   font-weight: 325;
-  font-size: 15vw;
+  font-size: 14vw;
   text-align: center;
   -webkit-margin-before: 2.5vw;
   -webkit-margin-after: 2.5vw;
@@ -113,7 +131,7 @@ p {
 }
 
 ul.nav {
-    margin-top: 5vw;
+    margin-top: 6vw;
     list-style: none;
     height: 10vw; line-height: 10vw;
     font-family: Arial, Helvetica, sans-serif;
