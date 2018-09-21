@@ -147,10 +147,12 @@ function unlockBoard () {
 }
 
 const clearBoard = function () {
+  console.log('in clear board')
   gameLogic.emptyBoard = ['', '', '', '', '', '', '', '', '']
-  document.getElementsByClassName('square')
+  const squares = document.getElementsByClassName('square')
+  console.log(squares)
   $('.square').removeClass('unclickable')
-  for (let i = 0; i < emptyBoard.length; i++) {
+  for (let i = 0; i < squares.length; i++) {
     $('#' + i).css('background-image', 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/TTT-cell.jpg")')
   }
 }
@@ -180,7 +182,6 @@ const quitGame = function () {
 //  console.log('in quitGame')
   if (won === false && draw === false) {
     api.updateGame()
-    return true
   }
   $('.square').addClass('unclickable')
   clearBoard()
