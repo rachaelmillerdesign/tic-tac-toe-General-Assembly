@@ -7,18 +7,103 @@
 $pink: #fce5eb;
 
 // ~~~~~~~~~~~~~~~~~~~~~
-// GRADIENT + GLOW
+// BREAKPOINTS
 // ~~~~~~~~~~~~~~~~~~~~~
 
-@media screen and (min-width: 600px) {
-  h1 {
-    font-size: 98px;
-  }
-}
+// @media screen and (min-width: 600px) {
+//   #TIC {
+//     font-size: 97px;
+//   }
+//
+//   #topNav {
+//     height: 70px;
+//     margin-top: 20px;
+//   }
+//
+//   ul.nav {
+//     margin-top: 36px;
+//     height: 70px;
+//     line-height: 70px;
+//     font-size: 23px;
+//   }
+//
+//   ul.nav a {
+//       padding: 7.5px;
+//   }
+//
+//   #playNav {
+//     font-size: 18px;
+//   }
+//
+//   #getGamesNav {
+//     font-size: 18px;
+//   }
+//
+//   #playAgainNav {
+//     font-size: 18px;
+//   }
+//
+//   #getUnfinishedGamesNav {
+//     font-size: 18px;
+//   }
+//
+//   #quitNav {
+//     font-size: 18px;
+//   }
+//
+//   #getGamesModal {
+//     font-size: 18px;
+//     margin-left: 6px;
+//     padding: 6px;
+//   }
+//
+//   #signOut {
+//     font-size: 24px;
+//     margin-top: 42p;
+//     margin-left: 30px;
+//     margin-right: 30px;
+//   }
+//
+//   #message {
+//     padding: 6px;
+//     font-size: 15px;
+//   }
+//
+//   #hasWon {
+//     font-size: 2em;
+//     margin-top: 42px;
+//     margin-left: 30px;
+//     margin-right: 30px;
+//   }
+//
+//   #getUnfinishedGamesModal {
+//     padding: 10.5px;
+//     margin-top: 120px;
+//   }
+//
+//   legend {
+//     padding-top: 6px;
+//     margin: 6px;
+//     font-size: 24px;
+//   }
+//
+//   fieldset,
+//   input,
+//   textarea {
+//     font-size: 16px;
+//     padding: 3.5px;
+//     margin: 3px;
+//   }
+//
+//   th {
+//     margin: 6px, 12px, 15px, 0px;
+//     padding: 12px;
+//   }
+// }
 
-@media screen and (max-width: 600px) { //if smaller than 600px
-
-}
+// ~~~~~~~~~~~~~~~~~~~~~
+// GRADIENT + GLOW
+// ~~~~~~~~~~~~~~~~~~~~~
 
 body {
   background: rgba(250,240,250,1);
@@ -55,7 +140,7 @@ body {
 .container {
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-  grid-gap: 1.25vw;
+  grid-gap: 1vw;
   }
 
 .maxWidth {
@@ -102,10 +187,16 @@ h1 {
   color: grey;
   font-family: 'Helvetica', sans-serif;
   font-weight: 325;
-  font-size: 14vw;
+  font-size: 16vw;
   text-align: center;
-  -webkit-margin-before: 2.5vw;
-  -webkit-margin-after: 2.5vw;
+  -webkit-margin-before: 2vw;
+  -webkit-margin-after: 2vw;
+}
+
+@media screen and (min-width: 600px) {
+h1  {
+    font-size: 97px;
+  }
 }
 
 p {
@@ -128,6 +219,12 @@ p {
 
 #topNav {
   margin-top: 3vw;
+}
+@media screen and (min-width: 600px) {
+  #topNav {
+    height: 70px;
+    margin-top: 20px;
+  }
 }
 
 ul.nav {
@@ -155,17 +252,33 @@ ul.nav {
     -webkit-padding-start: 14px;
     -webkit-margin-after: 0px;
 }
+
+@media screen and (min-width: 600px) {
+  ul.nav {
+    margin-top: 36px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 23px;
+  }
+}
+
 ul.nav li {
-    float: left;
+  float: left;
 }
 
 ul.nav a {
-    // display:block;
     color:grey;
     text-decoration:none;
     padding: 2.5vw;
 }
-ul.nav a:hover {
+
+@media screen and (min-width: 600px) {
+  ul.nav a {
+      padding: 7.5px;
+  }
+}
+
+ul.nav li:hover {
     background-color: #eaff70;
     background-image: -webkit-linear-gradient(top, #f3ffa3, #bbffb0);
     background-image: -moz-linear-gradient(top, #f3ffa3, #bbffb0);
@@ -182,14 +295,32 @@ ul.nav a:hover {
   font-weight: 500;
 }
 
+@media screen and (min-width: 600px) {
+  #playNav {
+    font-size: 23px;
+  }
+}
+
 #getGamesNav {
   font-size: 3vw;
   font-weight: 400;
 }
 
+@media screen and (min-width: 600px) {
+  #getGamesNav {
+    font-size: 23px;
+  }
+}
+
 #playAgainNav {
   font-size: 3vw;
   font-weight: 400;
+}
+
+@media screen and (min-width: 600px) {
+  #playAgainNav {
+    font-size: 23px;
+  }
 }
 
 #getUnfinishedGamesNav {
@@ -198,9 +329,21 @@ ul.nav a:hover {
   word-wrap: break-word;
 }
 
+@media screen and (min-width: 600px) {
+  #getUnfinishedGamesNav {
+    font-size: 23px;
+  }
+}
+
 #quitNav {
   font-size: 3vw;
   font-weight: 400;
+}
+
+@media screen and (min-width: 600px) {
+  #quitNav {
+    font-size: 23px;
+  }
 }
 
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -220,7 +363,7 @@ ul.nav a:hover {
   outline: none;
   position: fixed;
   min-width: 60%;
-  max-width: 60%; /* Could be more or less, depending on screen size */
+  max-width: 40%; /* Could be more or less, depending on screen size */
   height: auto;
   z-index: 100;
   left: 50%;
@@ -271,6 +414,14 @@ button:active {
   padding: 1vw;
 }
 
+@media screen and (min-width: 600px) {
+  #getGamesModal {
+    font-size: 18px;
+    margin-left: 6px;
+    padding: 6px;
+  }
+}
+
 #signOut {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 4vw;
@@ -279,6 +430,15 @@ button:active {
   margin-top: 7vw;
   margin-left: 5vw;
   margin-right: 5vw;
+}
+
+@media screen and (min-width: 600px) {
+  #signOut {
+    font-size: 24px;
+    margin-top: 42p;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
 }
 
 #message {
@@ -290,6 +450,13 @@ button:active {
   text-align: center;
 }
 
+@media screen and (min-width: 600px) {
+  #message {
+    padding: 6px;
+    font-size: 15px;
+  }
+}
+
 #hasWon {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 2em;
@@ -298,6 +465,15 @@ button:active {
   margin-top: 7vw;
   margin-left: 5vw;
   margin-right: 5vw;
+}
+
+@media screen and (min-width: 600px) {
+  #hasWon {
+    font-size: 2em;
+    margin-top: 42px;
+    margin-left: 30px;
+    margin-right: 30px;
+  }
 }
 
 button {
@@ -319,6 +495,13 @@ button {
   margin-top: 20vw;
 }
 
+@media screen and (min-width: 600px) {
+  #getUnfinishedGamesModal {
+    padding: 10.5px;
+    margin-top: 120px;
+  }
+}
+
 // ~~~~~~~~~~~~~~~~~~~~~
 // CODE TO RESET AGENT STYLESHEET
 // ~~~~~~~~~~~~~~~~~~~~~
@@ -330,6 +513,14 @@ legend {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 4vw;
   font-weight: 300;
+}
+
+@media screen and (min-width: 600px) {
+  legend {
+    padding-top: 6px;
+    margin: 6px;
+    font-size: 24px;
+  }
 }
 
 fieldset {
@@ -354,6 +545,16 @@ textarea {
   -webkit-padding-start: 5px;
 }
 
+@media screen and (min-width: 600px) {
+  fieldset,
+  input,
+  textarea {
+    font-size: 16px;
+    padding: 3.5px;
+    margin: 3px;
+  }
+}
+
 table {
   margin: auto;
   color: grey;
@@ -363,6 +564,13 @@ th {
   margin: 1vw, 2vw, 2.5vw, 0vw;
   padding: 2vw;
   word-wrap: normal;
+}
+
+@media screen and (min-width: 600px) {
+  th {
+    margin: 6px, 12px, 15px, 0px;
+    padding: 12px;
+  }
 }
 
 body:not(:-moz-handler-blocked) fieldset {
