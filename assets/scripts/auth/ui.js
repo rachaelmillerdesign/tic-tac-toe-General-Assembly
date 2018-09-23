@@ -116,7 +116,6 @@ const updateGameSuccess = function (data) {
   // $('#message').text('New game created successfully')
   // $('#message').css('background-color', '#ceff5e')
   // setTimeout(hideMessage, 2000)
-  // console.log('newGameSuccess ran and nothing was returned!')
   store.game = data.game
 }
 
@@ -204,7 +203,6 @@ const getUnfinishedGamesSuccess = function (data) {
     tableData.innerHTML = "<button type ='button' class ='resume'>RESUME GAME</button>"
     tableRow.appendChild(tableData)
     table.appendChild(tableRow)
-    // $('#getUnfinishedGamesModal').append('<p>ID: ' + data.games[i].id + ' </p> <p>Game Squares:' + data.games[i].cells + '</p>')
     store.game = data.game
   }
   document.getElementById('getUnfinishedGamesModal').appendChild(table)
