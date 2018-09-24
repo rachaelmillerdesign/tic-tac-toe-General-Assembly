@@ -7,101 +7,6 @@
 $pink: #fce5eb;
 
 // ~~~~~~~~~~~~~~~~~~~~~
-// BREAKPOINTS
-// ~~~~~~~~~~~~~~~~~~~~~
-
-// @media screen and (min-width: 600px) {
-//   #TIC {
-//     font-size: 97px;
-//   }
-//
-//   #topNav {
-//     height: 70px;
-//     margin-top: 20px;
-//   }
-//
-//   ul.nav {
-//     margin-top: 36px;
-//     height: 70px;
-//     line-height: 70px;
-//     font-size: 23px;
-//   }
-//
-//   ul.nav a {
-//       padding: 7.5px;
-//   }
-//
-//   #playNav {
-//     font-size: 18px;
-//   }
-//
-//   #getGamesNav {
-//     font-size: 18px;
-//   }
-//
-//   #playAgainNav {
-//     font-size: 18px;
-//   }
-//
-//   #getUnfinishedGamesNav {
-//     font-size: 18px;
-//   }
-//
-//   #quitNav {
-//     font-size: 18px;
-//   }
-//
-//   #getGamesModal {
-//     font-size: 18px;
-//     margin-left: 6px;
-//     padding: 6px;
-//   }
-//
-//   #signOut {
-//     font-size: 24px;
-//     margin-top: 42p;
-//     margin-left: 30px;
-//     margin-right: 30px;
-//   }
-//
-//   #message {
-//     padding: 6px;
-//     font-size: 15px;
-//   }
-//
-//   #hasWon {
-//     font-size: 2em;
-//     margin-top: 42px;
-//     margin-left: 30px;
-//     margin-right: 30px;
-//   }
-//
-//   #getUnfinishedGamesModal {
-//     padding: 10.5px;
-//     margin-top: 120px;
-//   }
-//
-//   legend {
-//     padding-top: 6px;
-//     margin: 6px;
-//     font-size: 24px;
-//   }
-//
-//   fieldset,
-//   input,
-//   textarea {
-//     font-size: 16px;
-//     padding: 3.5px;
-//     margin: 3px;
-//   }
-//
-//   th {
-//     margin: 6px, 12px, 15px, 0px;
-//     padding: 12px;
-//   }
-// }
-
-// ~~~~~~~~~~~~~~~~~~~~~
 // GRADIENT + GLOW
 // ~~~~~~~~~~~~~~~~~~~~~
 
@@ -114,7 +19,7 @@ body {
   background: -ms-linear-gradient(top, rgba(250,240,250,1) 0%, rgba(240,243,255,1) 87%, rgba(240,243,255,1) 100%);
   background: linear-gradient(to bottom, rgba(250,240,250,1) 0%, rgba(240,243,255,1) 87%, rgba(240,243,255,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#faf0fa', endColorstr='#f0f3ff', GradientType=0 );
-  max-width: 600px;
+  max-width: 500px;
   margin: auto;
 }
 
@@ -134,7 +39,7 @@ body {
 // GAMEBOARD and CELLS
 // ~~~~~~~~~~~~~~~~~~~~~
 // .container-fluid {
-//   max-width: 600px;
+//   max-width: 500px;
 // }
 
 .container {
@@ -184,18 +89,18 @@ body {
 }
 
 h1 {
-  color: purple;
+  color: grey;
   font-family: 'Helvetica', sans-serif;
   font-weight: 325;
   font-size: 16vw;
   text-align: center;
-  -webkit-margin-before: 2vw;
-  -webkit-margin-after: 2vw;
+  -webkit-margin-before: 1.5vw;
+  -webkit-margin-after: 1.5vw;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   h1  {
-    font-size: 97px;
+    font-size: 80px;
   }
 }
 
@@ -220,7 +125,7 @@ p {
 #topNav {
   margin-top: 3vw;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   #topNav {
     height: 70px;
     margin-top: 20px;
@@ -253,12 +158,12 @@ ul.nav {
     -webkit-margin-after: 0px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   ul.nav {
     margin-top: 36px;
     height: 70px;
     line-height: 70px;
-    font-size: 23px;
+    font-size: 20px;
   }
 }
 
@@ -272,7 +177,7 @@ ul.nav a {
     padding: 2.5vw;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   ul.nav a {
       padding: 7.5px;
   }
@@ -295,9 +200,9 @@ ul.nav li:hover {
   font-weight: 500;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   #playNav {
-    font-size: 23px;
+    font-size: 20px;
   }
 }
 
@@ -306,9 +211,9 @@ ul.nav li:hover {
   font-weight: 400;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   #getGamesNav {
-    font-size: 23px;
+    font-size: 20px;
   }
 }
 
@@ -317,9 +222,9 @@ ul.nav li:hover {
   font-weight: 400;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   #playAgainNav {
-    font-size: 23px;
+    font-size: 20px;
   }
 }
 
@@ -329,9 +234,9 @@ ul.nav li:hover {
   word-wrap: break-word;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   #getUnfinishedGamesNav {
-    font-size: 23px;
+    font-size: 20px;
   }
 }
 
@@ -340,9 +245,9 @@ ul.nav li:hover {
   font-weight: 400;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   #quitNav {
-    font-size: 23px;
+    font-size: 20px;
   }
 }
 
@@ -408,13 +313,13 @@ button:active {
 
 #getGamesModal {
   font-size: 6vw;
-  font-weight: 600;
+  font-weight: 500;
   color: grey;
   margin-left: 1vw;
   padding: 1vw;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   #getGamesModal {
     font-size: 18px;
     margin-left: 6px;
@@ -432,7 +337,7 @@ button:active {
   margin-right: 5vw;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   #signOut {
     font-size: 24px;
     margin-top: 42p;
@@ -450,7 +355,7 @@ button:active {
   text-align: center;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   #message {
     padding: 6px;
     font-size: 15px;
@@ -467,7 +372,7 @@ button:active {
   margin-right: 5vw;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   #hasWon {
     font-size: 2em;
     margin-top: 42px;
@@ -495,7 +400,7 @@ button {
   margin-top: 20vw;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   #getUnfinishedGamesModal {
     padding: 10.5px;
     margin-top: 120px;
@@ -515,7 +420,7 @@ legend {
   font-weight: 300;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   legend {
     padding-top: 6px;
     margin: 6px;
@@ -545,7 +450,7 @@ textarea {
   -webkit-padding-start: 5px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   fieldset,
   input,
   textarea {
@@ -566,7 +471,7 @@ th {
   word-wrap: normal;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   th {
     margin: 6px, 12px, 15px, 0px;
     padding: 12px;
