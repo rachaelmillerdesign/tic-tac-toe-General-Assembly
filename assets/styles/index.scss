@@ -45,11 +45,10 @@ body {
 .container {
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-  grid-gap: 1vw;
+  grid-gap: .65vw;
   }
 
 .maxWidth {
-
   background: rgba(250,240,250,1);
   background: -moz-linear-gradient(top, rgba(250,240,250,1) 0%, rgba(240,243,255,1) 87%, rgba(240,243,255,1) 100%);
   background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(250,240,250,1)), color-stop(87%, rgba(240,243,255,1)), color-stop(100%, rgba(240,243,255,1)));
