@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Tic Tac Toe</title>
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+ </head>
+
+<body class="container-fluid">
+<div class="maxWidth">
+
+  <ul id='topNav' class='nav'>
+    <li><a id='signUpNav'>SIGN UP</a></li>
+    <li><a id='signInNav'>SIGN IN</a></li>
+    <li><a id='changePasswordNav' class="hidden">CHANGE PASSWORD</a></li>
+    <li><a id='signOutNav' class="hidden">SIGN OUT</a></li>
+  </ul>
+
+  <!--MODAL-->
+
+  <div class="modal hidden" id="gameOverModal" role="dialog">
+    <div class="modal-overlay border"></div>
+    <p id="hasWon"></p>
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+  </div>
+
+  <!--SIGN IN SIGN UP FORMS-->
+
+  <p id="message"></p>
+
+  <div class="modal hidden" id="signUpModal" role="dialog">
+    <div class="modal-overlay"></div>
+    <form id="sign-up" class="border">
+      <fieldset>
+        <legend>Sign up!</legend>
+        <input type="text" name="credentials[email]" placeholder="Email">
+        <input type="password" name="credentials[password]" placeholder="Password">
+        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+        <input class="submit" type="submit" value="Sign up!">
+        <button id="closeSignUpBtn" type="button" class="button close" data-dismiss="modal">&times;</button>
+      </fieldset>
+    </form>
+  </div>
+
+  <div class="modal hidden" id="signInModal" role="dialog">
+    <div class="modal-overlay"></div>
+    <form id="sign-in" class="border">
+      <fieldset>
+        <legend>Sign in!</legend>
+        <input type="text" name="credentials[email]" placeholder="Email">
+        <input type="password" name="credentials[password]" placeholder="Password">
+        <input class="submit" type="submit" value="Sign in!">
+        <button id="closeSignInBtn" type="button" class="button close" data-dismiss="modal">&times;</button>
+      </fieldset>
+    </form>
+  </div>
+
+  <div class="modal hidden" id="signOutModal" role="dialog">
+    <div class="modal-overlay"></div>
+    <div class="border"></div>
+    <p id="signOut">"Successfully signed out!"</p>
+    <button id="closeSignOutBtn" type="button" class="button close" data-dismiss="modal">&times;</button>
+  </div>
+
+  <div class="modal hidden" id="changePasswordModal" role="dialog">
+    <div class="modal-overlay"></div>
+    <form id="change-password" class="border">
+      <fieldset>
+        <legend>Change Password!</legend>
+        <input type="password" name="passwords[old]" placeholder="Old Password">
+        <input type="password" name="passwords[new]" placeholder="New Password">
+        <input class="submit" type="submit" value="Change Password!">
+        <button id="closeChangePasswordBtn" type="button" class="button close" data-dismiss="modal">&times;</button>
+      </fieldset>
+    </form>
+  </div>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~
+NEW FORMS
+~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <!-- GET GAME RESULTS -->
+  <div class="modal hidden" id="getGamesModal" role="dialog">
+    <div class="modal-overlay"></div>
+    <button id="closeGetGamesBtn" type="button" class="button close" data-dismiss="modal">&times;</button>
+  </div>
+
+  <!-- RETRIEVE AND UPDATE INCOMPLETE GAME -->
+  <div class="modal hidden" id="getUnfinishedGamesModal" role="dialog">
+    <div class="modal-overlay"></div>
+    <!-- <button id="finishGame" class="button">Resume Game</button> -->
+    <button id="closeGetUnfinishedGamesBtn" type="button" class="button close" data-dismiss="modal">&times;</button>
+  </div>
+
+  <div class="modal hidden" id="playAgainModal" role="dialog">
+    <div class="modal-overlay"></div>
+    <div id="playAgain" class="border">
+      <p>Play again?</p>
+      <button id="yesPlayAgain" class="button">PLAY</button>
+      <button id="closePlayAgainBtn" type="button" class="button close" data-dismiss="modal">&times;</button>
+    </div>
+  </div>
+
+  <!-- TIC TAC TOE BOARD -->
+
+  <h1 id="TIC">TIC TAC TOE</h1>
+  <div id="emptyBoard" class="container">
+    <div id="0" class="square unclickable"></div>
+    <div id="1" class="square unclickable"></div>
+    <div id="2" class="square unclickable"></div>
+    <div id="3" class="square unclickable"></div>
+    <div id="4" class="square unclickable"></div>
+    <div id="5" class="square unclickable"></div>
+    <div id="6" class="square unclickable"></div>
+    <div id="7" class="square unclickable"></div>
+    <div id="8" class="square unclickable"></div>
+  </div>
+
+  <!-- BOTTOM NAV BAR -->
+
+  <ul class='nav'>
+    <li><a id='playNav' class="unclickable">PLAY</a></li>
+    <li><a id='playAgainNav' class="hidden">PLAY AGAIN</a></li>
+    <li><a id='getGamesNav'>GAME STATS</a></li>
+    <li><a id='getUnfinishedGamesNav'>UNFINISHED GAMES</a></li>
+    <li><a id='quitNav'>QUIT</a></li>
+  </ul>
+</div>
+</body>
+
+</html>
