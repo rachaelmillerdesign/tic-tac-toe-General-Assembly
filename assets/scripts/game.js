@@ -147,10 +147,10 @@ function unlockBoard () {
 }
 
 const clearBoard = function () {
-  console.log('in clear board')
+//  console.log('in clear board')
   gameLogic.emptyBoard = ['', '', '', '', '', '', '', '', '']
   const squares = document.getElementsByClassName('square')
-  console.log(squares)
+//  console.log(squares)
   $('.square').removeClass('unclickable')
   for (let i = 0; i < squares.length; i++) {
     $('#' + i).css('background-image', 'url("https://rachaelmillerdesign.github.io/tic-tac-toe-General-Assembly/public/images/TTT-cell.jpg")')

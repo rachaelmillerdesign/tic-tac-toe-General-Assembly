@@ -141,7 +141,7 @@ const getGamesFailure = function () {
 }
 
 const getSingleGameSuccess = function (data) {
-  console.log('getGamesSuccess ran.', data)
+//  console.log('getGamesSuccess ran.', data)
   $('#getGamesModal').removeClass('hidden')
   setTimeout(modals.closeGetGamesModal, 2000)
   game.processGame()
@@ -177,7 +177,7 @@ const getGameId = function (event) {
 const getUnfinishedGamesSuccess = function (data) {
   // const unfinishedGamesData = ['game', 'cell', 'index', 'over']
   const table = document.createElement('table')
-  let tableRow = document.createElement('tr')
+  const tableRow = document.createElement('tr')
   let tableData = document.createElement('th')
   $('#getUnfinishedGamesModal').removeClass('hidden')
   tableData.innerHTML = 'GAME ID'
@@ -192,7 +192,7 @@ const getUnfinishedGamesSuccess = function (data) {
   tableRow.appendChild(tableData)
   table.appendChild(tableRow)
   for (let row = 0; row < data.games.length; row++) {
-    let tableRow = document.createElement('tr')
+    const tableRow = document.createElement('tr')
     let tableData = document.createElement('td')
     tableData.innerHTML = data.games[row]['id']
     tableRow.appendChild(tableData)
